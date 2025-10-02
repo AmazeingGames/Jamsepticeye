@@ -1258,7 +1258,7 @@ namespace VFolders
                                 iconNames.Add("cs Script Icon");
 
                             else if (AssetPreview.GetMiniTypeThumbnail(type) is Texture2D icon)
-                                if (AssetDatabase.Contains(icon))
+                                if (AssetDatabase.Contains(icon) && !icon.GetPath().StartsWith("Library"))
                                     iconNames.Add(icon.GetPath());
                                 else
                                     iconNames.Add(icon.name);
