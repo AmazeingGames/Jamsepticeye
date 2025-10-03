@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public interface IInteractable
+{
+    GameObject Icon { get; protected set; }
+
+    void Interact()
+    {
+
+    }
+
+    void SetIcon(bool active)
+    {
+        Icon.SetActive(active);
+    }
+}
