@@ -399,8 +399,8 @@ MonoBehaviour:
   inPosition: 0
   outPosition: 870
   moveEase: 27
-  notesCanvas: {fileID: 570901783}
-  notes: {fileID: 540422804}
+  menu_CANVAS: {fileID: 570901783}
+  menu: {fileID: 540422804}
 --- !u!1 &1558374615
 GameObject:
   m_ObjectHideFlags: 0
