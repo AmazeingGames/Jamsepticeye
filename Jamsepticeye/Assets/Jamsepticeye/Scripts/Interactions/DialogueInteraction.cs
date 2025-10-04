@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialogueInteraction : MonoBehaviour, IInteractable
@@ -7,7 +8,7 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
 
     void IInteractable.Interact()
     {
-        Debug.Log("Trigger Interaction");
+        Debug.Log($"Trigger Interaction with {gameObject.name}");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
