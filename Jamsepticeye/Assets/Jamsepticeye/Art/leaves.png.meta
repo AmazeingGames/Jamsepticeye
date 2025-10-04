@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eaba7ab5989e45342ad9aead268cf1bc
+guid: 608e5c6b6b2b4c2448d5570a93aa18aa
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -131,7 +131,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 38
-        width: 95
+        width: 96
         height: 56
       alignment: 0
       pivot: {x: 0, y: 0}

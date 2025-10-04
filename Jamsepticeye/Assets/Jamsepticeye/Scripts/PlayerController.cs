@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour
     public Sprite capeSprite;
     public Sprite noCapeSprite;
 
-    [SerializeField]
-    private GameObject spawnPoint;
+    public GameObject spawnPoint;
 
     void Start()
     {
@@ -48,9 +47,11 @@ public class PlayerController : MonoBehaviour
 
     void SpawnPlayer()
     {
-        transform.position = spawnPoint.transform.position;
+        if (SpawnPointHandler.shouldTeleport)
+            transform.position = SpawnPointHandler.targetPosition;
+        else
+            transform.position = spawnPoint.transform.position;
     }
-
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position + movement * speed * Time.deltaTime;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         if (teleport.WasPressedThisFrame())
         {
-            GetComponent<TeleportScript>().Teleport();
+            GameStateScript.instance.Set(GameState.KNOWS_ABOUT_BAKER);  
         }
     }
 }

@@ -24,11 +24,12 @@ public class QuestInteraction : MonoBehaviour, IInteractable
     private bool enableInteractionsAtTheStart = true; // If true, the object is interactable from the start
 
     private bool interactionsEnabled;
-    void Start()
+    public void Start()
     {
         interactionsEnabled = enableInteractionsAtTheStart;
 
-        interactIcon.SetActive(false);
+        if (interactIcon != null)
+            interactIcon.SetActive(false);
         if (addedGameStates.Length == 0 && removedGameStates.Length == 0)
         {
             // Quest interactions are supposed to progress the story, the game state should evolve.
@@ -47,6 +48,12 @@ public class QuestInteraction : MonoBehaviour, IInteractable
 
     }
 
+
+    virtual protected void TriggerSuccess()
+    {
+
+    }
+
     void IInteractable.Interact()
     {
         foreach (GameState state in requiredGameStates)
@@ -61,6 +68,7 @@ public class QuestInteraction : MonoBehaviour, IInteractable
         Debug.Log($"Trigger Interaction with {gameObject.name}");
 
         // TODO: Trigger optional dialogue
+        TriggerSuccess();
         DialogueRightState();
 
         // Handle game states

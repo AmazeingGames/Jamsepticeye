@@ -9,5 +9,8 @@ public interface IInteractable
     bool IsEnabled() => true;
 
     void SetIcon(bool active)
-        => Icon.SetActive(active);
+    {
+        if (Icon != null)
+            Icon.SetActive(active);
+    }
 }

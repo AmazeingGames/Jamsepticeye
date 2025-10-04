@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b0a1e807c27f114587751919014a437
+guid: acde7b2d649166c42927198ac60956d3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -11,93 +11,6 @@ TextureImporter:
   - first:
       213: 5935736971759055881
     second: town_sheet_test2_2
-  - first:
-      213: 8666145083177694652
-    second: town_sheet_test2_3
-  - first:
-      213: 7773149654980680567
-    second: town_sheet_test2_4
-  - first:
-      213: 8243603540804072342
-    second: town_sheet_test2_5
-  - first:
-      213: 6122025497393729666
-    second: town_sheet_test2_6
-  - first:
-      213: 2515838890519132537
-    second: town_sheet_test2_7
-  - first:
-      213: -1299804554642865454
-    second: town_sheet_test2_8
-  - first:
-      213: 7112183771903960872
-    second: town_sheet_test2_9
-  - first:
-      213: -5726109816452410742
-    second: town_sheet_test2_10
-  - first:
-      213: 6919636293400250782
-    second: town_sheet_test2_11
-  - first:
-      213: 6827176238912408491
-    second: town_sheet_test2_12
-  - first:
-      213: 5302186354723898879
-    second: town_sheet_test2_13
-  - first:
-      213: 3178943547101968662
-    second: town_sheet_test2_14
-  - first:
-      213: -8347572558762689032
-    second: town_sheet_test2_15
-  - first:
-      213: -3552292065740777799
-    second: town_sheet_test2_16
-  - first:
-      213: -5376637115653302145
-    second: town_sheet_test2_17
-  - first:
-      213: -7146616424788823933
-    second: town_sheet_test2_18
-  - first:
-      213: 5771024609850131284
-    second: town_sheet_test2_19
-  - first:
-      213: -5650070713764793922
-    second: town_sheet_test2_20
-  - first:
-      213: 2032038315487289011
-    second: town_sheet_test2_21
-  - first:
-      213: 3302180575741534305
-    second: town_sheet_test2_22
-  - first:
-      213: 5463597019310713016
-    second: town_sheet_test2_23
-  - first:
-      213: 2672654280411052416
-    second: town_sheet_test2_24
-  - first:
-      213: -5944599438849689772
-    second: town_sheet_test2_25
-  - first:
-      213: 7066017563334296395
-    second: town_sheet_test2_26
-  - first:
-      213: -1386319186208434148
-    second: town_sheet_test2_27
-  - first:
-      213: -4704080269686589644
-    second: town_sheet_test2_28
-  - first:
-      213: 1693023857340065184
-    second: town_sheet_test2_29
-  - first:
-      213: -8074735548897820012
-    second: town_sheet_test2_30
-  - first:
-      213: 8952406854626588427
-    second: town_sheet_test2_31
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -219,7 +132,73 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: town_sheet_0
+      name: town_sheet_test2_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de5b0a8576884ea0800000000000000
+      internalID: -5888308673401626924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_sheet_test2_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16def6c1a6a7683c0800000000000000
+      internalID: -4357660993272156831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_sheet_test2_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904f9d1b359ff5250800000000000000
+      internalID: 5935736971759055881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_sheet_test2_3
       rect:
         serializedVersion: 2
         x: 240
@@ -227,21 +206,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72af3fc5d555bec49ba54e8a8fb2bfd7
-      internalID: 94512659
+      spriteID: 3cf41a02964f8ff438d0110a0e97a0fe
+      internalID: 1829128401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_1
+      name: town_sheet_test2_4
       rect:
         serializedVersion: 2
         x: 288
@@ -249,21 +228,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e64e4b2237d936c4f9e2a85e61372ce9
-      internalID: 886712752
+      spriteID: 69aa8219f49e7b04a9b5d7f111639edf
+      internalID: -1522460854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_2
+      name: town_sheet_test2_5
       rect:
         serializedVersion: 2
         x: 48
@@ -271,21 +250,43 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b7191a7e36ab3458edc75b0762bb22
-      internalID: 147079909
+      spriteID: 2f9c42a3670038d47813577a5ba318a7
+      internalID: 466183482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_3
+      name: town_sheet_test2_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2334076704263ab489faa94de5873ec5
+      internalID: -108506548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_sheet_test2_7
       rect:
         serializedVersion: 2
         x: 240
@@ -293,21 +294,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c3957d6c0e67774ea86b44c52af6048
-      internalID: 251924324
+      spriteID: a47507cf5e16a1342a1beefc02d8813e
+      internalID: -1464600411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_4
+      name: town_sheet_test2_8
       rect:
         serializedVersion: 2
         x: 288
@@ -315,21 +316,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae95bbf4088232a4eb66f48ea2182038
-      internalID: -1985500066
+      spriteID: bc403441281d36f43a5fd89b83c9f58a
+      internalID: 85921914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_5
+      name: town_sheet_test2_9
       rect:
         serializedVersion: 2
         x: 384
@@ -337,21 +338,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92639ee505cac7945970d41c36824787
-      internalID: 772734055
+      spriteID: 9b414ea99e4e8b64f95721a34798eb56
+      internalID: -1736287021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_6
+      name: town_sheet_test2_10
       rect:
         serializedVersion: 2
         x: 432
@@ -359,65 +360,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882c0033a7c787c4db48c0890aa2acdc
-      internalID: 243065291
+      spriteID: 9656c8faf086dc44f8a14d1130dca612
+      internalID: 513548154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 144
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c9dd3bf2b43b6a4b9e7f0addb231fcc
-      internalID: 1809516149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_8
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 144
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e51045c7ab867a40bdfe0c1869c20ce
-      internalID: -1554760045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_9
+      name: town_sheet_test2_11
       rect:
         serializedVersion: 2
         x: 144
@@ -425,21 +382,65 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b09b324c4876ea478739a49b57ba99e
-      internalID: 89255473
+      spriteID: af6e3e13be4f9d34394fd1012791bc60
+      internalID: 68174572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_10
+      name: town_sheet_test2_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29593b3a0793bed408c55a648451021b
+      internalID: 1775769314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_sheet_test2_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e46037bacd6d743a66bf1280f87473
+      internalID: -983677004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_sheet_test2_14
       rect:
         serializedVersion: 2
         x: 384
@@ -447,21 +448,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82be7264a684d264bb6a59ef1aa136bd
-      internalID: -1728188308
+      spriteID: 038e9b7300347354f93e585431493161
+      internalID: -1490761232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_11
+      name: town_sheet_test2_15
       rect:
         serializedVersion: 2
         x: 432
@@ -469,21 +470,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db722c1bea42af4294b7ce101065b6e
-      internalID: 1597120305
+      spriteID: 88994b66c4de6884f98f951eb453ce0a
+      internalID: 1793185668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_12
+      name: town_sheet_test2_16
       rect:
         serializedVersion: 2
         x: 48
@@ -491,21 +492,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa1407f689a0fca4994d4abba53c83cf
-      internalID: -2023551180
+      spriteID: a4cb6b7f05854f94fb22516f93d1f005
+      internalID: 856623464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_13
+      name: town_sheet_test2_17
       rect:
         serializedVersion: 2
         x: 96
@@ -513,21 +514,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 328bced28fce1374aa89dcf7b38edcd9
-      internalID: 55621502
+      spriteID: b16e4010d67257642a672c840c0160aa
+      internalID: 761044552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_14
+      name: town_sheet_test2_18
       rect:
         serializedVersion: 2
         x: 144
@@ -535,21 +536,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 768440efe36247a47aff7dd0d6c434b0
-      internalID: 170005699
+      spriteID: 1cfd22380713a5f43a1a59b733445f3e
+      internalID: -326017599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_15
+      name: town_sheet_test2_19
       rect:
         serializedVersion: 2
         x: 240
@@ -557,65 +558,65 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00143b4270746394ba188b68a7000f4e
-      internalID: -414820662
+      spriteID: 8362dcc73f5b3a24ea8f763172834691
+      internalID: 1773266090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_16
+      name: town_sheet_test2_20
       rect:
         serializedVersion: 2
         x: 288
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a9bf62ac071ea14b8dd6e02b7277f6a
-      internalID: 103958704
+      spriteID: fa29527acb0c2444c8f5a9e94b87634c
+      internalID: 1003321575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_17
+      name: town_sheet_test2_21
       rect:
         serializedVersion: 2
         x: 336
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a8bd327725ab5b48859dde9442a776b
-      internalID: -1542834806
+      spriteID: 2d3f7377246db0e488ab60212dd8ecbf
+      internalID: 1821726610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_18
+      name: town_sheet_test2_22
       rect:
         serializedVersion: 2
         x: 48
@@ -623,21 +624,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 401c010e14bfbc44f8381b2a73b6bbdf
-      internalID: 1118258385
+      spriteID: 1195142be57c0cc43884c502ada6808a
+      internalID: -1938804466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_19
+      name: town_sheet_test2_23
       rect:
         serializedVersion: 2
         x: 96
@@ -645,21 +646,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce3ff7c01ea470b4ba5093c7a641cb93
-      internalID: 1122020928
+      spriteID: ed8ec796aa3e87e428326379cb5bc7f6
+      internalID: 128547802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_20
+      name: town_sheet_test2_24
       rect:
         serializedVersion: 2
         x: 144
@@ -667,65 +668,65 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9200b0653abe4b84485675e108d278a0
-      internalID: -1170010510
+      spriteID: c3ead8dfc37e6bd4ba51ed3376abea1d
+      internalID: 1094551800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_21
+      name: town_sheet_test2_25
       rect:
         serializedVersion: 2
         x: 192
         y: 48
-        width: 48
+        width: 62
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 340b96dd060061b4ea2c9bb2ba8c5773
-      internalID: -1928386214
+      spriteID: dc19ccc17645e9c428dd9d90c2e8dd22
+      internalID: 293983240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_22
+      name: town_sheet_test2_26
       rect:
         serializedVersion: 2
-        x: 240
+        x: 254
         y: 48
-        width: 48
+        width: 19
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dc343ea6842f0d428a97dfc268e925c
-      internalID: 907469252
+      spriteID: 274998445c345724fb9a843fcc7ca61f
+      internalID: 835342848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_23
+      name: town_sheet_test2_27
       rect:
         serializedVersion: 2
         x: 288
@@ -733,21 +734,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00b796eeddac68840b0afaec5276deca
-      internalID: -1802850352
+      spriteID: bc84304dc3d9b954cb5709b91adf0c1d
+      internalID: -1757817266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_24
+      name: town_sheet_test2_28
       rect:
         serializedVersion: 2
         x: 336
@@ -755,21 +756,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3880500a427068f4d892c4c9a0bc22c2
-      internalID: -355564248
+      spriteID: b911636f88bbba84ebb4a6caa153be97
+      internalID: 761986891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_25
+      name: town_sheet_test2_29
       rect:
         serializedVersion: 2
         x: 384
@@ -777,21 +778,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38c7ea9ad41c68842923768a3d5bb3b5
-      internalID: 565432803
+      spriteID: ce25f4cb356b60d4a9ca90a03c3985d0
+      internalID: -470531610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_26
+      name: town_sheet_test2_30
       rect:
         serializedVersion: 2
         x: 432
@@ -799,21 +800,21 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 809e53bf2a418604e88189150fb223a9
-      internalID: -637571668
+      spriteID: a37f308725a0f4a4db34697454435aec
+      internalID: -1913001924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_27
+      name: town_sheet_test2_31
       rect:
         serializedVersion: 2
         x: 240
@@ -821,15 +822,15 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8921bc1592859cb49bd795a7c0503196
-      internalID: 902167064
+      spriteID: 583636b72dd23c54384503aa9082917e
+      internalID: -1822605587
       vertices: []
       indices: 
       edges: []
@@ -838,7 +839,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 303f31f8e9ce5fa4894a04965e8395ad
+    spriteID: d993ed1dd9581bf47b2e412f6f88484a
     internalID: 0
     vertices: []
     indices: 
@@ -848,34 +849,38 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      town_sheet_0: 94512659
-      town_sheet_1: 886712752
-      town_sheet_10: -1728188308
-      town_sheet_11: 1597120305
-      town_sheet_12: -2023551180
-      town_sheet_13: 55621502
-      town_sheet_14: 170005699
-      town_sheet_15: -414820662
-      town_sheet_16: 103958704
-      town_sheet_17: -1542834806
-      town_sheet_18: 1118258385
-      town_sheet_19: 1122020928
-      town_sheet_2: 147079909
-      town_sheet_20: -1170010510
-      town_sheet_21: -1928386214
-      town_sheet_22: 907469252
-      town_sheet_23: -1802850352
-      town_sheet_24: -355564248
-      town_sheet_25: 565432803
-      town_sheet_26: -637571668
-      town_sheet_27: 902167064
-      town_sheet_3: 251924324
-      town_sheet_4: -1985500066
-      town_sheet_5: 772734055
-      town_sheet_6: 243065291
-      town_sheet_7: 1809516149
-      town_sheet_8: -1554760045
-      town_sheet_9: 89255473
+      town_sheet_test2_0: -5888308673401626924
+      town_sheet_test2_1: -4357660993272156831
+      town_sheet_test2_10: 513548154
+      town_sheet_test2_11: 68174572
+      town_sheet_test2_12: 1775769314
+      town_sheet_test2_13: -983677004
+      town_sheet_test2_14: -1490761232
+      town_sheet_test2_15: 1793185668
+      town_sheet_test2_16: 856623464
+      town_sheet_test2_17: 761044552
+      town_sheet_test2_18: -326017599
+      town_sheet_test2_19: 1773266090
+      town_sheet_test2_2: 5935736971759055881
+      town_sheet_test2_20: 1003321575
+      town_sheet_test2_21: 1821726610
+      town_sheet_test2_22: -1938804466
+      town_sheet_test2_23: 128547802
+      town_sheet_test2_24: 1094551800
+      town_sheet_test2_25: 293983240
+      town_sheet_test2_26: 835342848
+      town_sheet_test2_27: -1757817266
+      town_sheet_test2_28: 761986891
+      town_sheet_test2_29: -470531610
+      town_sheet_test2_3: 1829128401
+      town_sheet_test2_30: -1913001924
+      town_sheet_test2_31: -1822605587
+      town_sheet_test2_4: -1522460854
+      town_sheet_test2_5: 466183482
+      town_sheet_test2_6: -108506548
+      town_sheet_test2_7: -1464600411
+      town_sheet_test2_8: 85921914
+      town_sheet_test2_9: -1736287021
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

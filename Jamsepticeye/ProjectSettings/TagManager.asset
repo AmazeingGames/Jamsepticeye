@@ -41,12 +41,6 @@ TagManager:
   - name: Ground
     uniqueID: 4027227819
     locked: 0
-  - name: Wall
-    uniqueID: 3095256283
-    locked: 0
-  - name: Roof
-    uniqueID: 1378976211
-    locked: 0
   - name: PlacedObject
     uniqueID: 2177073203
     locked: 0
@@ -55,6 +49,12 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wall
+    uniqueID: 3095256283
+    locked: 0
+  - name: Roof
+    uniqueID: 1378976211
     locked: 0
   m_RenderingLayers:
   - Default
