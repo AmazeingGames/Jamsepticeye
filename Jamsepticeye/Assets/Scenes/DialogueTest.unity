@@ -426,7 +426,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127857584}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc9b61d26d9cc574db5981e8d4e353f8, type: 3}
   m_Name: 
@@ -858,7 +858,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214985347}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1420244218}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &214985347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,6 +1938,7 @@ GameObject:
   - component: {fileID: 1285035395}
   - component: {fileID: 1285035394}
   - component: {fileID: 1285035393}
+  - component: {fileID: 1285035396}
   m_Layer: 5
   m_Name: DialogueText
   m_TagString: Untagged
@@ -2101,6 +2114,60 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1285035396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285035391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1285035393}
+  usePreset: 0
+  preset: {fileID: 0}
+  tagEffects: []
+  globalEffects:
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: cd41b859823e14d159b3952d66b82235, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1420244218}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: OnFinishTextDisplayAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 415c717fe36b6424f9674111f2a16121, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1420244218}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: DisplayChoices
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    overrideTagEffects: 0
+  updatesPerSecond: 120
 --- !u!1 &1291661971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1291661974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1420244218}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1291661974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,12 +2652,12 @@ MonoBehaviour:
   loadGlobalsJSON: {fileID: 4900000, guid: 887664fee91ae02418ad84c36b9b5e18, type: 3}
   dialogue_CANVAS: {fileID: 1409939428}
   dialogue_TMP: {fileID: 1285035393}
-  dialogue_EFFECT: {fileID: 0}
+  dialogue_EFFECT: {fileID: 1285035396}
   speakerName_TMP: {fileID: 1826889652}
   canContine_IMAGE: {fileID: 740703420}
   speaker_IMAGE: {fileID: 169751547}
   appearEffects:
-  - entry_fade
+  - fadew1
   disappearEffects:
   - exit
   choicesParent: {fileID: 526690041}
@@ -2627,6 +2706,7 @@ MonoBehaviour:
         isKeyRepeated: 0
         isKeyNull: 0
       dividerPos: 0.33
+  canContinueToNextLine: 0
 --- !u!1 &1477281181
 GameObject:
   m_ObjectHideFlags: 0

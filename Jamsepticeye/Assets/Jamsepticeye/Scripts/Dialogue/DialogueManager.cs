@@ -54,12 +54,14 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-    bool canContinueToNextLine = false;
+    bool isSelectingChoice;
+    public bool canContinueToNextLine = false;
 
     static DialogueManager instance;
 
     DialogueVariables dialogueVariables;
     InkExternalFunctions inkExternalFunctions;
+    private bool isDialogueDisappearing;
 
     void Awake() 
     {
@@ -101,6 +103,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
+
     void Update() 
     {
         // return right away if dialogue isn't playing
@@ -115,8 +118,21 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             CanContinueToNextLine 
             && currentStory.currentChoices.Count == 0 
             && Input.GetButtonDown("Continue")
-            )
+            && !isDialogueDisappearing)
             ContinueStory();
+
+        else if (
+            CanContinueToNextLine
+            && currentStory.currentChoices.Count != 0
+            && Input.GetButtonDown("Continue")
+            && !isSelectingChoice)
+        {
+            Debug.Log("start displaying choices");
+            // Once the text is finished disappearing, we call DisplayChoices()
+            isDialogueDisappearing = true;
+            foreach (string disappearEffect in disappearEffects)
+                dialogue_EFFECT.StartManualEffect(disappearEffect);
+        }
     }
 
     public void PlayDialogue(TextAsset inkJSON) 
@@ -140,12 +156,13 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         yield return new WaitForSeconds(0.2f);
 
         dialogueVariables.StopListening(currentStory);
-        
         inkExternalFunctions.UnbindEmote(currentStory);
 
         IsDialoguePlaying = false;
         dialogue_CANVAS.gameObject.SetActive(false);
         dialogue_TMP.text = "";
+
+        Debug.Log("Exit dialogue");
     }
 
     void ContinueStory() 
@@ -153,57 +170,55 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (!currentStory.canContinue)
             StartCoroutine(ExitDialogueMode());
 
-        string nextLine = currentStory.Continue();
+        string upcomingLine = currentStory.Continue();
 
-        // handle case where the last line is an external function
-        if (nextLine.Equals("") && !currentStory.canContinue)
+        bool isNextLineExternalFunction = upcomingLine.Equals("") && !currentStory.canContinue;
+
+        if (isNextLineExternalFunction)
         {
             Debug.Log("Last line is external function");
             StartCoroutine(ExitDialogueMode());
+            return;
         }
-        // Otherwise, handle the normal case for continuing the story
-        else 
-        {
-            HandleTags(currentStory.currentTags);
-            DisplayLine(nextLine);
-        }
-        
+
+        HandleTags(currentStory.currentTags);
+        DisplayLine(upcomingLine);
     }
 
     void DisplayLine(string line) 
     {
+        Debug.Log("Display Line");
+        dialogue_TMP.enabled = true;
         dialogue_TMP.text = line;
-        foreach (string effect in appearEffects)
-            dialogue_EFFECT.StartManualEffect(effect);
 
-        // hide items while text is typing
-        HideChoices();
+        foreach (GameObject choiceButton in choices)
+            choiceButton.SetActive(false);
+
         CanContinueToNextLine = false;
+        
+        // Can only continue to the next once the current line finishes displaying
+        // From here, flow of execution is decided in Update to resolve next action
+        foreach (string effect in appearEffects)
+            dialogue_EFFECT.StartManualEffect(effect);        
     }
 
-    public void OnFinishTextAnimation()
+    // Called from the inspector when the text finishes displaying
+    public void OnFinishTextDisplayAnimation()
     {
         Debug.Log("Line Completed");
 
-        DisplayChoices();
         CanContinueToNextLine = true;
     }
 
-    void HideChoices()  
+    // Called from the inspector when the dialogue disappear animation finishes
+    public void DisplayChoices() 
     {
-        foreach (GameObject choiceButton in choices) 
-            choiceButton.SetActive(false);
-    }
+        if (isSelectingChoice)
+            return;
 
-    public void HideText()
-    {
-
-    }
-
-    void DisplayChoices() 
-    {
-        // foreach (string disappearEffect in disappearEffects)
-        // dialogue_EFFECT.StartManualEffect(disappearEffect);
+        isDialogueDisappearing = false;
+        isSelectingChoice = true;
+        dialogue_TMP.enabled = false;
 
         Debug.Log("Display Choices");
         List<Choice> currentChoices = currentStory.currentChoices;
@@ -226,10 +241,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         for (int i = index; i < choices.Count; i++) 
             choices[i].SetActive(false);
 
-        StartCoroutine(SelectFirstChoice());
+        StartCoroutine(HighlightFirstChoice());
     }
 
-    IEnumerator SelectFirstChoice() 
+    IEnumerator HighlightFirstChoice() 
     {
         // Event System requires we clear it first, then wait
         // for at least one frame before we set the current selected object.
@@ -238,13 +253,14 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         EventSystem.current.SetSelectedGameObject(choices[0]);
     }
 
+    // Called from the inspector when we click a choice button
     public void MakeChoice(int choiceIndex)
     {
+        isSelectingChoice = false;
+
         if (CanContinueToNextLine) 
         {
             currentStory.ChooseChoiceIndex(choiceIndex);
-            // NOTE: The below two lines were added to fix a bug after the Youtube video was made
-            InputManager.GetInstance().RegisterSubmitPressed(); // this is specific to my InputManager script
             ContinueStory();
         }
     }

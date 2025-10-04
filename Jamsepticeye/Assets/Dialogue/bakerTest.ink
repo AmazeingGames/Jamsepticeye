@@ -9,7 +9,7 @@ How are you feeling today?
     ~ playEmote("exclamation")
     That makes me feel <color=\#F8FF30>neutral</color> as well! #emotion:neutral
 + [Mad]
-    Oh, well that makes me <color=\#5B81FF>sad</color> too. #emotion:mad
+    Oh, well that makes me <color=\#5B81FF>mad</color> too. #emotion:mad
     
 - Don't trust him, he's <b><color=\#FF1E35>not</color></b> a real doctor! #speaker:peeper #emotion:mad #layout:right 
 ~ playEmote("question")
