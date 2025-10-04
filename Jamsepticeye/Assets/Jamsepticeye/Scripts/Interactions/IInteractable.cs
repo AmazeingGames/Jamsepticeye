@@ -2,12 +2,9 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    GameObject Icon { get; protected set; }
+    GameObject Icon { get; }
 
-    void Interact()
-    {
-
-    }
+    void Interact();
 
     void SetIcon(bool active)
     {
