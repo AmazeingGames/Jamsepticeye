@@ -6,6 +6,7 @@ public enum GameState : int
     HAS_CAPE = 0x01,
     HAS_MONEY_FROM_BAKER = 0x02,
     HAS_SUGAR_IN_INVENTORY = 0x04,
+    KNOWS_ABOUT_BAKER = 0x08
 };
 
 public class GameStateScript : MonoBehaviour

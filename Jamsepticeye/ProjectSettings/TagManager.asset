@@ -41,9 +41,6 @@ TagManager:
   - name: Ground
     uniqueID: 4027227819
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Wall
     uniqueID: 3095256283
     locked: 0
@@ -56,8 +53,8 @@ TagManager:
   - name: Hints
     uniqueID: 3292825625
     locked: 0
-  - name: Player
-    uniqueID: 1396565743
+  - name: Default
+    uniqueID: 0
     locked: 0
   m_RenderingLayers:
   - Default
