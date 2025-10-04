@@ -7,7 +7,5 @@ public interface IInteractable
     void Interact();
 
     void SetIcon(bool active)
-    {
-        Icon.SetActive(active);
-    }
+        => Icon.SetActive(active);
 }

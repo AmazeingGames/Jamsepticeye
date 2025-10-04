@@ -5,27 +5,22 @@ using Ink.Runtime;
 
 public class InkExternalFunctions
 {
-    public void Bind(Story story, Animator emoteAnimator)
+    // Plays a little emote over the head of the speaker in the game view
+    public void BindEmoteFunction(Story story)
     {
-        story.BindExternalFunction("playEmote", (string emoteName) => PlayEmote(emoteName, emoteAnimator));
+        story.BindExternalFunction("playEmote", (string emoteName) 
+            => PlayEmote(emoteName));
     }
 
-    public void Unbind(Story story) 
+    public void UnbindEmote(Story story) 
     {
         story.UnbindExternalFunction("playEmote");
     }
 
-    public void PlayEmote(string emoteName, Animator emoteAnimator)
+    public void PlayEmote(string emoteName)
     {
-        if (emoteAnimator != null) 
-        {
-            emoteAnimator.Play(emoteName);
-        }
-        else 
-        {
-            Debug.LogWarning("Tried to play emote, but emote animator was "
-                + "not initialized when entering dialogue mode.");
-        }
+        // Play an emote over the head of the speaker
+        Debug.Log($"Play emote: {emoteName}");
     }
     
 }

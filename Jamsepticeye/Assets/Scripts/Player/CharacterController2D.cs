@@ -32,7 +32,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        if (DialogueManager.GetInstance().IsDialoguePlaying)
         {
             return;
         }

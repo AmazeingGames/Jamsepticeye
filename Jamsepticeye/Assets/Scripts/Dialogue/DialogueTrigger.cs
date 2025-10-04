@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("Visual Cue")]
-    [SerializeField] private GameObject visualCue;
-
-    [Header("Emote Animator")]
-    [SerializeField] private Animator emoteAnimator;
-
-    [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] GameObject visualCue;
+    [SerializeField] Animator emoteAnimator;
+    [SerializeField] TextAsset inkJSON;
 
     private bool playerInRange;
 
@@ -23,33 +18,25 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update() 
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
+        if (playerInRange && !DialogueManager.GetInstance().IsDialoguePlaying) 
         {
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed()) 
-            {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
-            }
+                DialogueManager.GetInstance().PlayDialogue(inkJSON);
         }
         else 
-        {
             visualCue.SetActive(false);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
-        {
+        if (collider.gameObject.CompareTag("Player"))
             playerInRange = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
-        {
+        if (collider.gameObject.CompareTag("Player"))
             playerInRange = false;
-        }
     }
 }

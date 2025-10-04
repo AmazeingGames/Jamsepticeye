@@ -15,6 +15,7 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - 6da2ff1ad85929c499f099927a2aa2fe
+    - 010815ac46aa3474883948217f67d80a
     values:
     - goDatas_byGlobalId:
         keys:
@@ -22,6 +23,29 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-6da2ff1ad85929c499f099927a2aa2fe-1521588762-0
         - globalObjectIdString: GlobalObjectId_V1-2-6da2ff1ad85929c499f099927a2aa2fe-427069998-0
         - globalObjectIdString: GlobalObjectId_V1-2-6da2ff1ad85929c499f099927a2aa2fe-170556505-0
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: PreMatCube
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-010815ac46aa3474883948217f67d80a-8578485870993481625-2050389356184670484
+        - globalObjectIdString: GlobalObjectId_V1-2-010815ac46aa3474883948217f67d80a-1521588762-0
+        - globalObjectIdString: GlobalObjectId_V1-2-010815ac46aa3474883948217f67d80a-427069998-0
+        - globalObjectIdString: GlobalObjectId_V1-2-010815ac46aa3474883948217f67d80a-170556505-0
         values:
         - colorIndex: 0
           iconNameOrGuid: AvatarMask On Icon
