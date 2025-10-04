@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6061738217486683372}
   - component: {fileID: 5285497202541062706}
   - component: {fileID: 6710833659724083675}
+  - component: {fileID: 1091076642825727879}
   - component: {fileID: 146020418031136929}
   - component: {fileID: 1447560308835840036}
   - component: {fileID: 4392555218264128602}
@@ -226,6 +227,19 @@ MonoBehaviour:
   capeSprite: {fileID: 3391018602048382168, guid: 857afc8980ee7654c8a586c265a5d6a7, type: 3}
   noCapeSprite: {fileID: 3888009606188674153, guid: 857afc8980ee7654c8a586c265a5d6a7, type: 3}
   spawnPoint: {fileID: 0}
+--- !u!114 &1091076642825727879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578485870993481625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ba2823528e44744a81c4aa6cda3a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRadius: 0.3
 --- !u!50 &146020418031136929
 Rigidbody2D:
   serializedVersion: 5

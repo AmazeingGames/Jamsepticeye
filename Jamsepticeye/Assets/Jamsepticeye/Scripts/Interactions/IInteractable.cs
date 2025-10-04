@@ -6,6 +6,8 @@ public interface IInteractable
 
     void Interact();
 
+    bool IsEnabled() => true;
+
     void SetIcon(bool active)
         => Icon.SetActive(active);
 }

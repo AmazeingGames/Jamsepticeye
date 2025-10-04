@@ -1784,7 +1784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4d756feca06ed458bc0902ec41fc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneDestination: MainScene
+  sceneDestination: TownScene
 --- !u!1 &1473558646 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779521247900799847, guid: f8d73408c342830449c7ef4fe495501f, type: 3}

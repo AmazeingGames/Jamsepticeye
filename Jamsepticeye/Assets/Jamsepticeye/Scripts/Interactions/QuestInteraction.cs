@@ -4,7 +4,6 @@ using UnityEngine;
 public class QuestInteraction : MonoBehaviour, IInteractable
 {
     GameObject IInteractable.Icon { get => interactIcon; }
-    bool IInteractable.Enabled { get => interactionsEnabled; }
 
     [SerializeField] GameObject interactIcon;
 
@@ -47,6 +46,7 @@ public class QuestInteraction : MonoBehaviour, IInteractable
     {
 
     }
+
     void IInteractable.Interact()
     {
         foreach (GameState state in requiredGameStates)
