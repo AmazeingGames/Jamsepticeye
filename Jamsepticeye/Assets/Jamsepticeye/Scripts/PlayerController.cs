@@ -23,19 +23,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector2 moveDirection = new Vector2(1, 0);
 
-    [SerializeField]
     private Animator animator;
-
-    [SerializeField]
     private Rigidbody2D rigidbody2d;
-
-    [SerializeField]
     private SpriteRenderer spriteRenderer;
 
     public float speed = 3.0f;
 
     public Sprite capeSprite;
     public Sprite noCapeSprite;
+
+    [SerializeField]
+    private GameObject spawnPoint;
 
     void Start()
     {
@@ -47,7 +45,15 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        SpawnPlayer();
     }
+
+    void SpawnPlayer()
+    {
+        transform.position = spawnPoint.transform.position;
+    }
+
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position + movement * speed * Time.deltaTime;

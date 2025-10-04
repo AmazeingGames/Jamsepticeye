@@ -30,7 +30,7 @@ public class GameStateScript : MonoBehaviour
         {
             gameState |= state;
         }
-        if (testingGameStates.Length > 0)
+        if (testingGameStates.Length == 0)
         {
             // Initialize our game state with the correct state
 
