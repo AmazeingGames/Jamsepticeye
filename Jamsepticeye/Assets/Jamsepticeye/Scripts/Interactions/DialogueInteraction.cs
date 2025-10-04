@@ -5,7 +5,7 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject interactIcon;
     [SerializeField] TextAsset inkJSON;
-    GameObject IInteractable.Icon { get => interactIcon; }
+    GameObject IInteractable.InteractIcon { get => interactIcon; }
 
     void IInteractable.Interact()
     {

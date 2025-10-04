@@ -4,9 +4,21 @@ using UnityEngine;
 public static class ServiceLocator 
 {
     static IDialogueService dialogueService;
+    static IInventoryDataService inventoryDataService;
 
-    public static void ProvideService(IDialogueService service)
-        => dialogueService = service;
+    public static void ProvideDialogueService(IDialogueService dialogueService)
+        => ServiceLocator.dialogueService = dialogueService;
 
     public static IDialogueService GetDialogueService()
-        => dialogueService;}
+        => dialogueService;
+
+
+    public static void ProvideInventoryService(IInventoryDataService inventoryService)
+        => inventoryDataService = inventoryService;
+
+    public static IInventoryDataService GetInventoryService()
+        => inventoryDataService;
+
+}
+
+

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class QuestInteraction : MonoBehaviour, IInteractable
 {
-    GameObject IInteractable.Icon { get => interactIcon; }
+    GameObject IInteractable.InteractIcon { get => interactIcon; }
 
     [SerializeField] GameObject interactIcon;
 

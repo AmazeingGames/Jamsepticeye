@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             { "tim", tim },
         };
 
-        ServiceLocator.ProvideService(this);
+        ServiceLocator.ProvideDialogueService(this);
 
         if (instance != null)
             Debug.LogWarning("Found more than one Dialogue Manager in the scene");

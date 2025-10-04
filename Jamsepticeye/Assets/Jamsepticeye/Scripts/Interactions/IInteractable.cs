@@ -2,12 +2,12 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    GameObject Icon { get; }
+    GameObject InteractIcon { get; }
 
     void Interact();
 
     bool IsEnabled() => true;
 
     void SetIcon(bool active)
-        => Icon.SetActive(active);
+        => InteractIcon.SetActive(active);
 }

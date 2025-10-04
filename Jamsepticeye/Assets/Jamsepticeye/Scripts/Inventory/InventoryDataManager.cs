@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Assertions;
+
+// I think Inventory Data Manager should be a service, located by a service locator. Scripts inform the inventory data manager directly regarding item changes, to which the data manager acts as a singular source of truth, which broadcasts its information to other scripts via events.
+public class InventoryDataManager : MonoBehaviour, IInventoryDataService
+{
+    // Change to readonly lists in the future
+    static readonly ObservableList<ItemData> itemsInInventory = new();
+    static readonly ObservableList<ItemData> usedItems = new();
+
+
+    /// <summary>
+    ///     DO NOT : ADD or REMOVE list elements outside of the owning class.
+    /// </summary>
+    public static ObservableList<ItemData> ItemsInInventory => itemsInInventory;
+
+    /// <summary>
+    ///     DO NOT : ADD or REMOVE list elements outside of the owning class.
+    /// </summary>
+    public static ObservableList<ItemData> UsedItems => usedItems;
+
+    void Awake()
+    {
+        ServiceLocator.ProvideInventoryService(this);
+    }
+
+    public void StoreItem(ItemData itemData)
+    {
+        itemsInInventory.Add(itemData);
+    }
+
+    public void UseItem(ItemData itemData)
+    {
+        Assert.IsTrue(itemsInInventory.Contains(itemData), "Attempting to use item that was never collected.");
+        
+        itemsInInventory.Remove(itemData);
+        usedItems.Add(itemData);
+    }
+
+    public bool IsItemInInventory(ItemData item)
+        => itemsInInventory.Contains(item);
+
+    public bool HasUsedItem(ItemData item)
+        => usedItems.Contains(item);
+
+    public bool HasCollectedItem(ItemData item)
+        => IsItemInInventory(item) || HasUsedItem(item);
+}
