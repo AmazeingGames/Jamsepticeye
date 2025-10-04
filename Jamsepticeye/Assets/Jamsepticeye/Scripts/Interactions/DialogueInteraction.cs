@@ -5,6 +5,7 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject interactIcon;
     GameObject IInteractable.Icon { get => interactIcon; }
+    bool IInteractable.Enabled { get => true; }
 
     void IInteractable.Interact()
     {

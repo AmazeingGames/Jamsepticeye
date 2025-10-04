@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1396565743
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 8794562917753738707, guid: 3b05a694edc98b6409ca8553be55f36a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,13 +202,29 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  teleport:
+    m_Name: Teleport
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4dfed6f9-92c1-42d9-ace6-bf39d62835b5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  grabSugar:
+    m_Name: Grab Sugar
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 54bf5cfc-b00e-4cc7-9e23-e6f2e82fa100
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   movement: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
   animator: {fileID: 0}
   rigidbody2d: {fileID: 146020418031136929}
   spriteRenderer: {fileID: 0}
-  mag: 0
-  hasCape: 1
   speed: 3
   capeSprite: {fileID: 8794562917753738707, guid: 3b05a694edc98b6409ca8553be55f36a, type: 3}
   noCapeSprite: {fileID: 7674372413539086489, guid: 3b05a694edc98b6409ca8553be55f36a, type: 3}
@@ -273,7 +289,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09963772, y: 0.22214484}
+  m_Offset: {x: -0.07285315, y: 0.22214484}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -283,7 +299,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.47611928, y: 0.34106517}
+  m_Size: {x: 0.40032345, y: 0.34106517}
   m_EdgeRadius: 0
 --- !u!95 &4392555218264128602
 Animator:

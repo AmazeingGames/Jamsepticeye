@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private InputAction moveAction;
+
+    [SerializeField]
+    private InputAction teleport;
+
+    [SerializeField]
+    private InputAction grabSugar;
 
     [SerializeField]
     private Vector2 movement;
@@ -25,9 +32,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField]
-    private bool hasCape = true;
-
     public float speed = 3.0f;
 
     public Sprite capeSprite;
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector2(1, 0);
         openMenuAction.Enable();
         moveAction.Enable();
+        teleport.Enable();
 
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -53,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         // In case there is no animation running, we need to show the correct sprite
         if (spriteRenderer != null)
-            spriteRenderer.sprite = hasCape ? capeSprite : noCapeSprite;
+            spriteRenderer.sprite = GameStateScript.instance.Is(GameState.HAS_CAPE) ? capeSprite : noCapeSprite;
 
 
         // Handle movement
@@ -70,6 +75,42 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("LookX", moveDirection.x);
         animator.SetFloat("LookY", moveDirection.y);
         animator.SetFloat("Speed", movement.magnitude);
-        animator.SetBool("HasCape", hasCape);
+        animator.SetBool("HasCape", GameStateScript.instance.Is(GameState.HAS_CAPE));
+
+
+        if (openMenuAction.WasPressedThisFrame())
+        {
+            MenuScript.instance.Toggle();
+        }
+
+        if (teleport.WasPressedThisFrame())
+        {
+            GetComponent<TeleportScript>().Teleport();
+        }
+
+        if (grabSugar.WasPressedThisFrame())
+        {
+            // Attempted to grab sugar from the store
+            if (GameStateScript.instance.Is(GameState.HAS_MONEY_FROM_BAKER))
+            {
+                // We own the money which means we can grab sugar
+                GameStateScript.instance.Set(GameState.HAS_SUGAR_IN_INVENTORY);
+
+                // No more money
+                GameStateScript.instance.Unset(GameState.HAS_MONEY_FROM_BAKER);
+            }
+            else
+            {
+                // We don't have the money, why?
+                if (GameStateScript.instance.Is(GameState.HAS_SUGAR_IN_INVENTORY))
+                {
+                    // We already grabbed sugar
+                }
+                else
+                {
+                    // We haven't talked to the baker yet
+                }
+            }
+        }
     }
 }

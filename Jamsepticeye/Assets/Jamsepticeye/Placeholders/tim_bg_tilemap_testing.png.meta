@@ -1,0 +1,581 @@
+fileFormatVersion: 2
+guid: 6b944ec2d6122e741b52eb87bf60d84f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2281122259352397464
+    second: tim_bg_tilemap_testing_0
+  - first:
+      213: -4287556016377749492
+    second: tim_bg_tilemap_testing_1
+  - first:
+      213: -4004058400945670248
+    second: tim_bg_tilemap_testing_2
+  - first:
+      213: 2064002152113065680
+    second: tim_bg_tilemap_testing_3
+  - first:
+      213: -6915531427387763544
+    second: tim_bg_tilemap_testing_4
+  - first:
+      213: 1806278004213401858
+    second: tim_bg_tilemap_testing_5
+  - first:
+      213: -1261306789902003531
+    second: tim_bg_tilemap_testing_6
+  - first:
+      213: 4965458243358666125
+    second: tim_bg_tilemap_testing_7
+  - first:
+      213: -4927978909235753797
+    second: tim_bg_tilemap_testing_8
+  - first:
+      213: 8686397429549054358
+    second: tim_bg_tilemap_testing_9
+  - first:
+      213: 6584484954633943890
+    second: tim_bg_tilemap_testing_10
+  - first:
+      213: 5178394071050924473
+    second: tim_bg_tilemap_testing_11
+  - first:
+      213: 3464127837481670511
+    second: tim_bg_tilemap_testing_12
+  - first:
+      213: 8382386267260016706
+    second: tim_bg_tilemap_testing_13
+  - first:
+      213: -7558348444107330792
+    second: tim_bg_tilemap_testing_14
+  - first:
+      213: -7056895133512775986
+    second: tim_bg_tilemap_testing_15
+  - first:
+      213: 8380625991888881539
+    second: tim_bg_tilemap_testing_16
+  - first:
+      213: -1634945478193014427
+    second: tim_bg_tilemap_testing_17
+  - first:
+      213: -187643851183967683
+    second: tim_bg_tilemap_testing_18
+  - first:
+      213: 4024348009351620933
+    second: tim_bg_tilemap_testing_19
+  - first:
+      213: 2444863967653163274
+    second: tim_bg_tilemap_testing_20
+  - first:
+      213: -5410781577048663626
+    second: tim_bg_tilemap_testing_21
+  - first:
+      213: -3630436028266587645
+    second: tim_bg_tilemap_testing_22
+  - first:
+      213: 2673929792920885390
+    second: tim_bg_tilemap_testing_23
+  - first:
+      213: 1176080687805668623
+    second: tim_bg_tilemap_testing_24
+  - first:
+      213: 9032556405132531875
+    second: tim_bg_tilemap_testing_25
+  - first:
+      213: -8830559515489645311
+    second: tim_bg_tilemap_testing_26
+  - first:
+      213: -1223154585088374501
+    second: tim_bg_tilemap_testing_27
+  - first:
+      213: 5805533587821407658
+    second: tim_bg_tilemap_testing_28
+  - first:
+      213: -4137055860252129085
+    second: tim_bg_tilemap_testing_29
+  - first:
+      213: 3568691845434956034
+    second: tim_bg_tilemap_testing_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_0
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896afe5eb9c28af10800000000000000
+      internalID: 2281122259352397464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c002731058a8f74c0800000000000000
+      internalID: -4287556016377749492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 897f6b7491abe68c0800000000000000
+      internalID: -4004058400945670248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de4754950fc4ac10800000000000000
+      internalID: 2064002152113065680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4908d8ec81700a0800000000000000
+      internalID: -6915531427387763544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209cdb65640311910800000000000000
+      internalID: 1806278004213401858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b25a134820fe7ee0800000000000000
+      internalID: -1261306789902003531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_7
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dad66d6f9d8e440800000000000000
+      internalID: 4965458243358666125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbcc266aa4d4c9bb0800000000000000
+      internalID: -4927978909235753797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699332e80784c8870800000000000000
+      internalID: 8686397429549054358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b3cdd1e2ac06b50800000000000000
+      internalID: 6584484954633943890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_11
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1baf7a8f95dd740800000000000000
+      internalID: 5178394071050924473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_12
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6713a91aed031030800000000000000
+      internalID: 3464127837481670511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2485526f5e7345470800000000000000
+      internalID: 8382386267260016706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tim_bg_tilemap_testing_14
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b2b5cc22a5b1790800000000000000
+      internalID: -7558348444107330792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: be7f4da7234bc1649ba71ecfd7a4cb1c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tim_bg_tilemap_testing_0: 2281122259352397464
+      tim_bg_tilemap_testing_1: -4287556016377749492
+      tim_bg_tilemap_testing_10: 6584484954633943890
+      tim_bg_tilemap_testing_11: 5178394071050924473
+      tim_bg_tilemap_testing_12: 3464127837481670511
+      tim_bg_tilemap_testing_13: 8382386267260016706
+      tim_bg_tilemap_testing_14: -7558348444107330792
+      tim_bg_tilemap_testing_2: -4004058400945670248
+      tim_bg_tilemap_testing_3: 2064002152113065680
+      tim_bg_tilemap_testing_4: -6915531427387763544
+      tim_bg_tilemap_testing_5: 1806278004213401858
+      tim_bg_tilemap_testing_6: -1261306789902003531
+      tim_bg_tilemap_testing_7: 4965458243358666125
+      tim_bg_tilemap_testing_8: -4927978909235753797
+      tim_bg_tilemap_testing_9: 8686397429549054358
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
