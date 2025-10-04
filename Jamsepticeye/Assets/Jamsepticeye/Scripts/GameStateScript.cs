@@ -3,10 +3,15 @@ using UnityEngine.UIElements;
 
 public enum GameState : int
 {
-    HAS_CAPE = 0x01,
+    PLACED_HAMMOCK = 0x01,
     HAS_MONEY_FROM_BAKER = 0x02,
-    HAS_SUGAR_IN_INVENTORY = 0x04,
-    KNOWS_ABOUT_BAKER = 0x08
+    HAS_SUGAR = 0x04,
+    KNOWS_ABOUT_BAKER = 0x08,
+    HAS_STICKS = 0x10,
+    HAS_EGGS = 0x20,
+    GAVE_INGREDIENTS_TO_BAKER = 0x40,
+    MURDERED_BAKER = 0x80,
+    HAS_COOKIES = 0x100
 };
 
 public class GameStateScript : MonoBehaviour
@@ -34,8 +39,6 @@ public class GameStateScript : MonoBehaviour
         if (testingGameStates.Length == 0)
         {
             // Initialize our game state with the correct state
-
-            Set(GameState.HAS_CAPE); // Player has his cape at the start
         }
     }
     public bool Is(GameState state)
