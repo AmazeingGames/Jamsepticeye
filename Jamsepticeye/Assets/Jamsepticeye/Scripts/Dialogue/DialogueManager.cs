@@ -89,7 +89,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     void Start() 
     {
         IsDialoguePlaying = false;
-        dialogue_CANVAS.gameObject.SetActive(false);
+        dialogue_CANVAS.enabled = false;
 
         // get all of the choices text 
         choicesText = new();
@@ -117,15 +117,15 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (
             CanContinueToNextLine 
             && currentStory.currentChoices.Count == 0 
-            && Input.GetButtonDown("Continue")
-            && !isDialogueDisappearing)
+            && Input.GetButtonDown("Continue"))
             ContinueStory();
 
         else if (
             CanContinueToNextLine
             && currentStory.currentChoices.Count != 0
             && Input.GetButtonDown("Continue")
-            && !isSelectingChoice)
+            && !isSelectingChoice
+            && !isDialogueDisappearing)
         {
             Debug.Log("start displaying choices");
             // Once the text is finished disappearing, we call DisplayChoices()
@@ -143,7 +143,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         // Staging
         currentStory = new Story(inkJSON.text);
         IsDialoguePlaying = true;
-        dialogue_CANVAS.gameObject.SetActive(true);
+        dialogue_CANVAS.enabled = true;
         
         dialogueVariables.StartListening(currentStory);
         inkExternalFunctions.BindEmoteFunction(currentStory);
@@ -159,7 +159,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         inkExternalFunctions.UnbindEmote(currentStory);
 
         IsDialoguePlaying = false;
-        dialogue_CANVAS.gameObject.SetActive(false);
+        dialogue_CANVAS.enabled = false;
         dialogue_TMP.text = "";
 
         Debug.Log("Exit dialogue");
@@ -216,9 +216,9 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (isSelectingChoice)
             return;
 
-        isDialogueDisappearing = false;
         isSelectingChoice = true;
         dialogue_TMP.enabled = false;
+        isDialogueDisappearing = false;
 
         Debug.Log("Display Choices");
         List<Choice> currentChoices = currentStory.currentChoices;
