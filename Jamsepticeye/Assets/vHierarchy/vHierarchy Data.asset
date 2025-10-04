@@ -17,6 +17,9 @@ MonoBehaviour:
     - 6da2ff1ad85929c499f099927a2aa2fe
     - 010815ac46aa3474883948217f67d80a
     - 02d4b2af2d2e6de4ebd2cf94d8e29b2c
+    - 090e4ad3e6641044b90f69f1c64c3c86
+    - 
+    - e30b967283f71594f9d7816353a466c6
     values:
     - goDatas_byGlobalId:
         keys:
@@ -70,9 +73,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-02d4b2af2d2e6de4ebd2cf94d8e29b2c-309261189-0
         - globalObjectIdString: GlobalObjectId_V1-2-02d4b2af2d2e6de4ebd2cf94d8e29b2c-224661739-0
         - globalObjectIdString: GlobalObjectId_V1-2-02d4b2af2d2e6de4ebd2cf94d8e29b2c-570901781-0
+        - globalObjectIdString: GlobalObjectId_V1-2-02d4b2af2d2e6de4ebd2cf94d8e29b2c-1147098032-0
         values:
         - colorIndex: 6
-          iconNameOrGuid: 
+          iconNameOrGuid: BuildSettings.Editor
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 7
@@ -80,11 +84,84 @@ MonoBehaviour:
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 4
-          iconNameOrGuid: 
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-090e4ad3e6641044b90f69f1c64c3c86-8539322-0
+        - globalObjectIdString: GlobalObjectId_V1-2-090e4ad3e6641044b90f69f1c64c3c86-2038103168-0
+        - globalObjectIdString: GlobalObjectId_V1-2-090e4ad3e6641044b90f69f1c64c3c86-1928833761-0
+        - globalObjectIdString: GlobalObjectId_V1-2-090e4ad3e6641044b90f69f1c64c3c86-1402935617-0
+        - globalObjectIdString: GlobalObjectId_V1-2-090e4ad3e6641044b90f69f1c64c3c86-1580525227-0
+        - globalObjectIdString: GlobalObjectId_V1-2-090e4ad3e6641044b90f69f1c64c3c86-737941754-0
+        values:
+        - colorIndex: 6
+          iconNameOrGuid: BuildSettings.Editor
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys: []
+        values: []
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-8539322-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-2038103168-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-1928833761-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-1402935617-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-1580525227-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-737941754-0
+        values:
+        - colorIndex: 6
+          iconNameOrGuid: BuildSettings.Editor
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
