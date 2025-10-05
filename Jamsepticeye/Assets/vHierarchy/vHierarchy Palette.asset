@@ -81,7 +81,21 @@ MonoBehaviour:
     enabled: 1
   - builtinIcons: []
     customIcons:
-    - BuildSettings.Editor
+    - Tilemap Icon
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - BoxCollider Icon
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - NetworkTransform Icon
+    enabled: 1
+  - builtinIcons: []
+    customIcons:
+    - align_vertically_bottom
+    - align_horizontally_right_active
+    - _Menu
     enabled: 1
   - builtinIcons: []
     customIcons: []

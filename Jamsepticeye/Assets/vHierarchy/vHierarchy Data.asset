@@ -21,6 +21,7 @@ MonoBehaviour:
     - 
     - e30b967283f71594f9d7816353a466c6
     - 40ba617dd5494b2469e23be5e257acc1
+    - eeff54a829856524d80209082f27f638
     values:
     - goDatas_byGlobalId:
         keys:
@@ -196,6 +197,84 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-420248941-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-462678652-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-365458376-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1024195119-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-235502455-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-632664058-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-182471866-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-26612900-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1448403908-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-499643166-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-393071186-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-896609744-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-397207362-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1418777036-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-219566803-0
+        values:
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: BuildSettings.Editor
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: MeshCollider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: LightProbes Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Tilemap Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: BoxCollider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: NetworkTransform Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
