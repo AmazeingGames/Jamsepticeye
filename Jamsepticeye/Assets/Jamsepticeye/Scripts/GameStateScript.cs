@@ -20,10 +20,11 @@ public enum GameState : int
     HAS_COFFEE = 0x4000,
     KID_FED = 0x8000,
     HAS_STICKS = 0x10000,
-    NEST_ROCKED = 0x20000,
+    NEST_ROCKING_STARTS = 0x20000,
     BAKER_DEAD = 0x40000,
     ALLOWED_BAKERY = 0x80000,
     FLOUR_MAGIC_READY = 0x100000,
+    ROCK_THROWN = 0x200000,
 
 };
 
@@ -62,9 +63,10 @@ public class GameStateScript : MonoBehaviour
         {
             // Initialize our game state with the correct state
             Set(GameState.NEEDS_ROCKS);
-            Set(GameState.NEEDS_STICKS);
-            Set(GameState.HAS_SUGAR);
-            Set(GameState.HAS_EGGS);
+            Set(GameState.NEEDS_EGGS);
+            //Set(GameState.NEEDS_STICKS);
+            Set(GameState.HAS_STICKS);
+            Set(GameState.HAS_ROCKS);
         }
     }
     public bool Is(GameState state)

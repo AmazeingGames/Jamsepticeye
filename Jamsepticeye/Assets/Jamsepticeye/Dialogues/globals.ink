@@ -14,7 +14,7 @@ VAR NEEDS_STICKS = false
 VAR NEEDS_EGGS = false
 VAR HAS_ROCKS = false
 VAR HAS_STICKS = false
-VAR NEST_ROCKED = false
+VAR NEST_ROCKING_STARTS = false
 VAR BAKER_DEAD = false
 VAR PLACED_HAMMOCK = false
 VAR ALLOWED_BAKERY = false
@@ -33,3 +33,4 @@ EXTERNAL SetAllowBakery()
 EXTERNAL SetTalkedToBaker()
 EXTERNAL GiveIngredientsToBaker()
 EXTERNAL PrepareFlourMagicTrick()
+EXTERNAL SetHasEggs()
