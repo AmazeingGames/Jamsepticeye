@@ -27,6 +27,15 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
         ServiceLocator.ProvideInventoryService(this);
     }
 
+    public void CollectItem(ItemData.ItemType itemType)
+    {
+    }
+
+    public void UseItem(ItemData.ItemType itemType)
+    {
+
+    }
+
     public void CollectItem(ItemData itemData)
     {
         itemsInInventory.Add(itemData);

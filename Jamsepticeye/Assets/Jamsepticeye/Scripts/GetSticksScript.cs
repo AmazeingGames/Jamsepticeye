@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class GetSticksScript : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
