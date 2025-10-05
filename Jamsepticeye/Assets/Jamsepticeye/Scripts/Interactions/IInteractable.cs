@@ -4,13 +4,14 @@ public interface IInteractable
 {
     GameObject Icon { get; }
 
-    void Interact();
+    public void Interact();
 
-    bool IsEnabled() => true;
+    bool IsEnabled();
+    bool IsIconEnabled();
 
     void SetIcon(bool active)
     {
-        if (Icon != null)
+        if (IsEnabled() && Icon != null && IsIconEnabled())
             Icon.SetActive(active);
     }
 }

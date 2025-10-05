@@ -3,6 +3,14 @@ using UnityEngine;
 
 public class QuestInteraction : MonoBehaviour, IInteractable
 {
+    bool IInteractable.IsEnabled()
+    {
+        return interactionsEnabled;
+    }
+    bool IInteractable.IsIconEnabled()
+    {
+        return interactionsEnabled;
+    }
     GameObject IInteractable.Icon { get => interactIcon; }
 
     [SerializeField] GameObject interactIcon;
@@ -68,7 +76,7 @@ public class QuestInteraction : MonoBehaviour, IInteractable
 
         Debug.Log($"Trigger Interaction with {gameObject.name}");
 
-        //dialogueInteraction.Interact();
+        dialogueInteraction.Interact();
         TriggerSuccess();
         DialogueRightState();
 

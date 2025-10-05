@@ -147,6 +147,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         
         dialogueVariables.StartListening(currentStory);
         inkExternalFunctions.BindEmoteFunction(currentStory);
+        Binder.Bind(currentStory);
 
         ContinueStory();
     }

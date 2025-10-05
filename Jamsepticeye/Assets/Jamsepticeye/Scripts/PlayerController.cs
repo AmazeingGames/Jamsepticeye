@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        DialogueManager.GetInstance();
         moveDirection = new Vector2(1, 0);
         openMenuAction.Enable();
         moveAction.Enable();
@@ -84,12 +85,12 @@ public class PlayerController : MonoBehaviour
 
         if (openMenuAction.WasPressedThisFrame())
         {
-            MenuScript.instance.Toggle();
+            GameStateScript.instance.Set(GameState.HAS_COOKIES);
         }
 
         if (teleport.WasPressedThisFrame())
         {
-            GameStateScript.instance.Set(GameState.KNOWS_ABOUT_BAKER);  
+            GameStateScript.instance.Set(GameState.ALLOWED_BAKERY);  
         }
     }
 }
