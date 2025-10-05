@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b874d9261e9394db7f56f1af0fa884, type: 3}
+  m_Name: BakerMagic_SEQUENCE
+  m_EditorClassIdentifier: 
+  <Scenes>k__BackingField:
+  - <SceneImage>k__BackingField: {fileID: 702771967421315344, guid: 8e32af8ff8d207e4a8e8593e49f2f547, type: 3}
+    <Text>k__BackingField: 'And with a wave of his magic wand, Tim performed his
+      levitation trick for Bjorn.  '
+  - <SceneImage>k__BackingField: {fileID: -9088708466795462082, guid: d8b9cc4dd57a49949b684045f9e7513f, type: 3}
+    <Text>k__BackingField: 'Timmy mutters his magic words, then - '
+  - <SceneImage>k__BackingField: {fileID: 2798397324699779027, guid: 45192016eeb78414598774479a129ef7, type: 3}
+    <Text>k__BackingField: POOF
+  - <SceneImage>k__BackingField: {fileID: 2906886895624515699, guid: dedc23ccf28003c4d8d2e45a32380f6a, type: 3}
+    <Text>k__BackingField: 'The jar disappeared into thin air! Timmy was surprised
+      it worked. '
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: He lowered his gaze to Bjorn who had seemingly fallen
+      asleep during the act.

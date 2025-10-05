@@ -107,7 +107,6 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-
     void Update()
     {
         // return right away if dialogue isn't playing
