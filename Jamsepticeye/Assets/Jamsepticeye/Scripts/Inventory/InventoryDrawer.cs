@@ -5,10 +5,10 @@ using VInspector.Libs;
 
 public class InventoryDrawer : MonoBehaviour
 {
-    [SerializeField] Item Item_Prefab;
+    [SerializeField] ItemUIIcon ItemUI_Prefab;
     [SerializeField] Transform iconHolder;
 
-    readonly Dictionary<ItemData, Item> ItemDataToInstance = new();
+    readonly Dictionary<ItemData, ItemUIIcon> ItemDataToInstance = new();
 
     void OnEnable()
     {
@@ -18,13 +18,15 @@ public class InventoryDrawer : MonoBehaviour
 
     void OnDisable()
     {
-        InventoryDataManager.ItemsInInventory.ItemAdded += HandleItemCollected;
-        InventoryDataManager.ItemsInInventory.ItemRemoved += HandleItemRemoved;
+        InventoryDataManager.ItemsInInventory.ItemAdded -= HandleItemCollected;
+        InventoryDataManager.ItemsInInventory.ItemRemoved -= HandleItemRemoved;
     }
 
     void HandleItemCollected(ItemData itemData)
     {
-        var itemIconInstance = Instantiate(Item_Prefab, iconHolder);
+        var itemIconInstance = Instantiate(ItemUI_Prefab, iconHolder);
+        itemIconInstance.Init(itemData);
+
         ItemDataToInstance.Add(itemData, itemIconInstance);
     }
 
@@ -32,6 +34,7 @@ public class InventoryDrawer : MonoBehaviour
     {
         var itemIconInstance = ItemDataToInstance[itemData];
         ItemDataToInstance.Remove(itemData);
+        itemIconInstance.gameObject.SetActive(false);
         itemIconInstance.Destroy();
     }
 }

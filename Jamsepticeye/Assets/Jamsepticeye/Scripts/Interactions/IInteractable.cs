@@ -10,4 +10,10 @@ public interface IInteractable
 
     void SetIcon(bool active)
         => InteractIcon.SetActive(active);
+
+    /// <summary>
+    ///     Disable interact icon on start.
+    /// </summary>
+    void OnStart();
+
 }

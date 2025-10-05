@@ -1,44 +1,37 @@
+using MoreMountains.Tools;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Item : MonoBehaviour, IInteractable
+public class ItemInteractable : ItemBase, IInteractable
 {
-    [SerializeField] ItemData itemData;
-    [SerializeField] GameObject interactIcon;
-
-    public static EventHandler<CollectItemEventArgs> CollectItemEventHandler;
+    [SerializeField] protected GameObject interactIcon;
 
     [Header("Components")]
-    [SerializeField] Image Image;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     public GameObject InteractIcon => interactIcon;
 
-    void Init()
+    public override void Init(ItemData itemData)
     {
-        Image.sprite = itemData.Icon;
-    }
-
-    void OnValidate()
-    {
-        Init();    
+        this.itemData = itemData;
+        spriteRenderer.sprite = itemData.InGameSprite;
     }
 
     public void Interact()
-        => OnCollectItem();
-
-    void OnCollectItem()
     {
-        gameObject.SetActive(false);
-        CollectItemEventHandler?.Invoke(this, new(itemData));
-    }    
-}
-
-public class CollectItemEventArgs : EventArgs
-{
-    public readonly ItemData itemData;
-    public CollectItemEventArgs(ItemData itemData)
+        if (itemData.DisableSelfOnPickup)
+            gameObject.SetActive(false);
+        ServiceLocator.GetInventoryService().CollectItem(itemData);
+    }
+    
+    public void OnStart()
     {
-        this.itemData = itemData;
+        interactIcon.SetActive(false);
+    }
+
+    void Start()
+    {
+        OnStart();
     }
 }

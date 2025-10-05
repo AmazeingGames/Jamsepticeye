@@ -20,6 +20,7 @@ MonoBehaviour:
     - 090e4ad3e6641044b90f69f1c64c3c86
     - 
     - e30b967283f71594f9d7816353a466c6
+    - 40ba617dd5494b2469e23be5e257acc1
     values:
     - goDatas_byGlobalId:
         keys:
@@ -139,6 +140,39 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-1402935617-0
         - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-1580525227-0
         - globalObjectIdString: GlobalObjectId_V1-2-e30b967283f71594f9d7816353a466c6-737941754-0
+        values:
+        - colorIndex: 6
+          iconNameOrGuid: BuildSettings.Editor
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-40ba617dd5494b2469e23be5e257acc1-8539322-0
+        - globalObjectIdString: GlobalObjectId_V1-2-40ba617dd5494b2469e23be5e257acc1-2038103168-0
+        - globalObjectIdString: GlobalObjectId_V1-2-40ba617dd5494b2469e23be5e257acc1-1928833761-0
+        - globalObjectIdString: GlobalObjectId_V1-2-40ba617dd5494b2469e23be5e257acc1-1402935617-0
+        - globalObjectIdString: GlobalObjectId_V1-2-40ba617dd5494b2469e23be5e257acc1-1580525227-0
+        - globalObjectIdString: GlobalObjectId_V1-2-40ba617dd5494b2469e23be5e257acc1-737941754-0
         values:
         - colorIndex: 6
           iconNameOrGuid: BuildSettings.Editor

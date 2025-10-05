@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5fb4030d2e58942bc7f27eb6e74765, type: 3}
+  m_Name: Cookie_ItemData
+  m_EditorClassIdentifier: 
+  <DisableSelfOnPickup>k__BackingField: 0
+  <MyItemType>k__BackingField: 4
+  <UISprite>k__BackingField: {fileID: 4441658959238449890, guid: 5be75ad6972da2d4ca1e01706597c956, type: 3}
+  <InGameSprite>k__BackingField: {fileID: 4441658959238449890, guid: 5be75ad6972da2d4ca1e01706597c956, type: 3}

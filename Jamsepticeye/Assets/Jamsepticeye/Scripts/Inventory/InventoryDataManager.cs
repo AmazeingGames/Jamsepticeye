@@ -27,15 +27,20 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
         ServiceLocator.ProvideInventoryService(this);
     }
 
-    public void StoreItem(ItemData itemData)
+    public void CollectItem(ItemData itemData)
     {
         itemsInInventory.Add(itemData);
     }
 
     public void UseItem(ItemData itemData)
     {
-        Assert.IsTrue(itemsInInventory.Contains(itemData), "Attempting to use item that was never collected.");
-        
+        if (!itemsInInventory.Contains(itemData))
+        {
+            Debug.Log("Attempting to use item that was never collected.");
+            return;
+        }
+
+        // listeners are informed directly when items are removed from these classes via the observable list class
         itemsInInventory.Remove(itemData);
         usedItems.Add(itemData);
     }

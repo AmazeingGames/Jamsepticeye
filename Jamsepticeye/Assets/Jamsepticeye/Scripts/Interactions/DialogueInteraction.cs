@@ -14,9 +14,14 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
         ServiceLocator.GetDialogueService().PlayDialogue(inkJSON);
     }
 
+    public void OnStart()
+    {
+        interactIcon.SetActive(false);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        interactIcon.SetActive(false);
+        OnStart();
     }
 }
