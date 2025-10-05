@@ -3,18 +3,29 @@ using UnityEngine;
 
 public class QuestInteraction : MonoBehaviour, IInteractable
 {
-    GameObject IInteractable.InteractIcon { get => interactIcon; }
+    bool IInteractable.IsEnabled()
+    {
+        return interactionsEnabled;
+    }
+    bool IInteractable.IsIconEnabled()
+    {
+        return interactionsEnabled;
+    }
+    GameObject IInteractable.Icon { get => interactIcon; }
 
     [SerializeField] GameObject interactIcon;
 
     [SerializeField]
-    private GameState[] requiredGameStates;
+    protected GameState[] requiredSetGameStates;
 
     [SerializeField]
-    private GameState[] addedGameStates;
+    protected GameState[] requiredUnsetGameStates;
 
     [SerializeField]
-    private GameState[] removedGameStates;
+    protected GameState[] addedGameStates;
+
+    [SerializeField]
+    protected GameState[] removedGameStates;
 
 
     [SerializeField]
@@ -24,34 +35,39 @@ public class QuestInteraction : MonoBehaviour, IInteractable
     private bool enableInteractionsAtTheStart = true; // If true, the object is interactable from the start
 
     private bool interactionsEnabled;
-    void Start()
+
+    [SerializeField]
+    private DialogueInteraction dialogueInteraction;
+
+    public void Start()
     {
         interactionsEnabled = enableInteractionsAtTheStart;
 
-        interactIcon.SetActive(false);
-        if (addedGameStates.Length == 0 && removedGameStates.Length == 0)
-        {
-            // Quest interactions are supposed to progress the story, the game state should evolve.
-            Debug.LogWarning($"Make sure to set game states for interactions {gameObject.name}");
-        }
+        if (interactIcon != null)
+            interactIcon.SetActive(false);
     }
 
     // The game is in the wrong state, process different dialogues based on what state is wrong
-    void DialogueWrongState()
-    {
-    }
+    protected virtual void DialogueWrongState() { }
 
     // The game is in the right state, process successful dialogue
-    void DialogueRightState()
-    {
+    protected virtual void DialogueRightState() {}
 
-    }
+    protected virtual void TriggerSuccess() {}
 
     void IInteractable.Interact()
     {
-        foreach (GameState state in requiredGameStates)
+        foreach (GameState state in requiredSetGameStates)
         {
             if (!GameStateScript.instance.Is(state))
+            {
+                DialogueWrongState();
+                return;
+            }
+        }
+        foreach (GameState state in requiredUnsetGameStates)
+        {
+            if (GameStateScript.instance.Is(state))
             {
                 DialogueWrongState();
                 return;
@@ -60,7 +76,8 @@ public class QuestInteraction : MonoBehaviour, IInteractable
 
         Debug.Log($"Trigger Interaction with {gameObject.name}");
 
-        // TODO: Trigger optional dialogue
+        dialogueInteraction.Interact();
+        TriggerSuccess();
         DialogueRightState();
 
         // Handle game states

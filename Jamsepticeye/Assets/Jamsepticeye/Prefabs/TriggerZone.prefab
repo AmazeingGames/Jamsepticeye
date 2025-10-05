@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2117894093
-  m_SortingLayer: 3
+  m_SortingLayer: -2
   m_SortingOrder: 308
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -96,11 +96,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177206302992187259}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00bc5f05916459d4aa6cb0555ebc06d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneDestination: 
+  spawnPoint: {x: 0, y: 0}
 --- !u!61 &4825270245648284205
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,23 +6,66 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject interactIcon;
     [SerializeField] TextAsset inkJSON;
-    GameObject IInteractable.InteractIcon { get => interactIcon; }
 
-    void IInteractable.Interact()
+    [SerializeField] bool enabled_ = true;
+    bool iconEnabled_ = true;
+
+    GameObject IInteractable.Icon { get => interactIcon; }
+
+    bool IInteractable.IsEnabled()
     {
-        Debug.Log($"Trigger Interaction with {gameObject.name}");
-
-        ServiceLocator.GetDialogueService().PlayDialogue(inkJSON);
+        return enabled_;
     }
 
-    public void OnStart()
+    bool IInteractable.IsIconEnabled()
     {
-        interactIcon.SetActive(false);
+        return iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
+    }
+    public void Interact()
+    {
+        if (enabled_)
+        {
+            if (DialogueManager.GetInstance().IsDialoguePlaying)
+                return;
+            Debug.Log($"Trigger Interaction with {gameObject.name}");
+            ServiceLocator.GetDialogueService().PlayDialogue(inkJSON);
+        }
+
+        {
+            var doorTeleport = GetComponentInParent<DoorTeleport>();
+            if (doorTeleport != null)
+            {
+                doorTeleport.Teleport();
+            }
+        }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public void Disable()
+    {
+        enabled_ = false;
+        if (interactIcon != null)
+            interactIcon.SetActive(false);
+    }
+
+    public void Enable()
+    {
+        enabled_ = true;
+    }
+
+
+    public void HideIcon()
+    {
+        iconEnabled_ = false;
+    }
+
+    public void ShowIcon()
+    {
+        iconEnabled_ = true;
+    }
+
     void Start()
     {
-        OnStart();
+        if (interactIcon != null)
+            interactIcon.SetActive(false);
     }
 }

@@ -4,16 +4,19 @@ public interface IInteractable
 {
     GameObject InteractIcon { get; }
 
-    void Interact();
+    public void Interact();
 
-    bool IsEnabled() => true;
+    bool IsEnabled();
+    bool IsIconEnabled();
 
     void SetIcon(bool active)
-        => InteractIcon.SetActive(active);
+    {
+        if (IsEnabled() && Icon != null && IsIconEnabled())
+            Icon.SetActive(active);
+    }
 
     /// <summary>
     ///     Disable interact icon on start.
     /// </summary>
     void OnStart();
-
 }

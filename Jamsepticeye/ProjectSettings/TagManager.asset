@@ -41,6 +41,12 @@ TagManager:
   - name: Ground
     uniqueID: 4027227819
     locked: 0
+  - name: PlacedObject
+    uniqueID: 2177073203
+    locked: 0
+  - name: Hints
+    uniqueID: 3292825625
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -49,15 +55,6 @@ TagManager:
     locked: 0
   - name: Roof
     uniqueID: 1378976211
-    locked: 0
-  - name: PlacedObject
-    uniqueID: 2177073203
-    locked: 0
-  - name: Hints
-    uniqueID: 3292825625
-    locked: 0
-  - name: Player
-    uniqueID: 1396565743
     locked: 0
   m_RenderingLayers:
   - Default
