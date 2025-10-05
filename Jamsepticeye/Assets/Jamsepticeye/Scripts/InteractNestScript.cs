@@ -5,7 +5,8 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class InteractNestScript : MonoBehaviour
 {
-    [SerializeField] GameObject hammock;
+    [SerializeField] GameObject hammockContainer;
+    [SerializeField] GameObject hammockObject;
     [SerializeField] PlayerController playerController;
     [SerializeField] GameObject rock;
     [SerializeField] GameObject nest;
@@ -17,15 +18,18 @@ public class InteractNestScript : MonoBehaviour
 
     void Update()
     {
+        bool disabledExplicit = false;
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
             if (GameStateScript.instance.Is(GameState.PLACED_HAMMOCK))
             {
-                if (hammock != null && !hammock.activeInHierarchy)
+                if (hammockObject != null && !hammockObject.activeInHierarchy
+                    && GameStateScript.instance.Is(GameState.NEEDS_EGGS)
+                    && !GameStateScript.instance.Is(GameState.NEST_ROCKING_STARTS))
                 {
-                    nest.GetComponent<CircleCollider2D>().enabled = false; // Disable large collider 
-                    nest.GetComponent<BoxCollider2D>().enabled = true; // Enable small collider
+                    //nest.GetComponent<CircleCollider2D>().enabled = false; // Disable large collider 
+                    //nest.GetComponent<BoxCollider2D>().enabled = true; // Enable small collider
                     // We put the hammock down
                     StartCoroutine(PutHammock());
                     FadeController.instance.TriggerFade();
@@ -34,10 +38,14 @@ public class InteractNestScript : MonoBehaviour
                 {
                     // We are ready to throw!
                     GameStateScript.instance.Set(GameState.ROCK_THROWN);
-
+                    hammockContainer.SetActive(true);
+                    hammockObject.SetActive(false);
+                    dialogueInteraction.Disable();
+                    disabledExplicit = true;
                     // Trigger animation
                     playerController.dynamicMover.MoveTo(new Vector2(-15.5f, -16.5f), new Vector2(-1, 0), () =>
                     {
+
                         rock.SetActive(true);
                         Vector3[] waypoints = new[] { new Vector3(-16.85424f, -14.49778f, 0f), new Vector3(-18.63988f, -13.98094f, 0f) };
 
@@ -45,37 +53,26 @@ public class InteractNestScript : MonoBehaviour
                             .SetEase(Ease.InOutQuad).OnComplete(() =>
                             {
                                 rock.SetActive(false);
-                                Vector3[] waypoints = new[] { new Vector3(-18.75f, -14.62341f, 0f), new Vector3(-18.75f, -15.3031f, 0f), new Vector3(-18.75f, -15.90409f, 0f) };
-                                //float[] rotations = new float[] { 120.0f, 240.0f, 360.0f };
-                                // Add the path
+                                Vector3[] waypoints = new[] { new Vector3(-18.75f, -14.62341f, 0f), new Vector3(-18.75f, -15.3031f, 0f), new Vector3(-18.75f, -16.3f, 0f) };
                                 nest.transform.DOPath(waypoints, 2f, PathType.CatmullRom).SetEase(Ease.InOutQuad).OnComplete(() =>
                                 {
                                     DialogueManager.GetInstance().PlayDialogue(inkJSON);
+                                    StartCoroutine(GrabHammockAndEggs());
                                 });
-                                //Sequence seq = DOTween.Sequence();
-                                //seq.Join(pathTween);
-
-                                // Add rotation tween that syncs with path
-                                // float duration = 3f / (waypoints.Length - 1); // Duration per segment
-
-                                //for (int i = 0; i < rotations.Length - 1; i++)
-                                //{
-                                //    seq.Insert(i * duration, transform.DORotate(
-                                //        new Vector3(0, 0, rotations[i + 1]),
-                                //        duration
-                                //    ));
-                                //}
                             });
                     });
                 }
             }
-            if (GameStateScript.instance.Is(GameState.NEEDS_EGGS))
+            if (!disabledExplicit)
             {
-                dialogueInteraction.Enable();
-            }
-            else
-            {
-                dialogueInteraction.Disable();
+                if (GameStateScript.instance.Is(GameState.NEEDS_EGGS))
+                {
+                    dialogueInteraction.Enable();
+                }
+                else
+                {
+                    dialogueInteraction.Disable();
+                }
             }
         }
     }
@@ -86,11 +83,30 @@ public class InteractNestScript : MonoBehaviour
         yield return StartCoroutine("SetupHammockScene");
     }
 
+    private IEnumerator GrabHammockAndEggs()
+    {
+        while (DialogueManager.GetInstance().IsDialoguePlaying)
+            yield return new WaitForSeconds(0.1f);
+        FadeController.instance.TriggerFade();
+
+        yield return new WaitForSeconds(1.5f);
+
+        hammockObject.SetActive(false);
+        hammockContainer.SetActive(false);
+        nest.SetActive(false);
+        GameStateScript.instance.Set(GameState.HAS_EGGS);
+        GameStateScript.instance.Unset(GameState.NEEDS_EGGS);
+        GameStateScript.instance.Unset(GameState.PLACED_HAMMOCK);
+        playerController.transform.position = new Vector2(-17.4f, -16.7f);
+        yield return null;
+    }
+
     private IEnumerator SetupHammockScene()
     {
-        hammock.SetActive(true);
+        hammockObject.SetActive(true);
         playerController.transform.position = new Vector2(-17.4f, -16.7f);
 
         yield return null;
     }
+
 }

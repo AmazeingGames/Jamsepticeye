@@ -5,10 +5,6 @@ INCLUDE globals.ink
 
 === main ===
 Wheew! Nice one! Go collect the eggs! It’s baking time! #speaker:peep #emotion:surprise #layout:right
-
-~ SetHasEggs()
-~ HAS_EGGS = true
-~ NEEDS_EGGS = false
 -> END
 
 === nothing ===

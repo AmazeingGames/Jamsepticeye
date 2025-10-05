@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff9d73d6e8a748a4490be09e12b8b8ce
+guid: 7b36eff38126c274ca8b41df77d34a1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2626838266314472989
-    second: hammock_0
+      213: -5931393670231532759
+    second: Hammock_FR_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.28}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hammock_0
+      name: Hammock_FR_0
       rect:
         serializedVersion: 2
         x: 0
         y: 2
         width: 93
         height: 35
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1eb3125c77647420800000000000000
-      internalID: 2626838266314472989
+      spriteID: 92b59def1e47fada0800000000000000
+      internalID: -5931393670231532759
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e846a0a61ae3e9442923b4081e484d5e
-    internalID: 594070532
+    spriteID: 5f5ee8969653a0c48a9874ecb2fafbe0
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hammock_0: 2626838266314472989
+      Hammock_FR_0: -5931393670231532759
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
