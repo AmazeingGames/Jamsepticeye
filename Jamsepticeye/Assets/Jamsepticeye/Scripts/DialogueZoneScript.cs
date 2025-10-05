@@ -16,6 +16,7 @@ public class DialogueZoneScript : MonoBehaviour
             if (dialogueInteraction != null)
             {
                 dialogueInteraction.Interact();
+                GetComponent<PolygonCollider2D>().enabled = false; 
             }
         }
     }

@@ -18,7 +18,8 @@ Why of course, show me what you got after I’m done preparing this!  #speaker:b
 { not BAKER_DEAD and not HAS_EGGS and not HAS_SUGAR and not FLOUR_MAGIC_READY:
 Alright kid, let’s see some magic! #speaker:baker #emotion:neutral #layout:right
 I need something heavy to lift with my levitating powers. #speaker:tim #emotion:neutral #layout:left
-All I’s gots is this jar of flour. Do with it what you will, I’m looking forward to it.  #speaker:baker #emotion:neutral #layout:right
+All I’s gots is this jar of flour. #speaker:baker #emotion:neutral #layout:right
+Do with it what you will, I’m looking forward to it.  
  ~ FLOUR_MAGIC_READY = true
  ~ PrepareFlourMagicTrick()
 -> END
