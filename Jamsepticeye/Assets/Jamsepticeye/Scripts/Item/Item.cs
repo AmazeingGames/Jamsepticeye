@@ -1,4 +1,5 @@
 using MoreMountains.Tools;
+using NUnit.Framework;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,6 +21,9 @@ public class ItemInteractable : ItemBase, IInteractable
 
     public void Interact()
     {
+        if (!CanInteract())
+            return;
+
         if (itemData.DisableSelfOnPickup)
             gameObject.SetActive(false);
 
@@ -28,19 +32,28 @@ public class ItemInteractable : ItemBase, IInteractable
 
     // I'm assuming you'll always be able to collect an item you see
     public bool IsEnabled()
-        => gameObject.activeInHierarchy;
+        => CanInteract();
 
+    // Only collect items you've never collected before
     public bool CanInteract()
-        => gameObject.activeInHierarchy && !ServiceLocator.GetInventoryService().HasItem(itemData);
+        => gameObject.activeInHierarchy && !ServiceLocator.GetInventoryService().HasCollectedItem(itemData);
 
+    public void SetIcon(bool active)
+    {
+        Assert.IsNotNull(InteractIcon, "Icon should not be null");
+
+        if (!active)
+        {
+            InteractIcon.SetActive(active);
+            return;
+        }
+        
+        InteractIcon.SetActive(CanInteract());
+    }
 
     public void OnStart()
-    {
-        interactIcon.SetActive(false);
-    }
+        => interactIcon.SetActive(false);
 
     void Start()
-    {
-        OnStart();
-    }
+        => OnStart();
 }

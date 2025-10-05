@@ -40,7 +40,8 @@ public class QuestInteraction : MonoBehaviour, IInteractable
     }
 
     bool IInteractable.IsEnabled()
-    => interactionsEnabled;
+        => interactionsEnabled;
+
     bool IInteractable.CanInteract()
         => interactionsEnabled;
 

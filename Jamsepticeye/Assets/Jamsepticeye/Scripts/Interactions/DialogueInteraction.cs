@@ -13,9 +13,7 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
     public GameObject InteractIcon => interactIcon;
 
     bool IInteractable.IsEnabled()
-    {
-        return enabled_;
-    }
+        => enabled_;
 
     bool IInteractable.CanInteract()
         => iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
@@ -26,6 +24,7 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
         {
             if (DialogueManager.GetInstance().IsDialoguePlaying)
                 return;
+
             Debug.Log($"Trigger Interaction with {gameObject.name}");
             ServiceLocator.GetDialogueService().PlayDialogue(inkJSON);
         }
