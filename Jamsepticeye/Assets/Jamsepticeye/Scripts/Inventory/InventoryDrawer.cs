@@ -2,6 +2,7 @@ using Ink.Parsed;
 using UnityEngine;
 using System.Collections.Generic;
 using VInspector.Libs;
+using NUnit.Framework;
 
 public class InventoryDrawer : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class InventoryDrawer : MonoBehaviour
 
     void HandleItemCollected(ItemData itemData)
     {
+        Assert.IsNotNull(iconHolder, "UI icon holder has not been set.");
         var itemIconInstance = Instantiate(ItemUI_Prefab, iconHolder);
         itemIconInstance.Init(itemData);
 
