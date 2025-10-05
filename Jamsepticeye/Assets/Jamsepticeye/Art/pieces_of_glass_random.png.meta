@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ff9d73d6e8a748a4490be09e12b8b8ce
+guid: b1f17f76d5c1ffd47ae76bb7227407ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2626838266314472989
-    second: hammock_0
+      213: -8116938669669964117
+    second: pieces_of_glass_random_0
+  - first:
+      213: -3776787072428328624
+    second: pieces_of_glass_random_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,23 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hammock_0
+      name: pieces_of_glass_random_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 93
-        height: 35
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 10
+        y: 13
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1eb3125c77647420800000000000000
-      internalID: 2626838266314472989
+      spriteID: ba6a0ba0947da5f80800000000000000
+      internalID: -8116938669669964117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces_of_glass_random_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 3
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0593f9bfa28269bc0800000000000000
+      internalID: -3776787072428328624
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e846a0a61ae3e9442923b4081e484d5e
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hammock_0: 2626838266314472989
+      pieces_of_glass_random_0: -8116938669669964117
+      pieces_of_glass_random_1: -3776787072428328624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

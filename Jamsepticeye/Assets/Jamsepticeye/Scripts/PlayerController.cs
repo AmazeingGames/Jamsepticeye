@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject spawnPoint;
 
+    public DynamicMovement dynamicMover;
     void Start()
     {
         DialogueManager.GetInstance();
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+       // dynamicMover = GetComponentInParent<DynamicMovement>();
         SpawnPlayer();
     }
 
@@ -66,6 +67,13 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = GameStateScript.instance.Is(GameState.PLACED_HAMMOCK) ? noCapeSprite : capeSprite;
 
 
+        if (dynamicMover != null && dynamicMover.isMoving)
+        {
+            if (dynamicMover.finalLookDirectionSet)
+                moveDirection = dynamicMover.finalLookDirection; // Update the move direction to the final direction so this class doesn't override the player look direction
+            return;
+        }
+
         // Handle movement
         movement = moveAction.ReadValue<Vector2>();
         if (!Mathf.Approximately(movement.x, 0.0f) || !Mathf.Approximately(movement.y, 0.0f))
@@ -75,22 +83,10 @@ public class PlayerController : MonoBehaviour
             moveDirection.Normalize();
         }
 
-
         // Handle animation variables
         animator.SetFloat("LookX", moveDirection.x);
         animator.SetFloat("LookY", moveDirection.y);
         animator.SetFloat("Speed", movement.magnitude);
         animator.SetBool("HasCape", !GameStateScript.instance.Is(GameState.PLACED_HAMMOCK));
-
-
-        if (openMenuAction.WasPressedThisFrame())
-        {
-            GameStateScript.instance.Set(GameState.NEEDS_EGGS);
-        }
-
-        if (teleport.WasPressedThisFrame())
-        {
-            GameStateScript.instance.Set(GameState.ALLOWED_BAKERY);  
-        }
     }
 }
