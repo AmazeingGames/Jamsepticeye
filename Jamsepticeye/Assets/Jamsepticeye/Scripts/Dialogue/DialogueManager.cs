@@ -19,7 +19,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     [SerializeField] TextEffect dialogue_EFFECT;
     [SerializeField] TextMeshProUGUI speakerName_TMP;
     [SerializeField] Image canContine_IMAGE;
-    [SerializeField] Image speaker_IMAGE;
+    [SerializeField] Image speakerLeft_IMAGE;
+    [SerializeField] Image speakerRight_IMAGE;
 
     [Header("Dialogue Effects")]
     [SerializeField] List<string> appearEffects;
@@ -30,21 +31,22 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     List<GameObject> choices = new();
 
     [Header("Speakers")]
-    [SerializeField] Speaker bjorn;
-    [SerializeField] Speaker peeper;
-    [SerializeField] Speaker tim;
+    [SerializeField] public Speaker bjorn;
+    [SerializeField] public Speaker peeper;
+    [SerializeField] public Speaker tim;
+    [SerializeField] public Speaker kid;
+    [SerializeField] public Speaker nurse;
 
     Dictionary<string, Speaker> speakerNameToData;
-
-    Speaker currentSpeaker;
 
     List<TextMeshProUGUI> choicesText;
 
     Story currentStory;
 
     public bool IsDialoguePlaying { get; set; }
+    public Speaker currentSpeaker { get; set; }
 
-    bool CanContinueToNextLine 
+    bool CanContinueToNextLine
     {
         get => canContinueToNextLine;
         set
@@ -63,13 +65,15 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     InkExternalFunctions inkExternalFunctions;
     private bool isDialogueDisappearing;
 
-    void Awake() 
+    void Awake()
     {
         speakerNameToData = new()
         {
             { "baker", bjorn },
-            { "peeper", peeper },
+            { "peep", peeper },
             { "tim", tim },
+            { "kid", kid },
+            { "nurse", nurse },
         };
 
         ServiceLocator.ProvideService(this);
@@ -83,10 +87,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         inkExternalFunctions = new InkExternalFunctions();
     }
 
-    public static DialogueManager GetInstance() 
+    public static DialogueManager GetInstance()
         => instance;
 
-    void Start() 
+    void Start()
     {
         IsDialoguePlaying = false;
         dialogue_CANVAS.enabled = false;
@@ -104,10 +108,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     }
 
 
-    void Update() 
+    void Update()
     {
         // return right away if dialogue isn't playing
-        if (!IsDialoguePlaying) 
+        if (!IsDialoguePlaying)
             return;
 
         Assert.IsNotNull(currentStory, "Current story shoud not be null");
@@ -115,8 +119,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
         // handle continuing to the next line in the dialogue when submit is pressed
         if (
-            CanContinueToNextLine 
-            && currentStory.currentChoices.Count == 0 
+            CanContinueToNextLine
+            && currentStory.currentChoices.Count == 0
             && Input.GetButtonDown("Continue"))
             ContinueStory();
 
@@ -135,7 +139,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-    public void PlayDialogue(TextAsset inkJSON) 
+    public void PlayDialogue(TextAsset inkJSON)
     {
         Assert.IsNotNull(inkJSON, "Conversation is not set by the interactable entity.");
         Debug.Log("Play dialogue");
@@ -144,7 +148,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         currentStory = new Story(inkJSON.text);
         IsDialoguePlaying = true;
         dialogue_CANVAS.enabled = true;
-        
+
         dialogueVariables.StartListening(currentStory);
         inkExternalFunctions.BindEmoteFunction(currentStory);
         Binder.Bind(currentStory);
@@ -152,7 +156,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         ContinueStory();
     }
 
-    IEnumerator ExitDialogueMode() 
+    IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
 
@@ -166,7 +170,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         Debug.Log("Exit dialogue");
     }
 
-    void ContinueStory() 
+    void ContinueStory()
     {
         if (!currentStory.canContinue)
             StartCoroutine(ExitDialogueMode());
@@ -186,7 +190,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         DisplayLine(upcomingLine);
     }
 
-    void DisplayLine(string line) 
+    void DisplayLine(string line)
     {
         Debug.Log("Display Line");
         dialogue_TMP.enabled = true;
@@ -196,11 +200,11 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             choiceButton.SetActive(false);
 
         CanContinueToNextLine = false;
-        
+
         // Can only continue to the next once the current line finishes displaying
         // From here, flow of execution is decided in Update to resolve next action
         foreach (string effect in appearEffects)
-            dialogue_EFFECT.StartManualEffect(effect);        
+            dialogue_EFFECT.StartManualEffect(effect);
     }
 
     // Called from the inspector when the text finishes displaying
@@ -212,7 +216,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     }
 
     // Called from the inspector when the dialogue disappear animation finishes
-    public void DisplayChoices() 
+    public void DisplayChoices()
     {
         if (isSelectingChoice)
             return;
@@ -226,26 +230,26 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
         // defensive check to make sure our UI can support the number of choices coming in
         if (currentChoices.Count > choices.Count)
-            Debug.LogError("More choices were given than the UI can support. Number of choices given: " 
+            Debug.LogError("More choices were given than the UI can support. Number of choices given: "
                 + currentChoices.Count);
 
         int index = 0;
 
         // enable and initialize the choices up to the amount of choices for this line of dialogue
-        foreach(Choice choice in currentChoices) 
+        foreach (Choice choice in currentChoices)
         {
             choices[index].SetActive(true);
             choicesText[index].text = choice.text;
             index++;
         }
         // go through the remaining choices the UI supports and make sure they're hidden
-        for (int i = index; i < choices.Count; i++) 
+        for (int i = index; i < choices.Count; i++)
             choices[i].SetActive(false);
 
         StartCoroutine(HighlightFirstChoice());
     }
 
-    IEnumerator HighlightFirstChoice() 
+    IEnumerator HighlightFirstChoice()
     {
         // Event System requires we clear it first, then wait
         // for at least one frame before we set the current selected object.
@@ -259,7 +263,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     {
         isSelectingChoice = false;
 
-        if (CanContinueToNextLine) 
+        if (CanContinueToNextLine)
         {
             currentStory.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
@@ -283,15 +287,26 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             {
                 case "speaker":
                     currentSpeaker = speakerNameToData[tagValue];
+                    speakerName_TMP.text = currentSpeaker.Name;
                     break;
 
                 case "emotion":
-                    speaker_IMAGE.sprite = currentSpeaker.EmotionToSprite[tagValue];
+                    if (currentSpeaker.EmotionToSprite.ContainsKey(tagValue))
+                    {
+                        speakerLeft_IMAGE.sprite = currentSpeaker.EmotionToSprite[tagValue];
+                        speakerRight_IMAGE.sprite = currentSpeaker.EmotionToSprite[tagValue];
+                    }
+                    else
+                    {
+                        speakerLeft_IMAGE.sprite = currentSpeaker.EmotionToSprite["neutral"];
+                        speakerRight_IMAGE.sprite = currentSpeaker.EmotionToSprite["neutral"];
+                    }
+
                     break;
 
                 case "layout":
-                    if (tagValue == "left") { }
-                    else if (tagValue == "right") { }
+                    speakerLeft_IMAGE.enabled = tagValue == "left"; 
+                    speakerRight_IMAGE.enabled = tagValue == "right"; 
                     break;
 
                 default:
@@ -301,17 +316,17 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-    public Ink.Runtime.Object GetVariableState(string variableName) 
+    public Ink.Runtime.Object GetVariableState(string variableName)
     {
         dialogueVariables.variables.TryGetValue(variableName, out Ink.Runtime.Object variableValue);
 
-        if (variableValue == null) 
+        if (variableValue == null)
             Debug.LogWarning("Ink Variable was found to be null: " + variableName);
         return variableValue;
     }
 
     // This method will get called anytime the application exits.
     // Depending on your game, you may want to save variable state in other places.
-    public void OnApplicationQuit() 
+    public void OnApplicationQuit()
         => dialogueVariables.SaveVariables();
 }

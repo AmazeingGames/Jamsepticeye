@@ -5,7 +5,7 @@ INCLUDE globals.ink
 { NEEDS_SUGAR == true: -> main | -> nothing }
 
 === main ===
-Peep: Hell yea, gimme some sug'!!! for only 3$ ??
+Hell yea, gimme some sug'!!! for only 3$ ?? #speaker:peep #emotion:surprise #layout:right
 
 ~ SetHasSugar()
 ~ HAS_SUGAR = true

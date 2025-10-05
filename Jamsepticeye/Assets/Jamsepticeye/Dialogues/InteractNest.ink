@@ -1,7 +1,8 @@
 INCLUDE globals.ink
 
 { NEEDS_EGGS:
-Wow that nest sure is high up :o
+Wow that nest sure is high up :o #speaker:peep #emotion:neutral #layout:right
+-> END
 }
 
 { not PLACED_HAMMOCK and HAS_STICKS:
@@ -30,13 +31,14 @@ Throw rock at nest?
 }
 
 { PLACED_HAMMOCK and not HAS_STICKS and not HAS_ROCKS:
-Peep: Those eggs look PERFECT for the baker.
-TIM: yea but I can't reach them :c
-Peep: No big, I'm sure we can find something to knock it down
+Those eggs look PERFECT for the baker. #speaker:peep #emotion:neutral #layout:right
+Yea but I can't reach them :c #speaker:tim #emotion:sad #layout:left
+No big, I'm sure we can find something to knock it down #speaker:peep #emotion:neutral #layout:right
+-> END
 }
 
 { not PLACED_HAMMOCK and not HAS_STICKS and HAS_ROCKS:
-I know you have to crack an egg to make an omelette, but we're baking right now.
+I know you have to crack an egg to make an omelette, but we're baking right now. #speaker:peep #emotion:neutral #layout:right
 Your cape is large enough to catch them, we just need to attach it to something to soften the blow
 }
 

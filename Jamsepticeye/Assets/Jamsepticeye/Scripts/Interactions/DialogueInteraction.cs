@@ -7,7 +7,7 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
     [SerializeField] GameObject interactIcon;
     [SerializeField] TextAsset inkJSON;
 
-    bool enabled_ = true;
+    [SerializeField] bool enabled_ = true;
     bool iconEnabled_ = true;
 
     GameObject IInteractable.Icon { get => interactIcon; }
@@ -19,12 +19,14 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
 
     bool IInteractable.IsIconEnabled()
     {
-        return iconEnabled_;
+        return iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
     }
     public void Interact()
     {
         if (enabled_)
         {
+            if (DialogueManager.GetInstance().IsDialoguePlaying)
+                return;
             Debug.Log($"Trigger Interaction with {gameObject.name}");
             ServiceLocator.GetDialogueService().PlayDialogue(inkJSON);
         }
@@ -61,7 +63,6 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
         iconEnabled_ = true;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (interactIcon != null)

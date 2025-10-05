@@ -3,7 +3,7 @@ INCLUDE globals.ink
 { HAS_COFFEE == false: -> main | -> nothing }
 
 === main ===
-There's a sign that says free samples:
+There's a sign that says free samples:  #speaker:tim #emotion:neutral #layout:left 
 
 "We seem to have a surplus of this Toppa the Mornin' coffee (not sponsored)
 because SOMEONE (kevin) CAN'T DO THEIR JOB RIGHT.

@@ -6,6 +6,7 @@ public class DoorTeleport : MonoBehaviour
     [SerializeField]
     private string sceneDestination;
 
+    [SerializeField]
     private bool enabled_ = false;
 
     public void Enable()

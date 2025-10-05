@@ -18,6 +18,7 @@ VAR NEST_ROCKED = false
 VAR BAKER_DEAD = false
 VAR PLACED_HAMMOCK = false
 VAR ALLOWED_BAKERY = false
+VAR FLOUR_MAGIC_READY = false
 
 EXTERNAL playEmote(emoteName)
 EXTERNAL SetKnowsAboutBaker()
@@ -30,3 +31,5 @@ EXTERNAL SetHammockPlaced()
 EXTERNAL SetNestRocked()
 EXTERNAL SetAllowBakery()
 EXTERNAL SetTalkedToBaker()
+EXTERNAL GiveIngredientsToBaker()
+EXTERNAL PrepareFlourMagicTrick()

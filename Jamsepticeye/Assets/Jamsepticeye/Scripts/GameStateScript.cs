@@ -23,6 +23,7 @@ public enum GameState : int
     NEST_ROCKED = 0x20000,
     BAKER_DEAD = 0x40000,
     ALLOWED_BAKERY = 0x80000,
+    FLOUR_MAGIC_READY = 0x100000,
 
 };
 
@@ -62,6 +63,8 @@ public class GameStateScript : MonoBehaviour
             // Initialize our game state with the correct state
             Set(GameState.NEEDS_ROCKS);
             Set(GameState.NEEDS_STICKS);
+            Set(GameState.HAS_SUGAR);
+            Set(GameState.HAS_EGGS);
         }
     }
     public bool Is(GameState state)

@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (openMenuAction.WasPressedThisFrame())
         {
-            GameStateScript.instance.Set(GameState.HAS_COOKIES);
+            GameStateScript.instance.Set(GameState.NEEDS_EGGS);
         }
 
         if (teleport.WasPressedThisFrame())

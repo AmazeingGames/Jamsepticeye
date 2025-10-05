@@ -22,6 +22,7 @@ public class Binder
         story.variablesState["BAKER_DEAD"] = GameStateScript.instance.Is(GameState.BAKER_DEAD);
         story.variablesState["PLACED_HAMMOCK"] = GameStateScript.instance.Is(GameState.PLACED_HAMMOCK);
         story.variablesState["ALLOWED_BAKERY"] = GameStateScript.instance.Is(GameState.ALLOWED_BAKERY);
+        story.variablesState["FLOUR_MAGIC_READY"] = GameStateScript.instance.Is(GameState.FLOUR_MAGIC_READY);
 
         story.BindExternalFunction("SetKnowsAboutBaker", () => GameStateScript.instance.Set(GameState.KNOWS_ABOUT_BAKER));
         story.BindExternalFunction("SetHasCoffee", () => GameStateScript.instance.Set(GameState.HAS_COFFEE));
@@ -48,12 +49,22 @@ public class Binder
         story.BindExternalFunction("SetNestRocked", () => {
             GameStateScript.instance.Set(GameState.NEST_ROCKED);
             GameStateScript.instance.Unset(GameState.HAS_ROCKS);
+          //  GameStateScript.instance.Unset(GameState.NEEDS_EGGS);
         });
         story.BindExternalFunction("SetTalkedToBaker", () => {
             GameStateScript.instance.Set(GameState.TALKED_TO_BAKER);
+            GameStateScript.instance.Set(GameState.NEEDS_SUGAR);
+            GameStateScript.instance.Set(GameState.NEEDS_EGGS);
         });
         story.BindExternalFunction("SetAllowBakery", () => {
             GameStateScript.instance.Set(GameState.ALLOWED_BAKERY);
+        });
+        story.BindExternalFunction("GiveIngredientsToBaker", () => {
+            GameStateScript.instance.Unset(GameState.HAS_SUGAR);
+            GameStateScript.instance.Unset(GameState.HAS_EGGS);
+        });
+        story.BindExternalFunction("PrepareFlourMagicTrick", () => {
+            GameStateScript.instance.Set(GameState.FLOUR_MAGIC_READY);
         });
     }
 }
