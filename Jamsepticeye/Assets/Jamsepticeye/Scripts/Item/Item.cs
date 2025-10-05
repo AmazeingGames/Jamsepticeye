@@ -27,7 +27,7 @@ public class ItemInteractable : ItemBase, IInteractable
         if (itemData.DisableSelfOnPickup)
             gameObject.SetActive(false);
 
-        ServiceLocator.GetInventoryService().CollectItem(itemData);
+        ServiceLocator.GetInventoryService().CollectItem(itemData.MyItemType);
     }
 
     // I'm assuming you'll always be able to collect an item you see

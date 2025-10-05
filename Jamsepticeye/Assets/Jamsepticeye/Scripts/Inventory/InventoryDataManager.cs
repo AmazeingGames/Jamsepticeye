@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
+using VInspector;
 
 // I think Inventory Data Manager should be a service, located by a service locator. Scripts inform the inventory data manager directly regarding item changes, to which the data manager acts as a singular source of truth, which broadcasts its information to other scripts via events.
 public class InventoryDataManager : MonoBehaviour, IInventoryDataService
 {
+    [SerializeField] SerializedDictionary<ItemData.ItemType, ItemData> itemTypeToData; 
+
     // Change to readonly lists in the future
     static readonly ObservableList<ItemData> itemsInInventory = new();
     static readonly ObservableList<ItemData> usedItems = new();
@@ -23,23 +26,15 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
     public static ObservableList<ItemData> UsedItems => usedItems;
 
     void Awake()
-    {
-        ServiceLocator.ProvideInventoryService(this);
-    }
+        => ServiceLocator.ProvideInventoryService(this);
 
     public void CollectItem(ItemData.ItemType itemType)
-    {
-    }
+        => CollectItem(itemTypeToData[itemType]);
+    public void CollectItem(ItemData itemData)
+        => itemsInInventory.Add(itemData);
 
     public void UseItem(ItemData.ItemType itemType)
-    {
-
-    }
-
-    public void CollectItem(ItemData itemData)
-    {
-        itemsInInventory.Add(itemData);
-    }
+        => UseItem(itemTypeToData[itemType]);
 
     public void UseItem(ItemData itemData)
     {

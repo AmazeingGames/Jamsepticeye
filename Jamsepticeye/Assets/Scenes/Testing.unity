@@ -2364,6 +2364,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28dce36baa8f69409b679dd2a1a7287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemTypeToData:
+    serializedKvps:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 207f7a057ecb04947a4773cb91c9c799, type: 2}
+      index: 0
+      isKeyRepeated: 0
+      isKeyNull: 0
+    - Key: 1
+      Value: {fileID: 11400000, guid: 9aa9500c19f7fdd45b866833cb418f97, type: 2}
+      index: 1
+      isKeyRepeated: 0
+      isKeyNull: 0
+    - Key: 4
+      Value: {fileID: 11400000, guid: 9c1225928e8e37744a793cd2293e957a, type: 2}
+      index: 2
+      isKeyRepeated: 0
+      isKeyNull: 0
+    - Key: 2
+      Value: {fileID: 11400000, guid: 4c837b32acfd2324ebd6c36318ff4c76, type: 2}
+      index: 3
+      isKeyRepeated: 0
+      isKeyNull: 0
+    - Key: 3
+      Value: {fileID: 11400000, guid: 78d0262a5dd7ad047b43dd80e54f6a2e, type: 2}
+      index: 4
+      isKeyRepeated: 0
+      isKeyNull: 0
+    dividerPos: 0.33
 --- !u!4 &1047570173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7934682311590957112, guid: 15852e6092f954846a61a6fe5d689535, type: 3}
