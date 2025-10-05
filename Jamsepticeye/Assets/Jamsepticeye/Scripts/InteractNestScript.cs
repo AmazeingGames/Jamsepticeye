@@ -97,14 +97,14 @@ public class InteractNestScript : MonoBehaviour
         GameStateScript.instance.Set(GameState.HAS_EGGS);
         GameStateScript.instance.Unset(GameState.NEEDS_EGGS);
         GameStateScript.instance.Unset(GameState.PLACED_HAMMOCK);
-        playerController.transform.position = new Vector2(-17.4f, -16.7f);
+        playerController.transform.position = new Vector2(-17.7f, -16.7f);
         yield return null;
     }
 
     private IEnumerator SetupHammockScene()
     {
         hammockObject.SetActive(true);
-        playerController.transform.position = new Vector2(-17.4f, -16.7f);
+        playerController.transform.position = new Vector2(-17.7f, -16.7f);
 
         yield return null;
     }

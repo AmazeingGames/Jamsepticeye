@@ -4,8 +4,7 @@ INCLUDE globals.ink
 { NEEDS_EGGS == true: -> main | -> nothing }
 
 === main ===
-DAMMIT WE NEEDED EGGS! #speaker:peep #emotion:mad #layout:right
-Well at least we now know who came first between the chicken and the GLUTTONS
+No eggs huh? Guess well have to crack this one on our own. #speaker:peep #emotion:neutral #layout:right
 -> END
 
 === nothing ===
