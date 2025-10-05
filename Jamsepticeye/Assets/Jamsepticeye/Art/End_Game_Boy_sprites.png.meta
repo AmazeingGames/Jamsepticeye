@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 69f5db96a58143d4cb018531227f7684
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1120179301372035244
+    second: End_Game_Boy_sprites_0
+  - first:
+      213: 264171499482500578
+    second: End_Game_Boy_sprites_1
+  - first:
+      213: -672690038421015021
+    second: End_Game_Boy_sprites_2
+  - first:
+      213: 4324063820200735002
+    second: End_Game_Boy_sprites_3
+  - first:
+      213: -5925618406270807632
+    second: End_Game_Boy_sprites_4
+  - first:
+      213: 4559124369158463767
+    second: End_Game_Boy_sprites_5
+  - first:
+      213: -1743257924881793016
+    second: End_Game_Boy_sprites_6
+  - first:
+      213: 6605000561434600896
+    second: End_Game_Boy_sprites_7
+  - first:
+      213: -8948682292351178673
+    second: End_Game_Boy_sprites_8
+  - first:
+      213: -8550934679541400724
+    second: End_Game_Boy_sprites_9
+  - first:
+      213: 1625099728952464684
+    second: End_Game_Boy_sprites_10
+  - first:
+      213: 9194828726801140412
+    second: End_Game_Boy_sprites_11
+  - first:
+      213: -4726168253260662937
+    second: End_Game_Boy_sprites_12
+  - first:
+      213: 7792755399876297481
+    second: End_Game_Boy_sprites_13
+  - first:
+      213: -2003410766083837948
+    second: End_Game_Boy_sprites_14
+  - first:
+      213: -6995781090720286228
+    second: End_Game_Boy_sprites_15
+  - first:
+      213: 4273357624034283531
+    second: End_Game_Boy_sprites_16
+  - first:
+      213: 4126959286264949804
+    second: End_Game_Boy_sprites_17
+  - first:
+      213: -595576844204633598
+    second: End_Game_Boy_sprites_18
+  - first:
+      213: -5684791640653210552
+    second: End_Game_Boy_sprites_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 95
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f79f04cd25470f0800000000000000
+      internalID: -1120179301372035244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 95
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edcf6244968aa300800000000000000
+      internalID: 264171499482500578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 95
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316b8ff59ff1aa6f0800000000000000
+      internalID: -672690038421015021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 95
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11fe257229220c30800000000000000
+      internalID: 4324063820200735002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 95
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b156bb6479f3cda0800000000000000
+      internalID: -5925618406270807632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 95
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711648e5573454f30800000000000000
+      internalID: 4559124369158463767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 95
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800498b4724bec7e0800000000000000
+      internalID: -1743257924881793016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_7
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 95
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5a09d040da9ab50800000000000000
+      internalID: 6605000561434600896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 47
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4864940ed4efc380800000000000000
+      internalID: -8948682292351178673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 47
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6bbd58b63af45980800000000000000
+      internalID: -8550934679541400724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 47
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c259bc4e7938d8610800000000000000
+      internalID: 1625099728952464684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 47
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba0a8fb2089a9f70800000000000000
+      internalID: 9194828726801140412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 47
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7677ba39307496eb0800000000000000
+      internalID: -4726168253260662937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_13
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 47
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90342279fbd652c60800000000000000
+      internalID: 7792755399876297481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_14
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 49
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4003164d5847234e0800000000000000
+      internalID: -2003410766083837948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_15
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 48
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9f839c92ef9ee90800000000000000
+      internalID: -6995781090720286228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0055ca2e140e4b30800000000000000
+      internalID: 4273357624034283531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_17
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 44
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c6254fa97e54930800000000000000
+      internalID: 4126959286264949804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_18
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2021cb404061cb7f0800000000000000
+      internalID: -595576844204633598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Game_Boy_sprites_19
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 44
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c51c44f109b11b0800000000000000
+      internalID: -5684791640653210552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      End_Game_Boy_sprites_0: -1120179301372035244
+      End_Game_Boy_sprites_1: 264171499482500578
+      End_Game_Boy_sprites_10: 1625099728952464684
+      End_Game_Boy_sprites_11: 9194828726801140412
+      End_Game_Boy_sprites_12: -4726168253260662937
+      End_Game_Boy_sprites_13: 7792755399876297481
+      End_Game_Boy_sprites_14: -2003410766083837948
+      End_Game_Boy_sprites_15: -6995781090720286228
+      End_Game_Boy_sprites_16: 4273357624034283531
+      End_Game_Boy_sprites_17: 4126959286264949804
+      End_Game_Boy_sprites_18: -595576844204633598
+      End_Game_Boy_sprites_19: -5684791640653210552
+      End_Game_Boy_sprites_2: -672690038421015021
+      End_Game_Boy_sprites_3: 4324063820200735002
+      End_Game_Boy_sprites_4: -5925618406270807632
+      End_Game_Boy_sprites_5: 4559124369158463767
+      End_Game_Boy_sprites_6: -1743257924881793016
+      End_Game_Boy_sprites_7: 6605000561434600896
+      End_Game_Boy_sprites_8: -8948682292351178673
+      End_Game_Boy_sprites_9: -8550934679541400724
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
