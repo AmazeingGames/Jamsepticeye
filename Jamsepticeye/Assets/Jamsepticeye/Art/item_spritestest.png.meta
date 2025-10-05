@@ -1,16 +1,73 @@
 fileFormatVersion: 2
-guid: acde7b2d649166c42927198ac60956d3
+guid: 23620d551d718aa499a8a4ab253dc935
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5888308673401626924
-    second: town_sheet_test2_0
+      213: 469606537269988458
+    second: item_spritestest_0
   - first:
-      213: -4357660993272156831
-    second: town_sheet_test2_1
+      213: 4407833405004810088
+    second: item_spritestest_1
   - first:
-      213: 5935736971759055881
-    second: town_sheet_test2_2
+      213: -8234050677333672796
+    second: item_spritestest_2
+  - first:
+      213: 76728271394127178
+    second: item_spritestest_3
+  - first:
+      213: 2051028162689043548
+    second: item_spritestest_4
+  - first:
+      213: 2140397885582082189
+    second: item_spritestest_5
+  - first:
+      213: -5346824512423020163
+    second: item_spritestest_6
+  - first:
+      213: -3995493344657931529
+    second: item_spritestest_7
+  - first:
+      213: 7458633062637637898
+    second: item_spritestest_8
+  - first:
+      213: 4925422343958855475
+    second: item_spritestest_9
+  - first:
+      213: 6054460141022060659
+    second: item_spritestest_10
+  - first:
+      213: 1386197861850159548
+    second: item_spritestest_11
+  - first:
+      213: 6442571601400396471
+    second: item_spritestest_12
+  - first:
+      213: -1392194236879320428
+    second: item_spritestest_13
+  - first:
+      213: -4912198327427511940
+    second: item_spritestest_14
+  - first:
+      213: 1210493828267392093
+    second: item_spritestest_15
+  - first:
+      213: -77997373273284183
+    second: item_spritestest_16
+  - first:
+      213: -8056252522724746667
+    second: item_spritestest_17
+  - first:
+      213: 6039757046278122890
+    second: item_spritestest_18
+  - first:
+      213: 7123895076968261191
+    second: item_spritestest_19
+  - first:
+      213: 6082014704724049217
+    second: item_spritestest_20
+  - first:
+      213: -1203057303436390309
+    second: item_spritestest_21
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,55 +189,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: town_sheet_test2_0
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4de5b0a8576884ea0800000000000000
-      internalID: -5888308673401626924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_1
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16def6c1a6a7683c0800000000000000
-      internalID: -4357660993272156831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_2
+      name: item_spritestest_0
       rect:
         serializedVersion: 2
         x: 192
-        y: 240
+        y: 264
         width: 48
         height: 48
       alignment: 0
@@ -191,194 +204,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 904f9d1b359ff5250800000000000000
-      internalID: 5935736971759055881
+      spriteID: a6ccd2658a0648600800000000000000
+      internalID: 469606537269988458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_3
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cf41a02964f8ff438d0110a0e97a0fe
-      internalID: 1829128401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_4
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 240
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69aa8219f49e7b04a9b5d7f111639edf
-      internalID: -1522460854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_5
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 192
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f9c42a3670038d47813577a5ba318a7
-      internalID: 466183482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 192
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2334076704263ab489faa94de5873ec5
-      internalID: -108506548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_7
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 192
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a47507cf5e16a1342a1beefc02d8813e
-      internalID: -1464600411
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_8
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 192
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc403441281d36f43a5fd89b83c9f58a
-      internalID: 85921914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_9
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 192
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b414ea99e4e8b64f95721a34798eb56
-      internalID: -1736287021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_10
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 192
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9656c8faf086dc44f8a14d1130dca612
-      internalID: 513548154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_11
+      name: item_spritestest_1
       rect:
         serializedVersion: 2
         x: 144
-        y: 144
+        y: 216
         width: 48
         height: 48
       alignment: 0
@@ -387,20 +224,20 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: af6e3e13be4f9d34394fd1012791bc60
-      internalID: 68174572
+      spriteID: 867896ec025cb2d30800000000000000
+      internalID: 4407833405004810088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_12
+      name: item_spritestest_2
       rect:
         serializedVersion: 2
         x: 192
-        y: 144
+        y: 216
         width: 48
         height: 48
       alignment: 0
@@ -409,218 +246,42 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 29593b3a0793bed408c55a648451021b
-      internalID: 1775769314
+      spriteID: 4ac36fae886cabd80800000000000000
+      internalID: -8234050677333672796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_13
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 144
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02e46037bacd6d743a66bf1280f87473
-      internalID: -983677004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_14
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 144
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 038e9b7300347354f93e585431493161
-      internalID: -1490761232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_15
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 144
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88994b66c4de6884f98f951eb453ce0a
-      internalID: 1793185668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_16
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 96
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4cb6b7f05854f94fb22516f93d1f005
-      internalID: 856623464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_17
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b16e4010d67257642a672c840c0160aa
-      internalID: 761044552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_18
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 96
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cfd22380713a5f43a1a59b733445f3e
-      internalID: -326017599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_19
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 96
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8362dcc73f5b3a24ea8f763172834691
-      internalID: 1773266090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_20
+      name: item_spritestest_3
       rect:
         serializedVersion: 2
         x: 288
-        y: 96
+        y: 216
         width: 48
         height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fa29527acb0c2444c8f5a9e94b87634c
-      internalID: 1003321575
+      spriteID: a4d3da0d4f7901100800000000000000
+      internalID: 76728271394127178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_21
+      name: item_spritestest_4
       rect:
         serializedVersion: 2
         x: 336
-        y: 96
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d3f7377246db0e488ab60212dd8ecbf
-      internalID: 1821726610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_22
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
+        y: 216
         width: 48
         height: 48
       alignment: 0
@@ -629,152 +290,20 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1195142be57c0cc43884c502ada6808a
-      internalID: -1938804466
+      spriteID: c5c07654f37b67c10800000000000000
+      internalID: 2051028162689043548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_23
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed8ec796aa3e87e428326379cb5bc7f6
-      internalID: 128547802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_24
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3ead8dfc37e6bd4ba51ed3376abea1d
-      internalID: 1094551800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_25
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 48
-        width: 62
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc19ccc17645e9c428dd9d90c2e8dd22
-      internalID: 293983240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_26
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 48
-        width: 19
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 274998445c345724fb9a843fcc7ca61f
-      internalID: 835342848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_27
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc84304dc3d9b954cb5709b91adf0c1d
-      internalID: -1757817266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_28
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b911636f88bbba84ebb4a6caa153be97
-      internalID: 761986891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_sheet_test2_29
+      name: item_spritestest_5
       rect:
         serializedVersion: 2
         x: 384
-        y: 48
+        y: 216
         width: 48
         height: 48
       alignment: 0
@@ -783,20 +312,86 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ce25f4cb356b60d4a9ca90a03c3985d0
-      internalID: -470531610
+      spriteID: d800e10698834bd10800000000000000
+      internalID: 2140397885582082189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_30
+      name: item_spritestest_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 168
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79bca44f634cc5b0800000000000000
+      internalID: -5346824512423020163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 168
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f20a39d8f72d88c0800000000000000
+      internalID: -3995493344657931529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 168
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a011080c043628760800000000000000
+      internalID: 7458633062637637898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_9
       rect:
         serializedVersion: 2
         x: 432
-        y: 48
+        y: 168
         width: 48
         height: 48
       alignment: 0
@@ -805,20 +400,284 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a37f308725a0f4a4db34697454435aec
-      internalID: -1913001924
+      spriteID: 33f707c968d9a5440800000000000000
+      internalID: 4925422343958855475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_sheet_test2_31
+      name: item_spritestest_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 168
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370a16c9b63c50450800000000000000
+      internalID: 6054460141022060659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 120
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb91cf76c93cc3310800000000000000
+      internalID: 1386197861850159548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 120
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba7d7dbcbc986950800000000000000
+      internalID: 6442571601400396471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_13
       rect:
         serializedVersion: 2
         x: 240
-        y: 0
+        y: 120
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a467cb7beedace0800000000000000
+      internalID: -1392194236879320428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 120
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c794a6ba5ad54dbb0800000000000000
+      internalID: -4912198327427511940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 120
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c3eac29b98cc010800000000000000
+      internalID: 1210493828267392093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 120
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1e1a06dc5eaeef0800000000000000
+      internalID: -77997373273284183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 120
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a9522b301723090800000000000000
+      internalID: -8056252522724746667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8de119980781d350800000000000000
+      internalID: 6039757046278122890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_19
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746e8d714d82dd260800000000000000
+      internalID: 7123895076968261191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d77c96628a76450800000000000000
+      internalID: 6082014704724049217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b501c30b1c1ed4fe0800000000000000
+      internalID: -1203057303436390309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_22
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 72
         width: 48
         height: 48
       alignment: 0
@@ -829,8 +688,184 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 583636b72dd23c54384503aa9082917e
-      internalID: -1822605587
+      spriteID: 0f865ed035aebf342af149643db00e82
+      internalID: -1912796494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cac080919000094a8da1b0619f4ce40
+      internalID: 1722564410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_24
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ad51f9f82c77349a6014eb61b67aaa
+      internalID: -48863103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_25
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 72
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac748dece89574f4a96698ef3242b370
+      internalID: 1093336621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 24
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a023d8843eb2eec4c9084b5c2dcfe777
+      internalID: -222959249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_27
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 24
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65774a4c5a5875429b77f4fff2c7e3c
+      internalID: 568528347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_28
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 24
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c542e154b30d943b8d1ff4cbe4a0e5
+      internalID: -1594585903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_29
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 24
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec55baaa323969409a087f990b7c5e0
+      internalID: 414468877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_spritestest_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 24
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70110cd088bd93d4e827b3672bf7717d
+      internalID: -461061673
       vertices: []
       indices: 
       edges: []
@@ -839,7 +874,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d993ed1dd9581bf47b2e412f6f88484a
+    spriteID: f3635955c4693c248a0c15f8df720e5f
     internalID: 0
     vertices: []
     indices: 
@@ -849,38 +884,37 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      town_sheet_test2_0: -5888308673401626924
-      town_sheet_test2_1: -4357660993272156831
-      town_sheet_test2_10: 513548154
-      town_sheet_test2_11: 68174572
-      town_sheet_test2_12: 1775769314
-      town_sheet_test2_13: -983677004
-      town_sheet_test2_14: -1490761232
-      town_sheet_test2_15: 1793185668
-      town_sheet_test2_16: 856623464
-      town_sheet_test2_17: 761044552
-      town_sheet_test2_18: -326017599
-      town_sheet_test2_19: 1773266090
-      town_sheet_test2_2: 5935736971759055881
-      town_sheet_test2_20: 1003321575
-      town_sheet_test2_21: 1821726610
-      town_sheet_test2_22: -1938804466
-      town_sheet_test2_23: 128547802
-      town_sheet_test2_24: 1094551800
-      town_sheet_test2_25: 293983240
-      town_sheet_test2_26: 835342848
-      town_sheet_test2_27: -1757817266
-      town_sheet_test2_28: 761986891
-      town_sheet_test2_29: -470531610
-      town_sheet_test2_3: 1829128401
-      town_sheet_test2_30: -1913001924
-      town_sheet_test2_31: -1822605587
-      town_sheet_test2_4: -1522460854
-      town_sheet_test2_5: 466183482
-      town_sheet_test2_6: -108506548
-      town_sheet_test2_7: -1464600411
-      town_sheet_test2_8: 85921914
-      town_sheet_test2_9: -1736287021
+      item_spritestest_0: 469606537269988458
+      item_spritestest_1: 4407833405004810088
+      item_spritestest_10: 6054460141022060659
+      item_spritestest_11: 1386197861850159548
+      item_spritestest_12: 6442571601400396471
+      item_spritestest_13: -1392194236879320428
+      item_spritestest_14: -4912198327427511940
+      item_spritestest_15: 1210493828267392093
+      item_spritestest_16: -77997373273284183
+      item_spritestest_17: -8056252522724746667
+      item_spritestest_18: 6039757046278122890
+      item_spritestest_19: 7123895076968261191
+      item_spritestest_2: -8234050677333672796
+      item_spritestest_20: 6082014704724049217
+      item_spritestest_21: -1203057303436390309
+      item_spritestest_22: -1912796494
+      item_spritestest_23: 1722564410
+      item_spritestest_24: -48863103
+      item_spritestest_25: 1093336621
+      item_spritestest_26: -222959249
+      item_spritestest_27: 568528347
+      item_spritestest_28: -1594585903
+      item_spritestest_29: 414468877
+      item_spritestest_3: 76728271394127178
+      item_spritestest_30: -461061673
+      item_spritestest_4: 2051028162689043548
+      item_spritestest_5: 2140397885582082189
+      item_spritestest_6: -5346824512423020163
+      item_spritestest_7: -3995493344657931529
+      item_spritestest_8: 7458633062637637898
+      item_spritestest_9: 4925422343958855475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

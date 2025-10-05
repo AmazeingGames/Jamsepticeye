@@ -1,21 +1,20 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // For entering buildings
 public class DoorInteraction : QuestInteraction
 {
-    private TeleportScript teleportScript;
+    [SerializeField]
+    private string sceneDestination;
 
     new public void Start()
     {
         base.Start();
-        teleportScript = GetComponent<TeleportScript>();
     }
     override protected void TriggerSuccess()
     {
-        if (teleportScript != null)
-        {
-            teleportScript.Teleport();
-        }
+        SceneManager.LoadScene(sceneDestination);
+        SpawnPointHandler.TeleportToScene(Vector2.zero);
     }
 }
