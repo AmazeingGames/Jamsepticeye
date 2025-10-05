@@ -3,15 +3,7 @@ using UnityEngine;
 
 public class QuestInteraction : MonoBehaviour, IInteractable
 {
-    bool IInteractable.IsEnabled()
-    {
-        return interactionsEnabled;
-    }
-    bool IInteractable.IsIconEnabled()
-    {
-        return interactionsEnabled;
-    }
-    GameObject IInteractable.Icon { get => interactIcon; }
+    public GameObject InteractIcon { get => interactIcon; }
 
     [SerializeField] GameObject interactIcon;
 
@@ -32,7 +24,7 @@ public class QuestInteraction : MonoBehaviour, IInteractable
     private bool turnInvisibleWhenDone = false;
 
     [SerializeField]
-    private bool enableInteractionsAtTheStart = true; // If true, the object is interactable from the start
+    private bool canInteractOnStart = true; // If true, the object is interactable from the start
 
     private bool interactionsEnabled;
 
@@ -41,11 +33,16 @@ public class QuestInteraction : MonoBehaviour, IInteractable
 
     public void Start()
     {
-        interactionsEnabled = enableInteractionsAtTheStart;
+        interactionsEnabled = canInteractOnStart;
 
         if (interactIcon != null)
             interactIcon.SetActive(false);
     }
+
+    bool IInteractable.IsEnabled()
+    => interactionsEnabled;
+    bool IInteractable.CanInteract()
+        => interactionsEnabled;
 
     // The game is in the wrong state, process different dialogues based on what state is wrong
     protected virtual void DialogueWrongState() { }
@@ -92,5 +89,10 @@ public class QuestInteraction : MonoBehaviour, IInteractable
             interactionsEnabled = false;
             gameObject.SetActive(false);
         }
+    }
+
+    public void OnStart()
+    {
+        throw new System.NotImplementedException();
     }
 }

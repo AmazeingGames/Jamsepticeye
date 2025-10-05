@@ -7,12 +7,12 @@ public interface IInteractable
     public void Interact();
 
     bool IsEnabled();
-    bool IsIconEnabled();
+    bool CanInteract();
 
     void SetIcon(bool active)
     {
-        if (IsEnabled() && Icon != null && IsIconEnabled())
-            Icon.SetActive(active);
+        if (IsEnabled() && InteractIcon != null && CanInteract())
+            InteractIcon.SetActive(active);
     }
 
     /// <summary>

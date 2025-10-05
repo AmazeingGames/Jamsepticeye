@@ -29,7 +29,7 @@ public class InventoryTester : MonoBehaviour
     void TestItem(ItemData itemData)
     {
 # if DEBUG
-        if (ServiceLocator.GetInventoryService().IsItemInInventory(itemData))
+        if (ServiceLocator.GetInventoryService().HasItem(itemData))
             ServiceLocator.GetInventoryService().UseItem(itemData);
         else
             ServiceLocator.GetInventoryService().CollectItem(itemData);

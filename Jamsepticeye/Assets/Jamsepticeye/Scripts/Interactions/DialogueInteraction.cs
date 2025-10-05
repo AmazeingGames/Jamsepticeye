@@ -10,17 +10,16 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
     [SerializeField] bool enabled_ = true;
     bool iconEnabled_ = true;
 
-    GameObject IInteractable.Icon { get => interactIcon; }
+    public GameObject InteractIcon => interactIcon;
 
     bool IInteractable.IsEnabled()
     {
         return enabled_;
     }
 
-    bool IInteractable.IsIconEnabled()
-    {
-        return iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
-    }
+    bool IInteractable.CanInteract()
+        => iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
+
     public void Interact()
     {
         if (enabled_)
@@ -67,5 +66,10 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
     {
         if (interactIcon != null)
             interactIcon.SetActive(false);
+    }
+
+    public void OnStart()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -45,12 +45,12 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
         usedItems.Add(itemData);
     }
 
-    public bool IsItemInInventory(ItemData item)
+    public bool HasItem(ItemData item)
         => itemsInInventory.Contains(item);
 
     public bool HasUsedItem(ItemData item)
         => usedItems.Contains(item);
 
     public bool HasCollectedItem(ItemData item)
-        => IsItemInInventory(item) || HasUsedItem(item);
+        => HasItem(item) || HasUsedItem(item);
 }
