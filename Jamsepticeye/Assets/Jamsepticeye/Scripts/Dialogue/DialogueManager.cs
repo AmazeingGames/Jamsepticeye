@@ -115,6 +115,12 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (!IsDialoguePlaying)
             return;
 
+#if DEBUG
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(ExitDialogueMode_CO());
+        }
+#endif
         Assert.IsNotNull(currentStory, "Current story shoud not be null");
         Assert.IsNotNull(currentStory.currentChoices, "Current choices shoud not be null");
 
@@ -157,7 +163,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         ContinueStory();
     }
 
-    IEnumerator ExitDialogueMode()
+    IEnumerator ExitDialogueMode_CO()
     {
         yield return new WaitForSeconds(0.2f);
 
@@ -174,7 +180,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     void ContinueStory()
     {
         if (!currentStory.canContinue)
-            StartCoroutine(ExitDialogueMode());
+            StartCoroutine(ExitDialogueMode_CO());
 
         string upcomingLine = currentStory.Continue();
 
@@ -183,7 +189,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (isNextLineExternalFunction)
         {
             Debug.Log("Last line is external function");
-            StartCoroutine(ExitDialogueMode());
+            StartCoroutine(ExitDialogueMode_CO());
             return;
         }
 

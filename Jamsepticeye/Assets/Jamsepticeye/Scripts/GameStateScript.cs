@@ -42,10 +42,7 @@ public class GameStateScript
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = new GameStateScript();
-            }
+            _instance ??= new GameStateScript();
             return _instance;
         }
     }
@@ -57,13 +54,15 @@ public class GameStateScript
         Set(GameState.NEEDS_STICKS);
 
         Set(GameState.FIRST_SPAWN);
+#if DEBUG
 
-        //Set(GameState.KNOWS_ABOUT_BAKER);
-        //Set(GameState.TALKED_TO_BAKER);
-        //Set(GameState.HAS_SUGAR);
-        //Set(GameState.HAS_EGGS);
+        Set(GameState.KNOWS_ABOUT_BAKER);
+        Set(GameState.TALKED_TO_BAKER);
+        Set(GameState.HAS_SUGAR);
+        Set(GameState.HAS_EGGS);
         //Set(GameState.HAS_COOKIES);
         // Set(GameState.HAS_COFFEE);
+#endif
     }
     public bool Is(GameState state)
     {

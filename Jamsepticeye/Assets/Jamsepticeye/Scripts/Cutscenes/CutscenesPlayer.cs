@@ -53,10 +53,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void Start()
     {
-# if DEBUG
+
         ExitCutscene();
-        return;
-#endif
         if (!hasPlayedOpening)
         {
             hasPlayedOpening = true;
@@ -66,7 +64,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         ExitCutscene();
     }
 
-    [SerializeField] float spamPreventionTimer = .1f;
+    [SerializeField] float spamPreventionTimer = .2f;
 
     bool isStoppingSpam;
     float timeSinceLastSpacePress;
@@ -184,6 +182,9 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void ExitCutscene()
     {
+        if (currentSequence != null && currentSequence.DialogueToPlayOnEnd != null)
+            ServiceLocator.GetDialogueService().PlayDialogue(currentSequence.DialogueToPlayOnEnd);
+
         currentSequence = null;
         sceneIndex = -1;
         cutscene_CANVAS.enabled = false;

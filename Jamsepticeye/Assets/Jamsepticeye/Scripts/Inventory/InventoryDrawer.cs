@@ -2,13 +2,14 @@ using Ink.Parsed;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Assertions;
+using VInspector;
 
 public class InventoryDrawer : MonoBehaviour
 {
     [SerializeField] ItemUIIcon ItemUI_Prefab;
     [SerializeField] Transform iconHolder;
 
-    readonly Dictionary<ItemData, ItemUIIcon> ItemDataToInstance = new();
+    public SerializedDictionary<ItemData, ItemUIIcon> ItemDataToIconInstance = new();
 
     void OnEnable()
     {
@@ -28,13 +29,13 @@ public class InventoryDrawer : MonoBehaviour
         var itemIconInstance = Instantiate(ItemUI_Prefab, iconHolder);
         itemIconInstance.Init(itemData);
 
-        ItemDataToInstance.Add(itemData, itemIconInstance);
+        ItemDataToIconInstance.Add(itemData, itemIconInstance);
     }
 
     void HandleItemRemoved(ItemData itemData)
     {
-        var itemIconInstance = ItemDataToInstance[itemData];
-        ItemDataToInstance.Remove(itemData);
+        var itemIconInstance = ItemDataToIconInstance[itemData];
+        ItemDataToIconInstance.Remove(itemData);
         itemIconInstance.gameObject.SetActive(false);
         Destroy(itemIconInstance);
     }

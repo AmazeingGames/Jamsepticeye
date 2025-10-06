@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 
 public class BakerScript : MonoBehaviour
 {
-    [SerializeField] CutsceneSequence bakerMagic;
-    
     private Animator animator;
 
     [SerializeField]
@@ -25,8 +23,8 @@ public class BakerScript : MonoBehaviour
     [SerializeField]
     List<GameObject> itemsAppearOnDeath = new List<GameObject>();
 
+    [SerializeField] CutsceneSequence bakerMagic;
     [SerializeField]
-    TextAsset bakerDeadScript;
     public void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,11 +51,11 @@ public class BakerScript : MonoBehaviour
         {
             // Magic time!!
 
-            
+            // TODO: Cutscene baker death
+
             ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(bakerMagic);
-            dialogueInteraction.Interact();
             GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
-            ServiceLocator.GetDialogueService().PlayDialogue(bakerDeadScript);
+
             foreach (var item in itemsAppearOnDeath)
                 item.SetActive(true);
 
@@ -96,8 +94,7 @@ public class BakerScript : MonoBehaviour
                     // He just arrives at his spot
                     GameStateScript.Instance.Set(GameState.COOKIES_BAKED);
                     StartCoroutine(PutCookiesOnTable());
-                    if (FadeController.instance != null)
-                        FadeController.instance.TriggerFade();
+                    FadeController.instance.TriggerFade();
                 }
             }
         }

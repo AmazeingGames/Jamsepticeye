@@ -1,4 +1,6 @@
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,6 +15,8 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
     // Change to readonly lists in the future
     static readonly ObservableList<ItemData> itemsInInventory = new();
     static readonly ObservableList<ItemData> usedItems = new();
+    public List<ItemData> itemsInInventoryProxy;
+    public List<ItemData> usedItemsProxy;
 
 
     /// <summary>
@@ -35,6 +39,49 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
 
     public void UseItem(ItemData.ItemType itemType)
         => UseItem(itemTypeToData[itemType]);
+
+    void Start()
+    {
+        StartCoroutine(UpdateProxyLists_CO());
+    }
+
+    void Update()
+    {
+        Debug.Log("running");
+        itemsInInventoryProxy.Clear();
+        usedItemsProxy.Clear();
+
+        if (!itemsInInventory.ContentsMatch(itemsInInventoryProxy))
+        {
+            usedItemsProxy.Clear();
+            itemsInInventoryProxy.AddRange(itemsInInventory);
+        }
+
+        if (!usedItems.ContentsMatch(usedItemsProxy))
+        {
+            usedItemsProxy.Clear();
+            usedItemsProxy.AddRange(usedItems);
+        }
+    }
+
+    IEnumerator UpdateProxyLists_CO()
+    {
+        while (true)
+        {
+            
+
+            yield return new WaitForSeconds(1);
+
+            Debug.Log("running");
+            foreach (var item in itemsInInventory)
+                itemsInInventoryProxy.Add(item);
+
+            
+
+            itemsInInventoryProxy.AddRange(itemsInInventory);
+            usedItemsProxy.AddRange(usedItems);
+        }
+    }
 
     public void UseItem(ItemData itemData)
     {

@@ -42,9 +42,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // Force cookies if left bakery without
+
+        
         if (GameStateScript.Instance.Is(GameState.BAKER_DEAD))
             GameStateScript.Instance.Set(GameState.HAS_COOKIES);
 
+        /*
         if (GameStateScript.Instance.Is(GameState.HAS_COOKIES))
             ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Cookies);
         if (GameStateScript.Instance.Is(GameState.HAS_SUGAR))
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour
             ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Eggs);
         if (GameStateScript.Instance.Is(GameState.HAS_COFFEE))
             ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Coffee);
+        */
 
         DialogueManager.GetInstance();
         moveDirection = new Vector2(1, 0);

@@ -13156,6 +13156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemUI_Prefab: {fileID: 6635592216183771157, guid: 59d75b9fc8db9fd45ac4136353ebcdf0, type: 3}
   iconHolder: {fileID: 39032211}
+  ItemDataToIconInstance:
+    serializedKvps: []
+    dividerPos: 0.33
 --- !u!1001 &1305325780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14426,7 +14429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1520511634
 Transform:
   m_ObjectHideFlags: 0
@@ -14487,6 +14490,8 @@ MonoBehaviour:
       isKeyRepeated: 0
       isKeyNull: 0
     dividerPos: 0.33
+  itemsInInventoryProxy: []
+  usedItemsProxy: []
 --- !u!1 &1527243157
 GameObject:
   m_ObjectHideFlags: 0
