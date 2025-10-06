@@ -24,6 +24,12 @@ public class YoungBoyScript : MonoBehaviour
 
     void Update()
     {
+        if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.KID_CHOKING_DIALOG))
+        {
+            GameStateScript.Instance.Unset(GameState.KID_CHOKING_DIALOG);
+            ServiceLocator.GetDialogueService().PlayDialogue(chokingDialog);
+        }
+
         if (animator != null)
         {
             bool isKidTalking = DialogueManager.GetInstance().IsDialoguePlaying && DialogueManager.GetInstance().currentSpeaker.Name == DialogueManager.GetInstance().kid.Name;
@@ -32,7 +38,7 @@ public class YoungBoyScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.Instance.Is(GameState.KID_FED) && !GameStateScript.Instance.Is(GameState.KID_CHOKING))
+            if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.KID_FED) && !GameStateScript.Instance.Is(GameState.KID_CHOKING))
             {
                 // Only start the coroutine once thanks to this condition
                 GameStateScript.Instance.Set(GameState.KID_CHOKING);
@@ -44,16 +50,13 @@ public class YoungBoyScript : MonoBehaviour
     {
         FadeController.instance.TriggerFade();
 
-        GameStateScript.Instance.Unset(GameState.HAS_COOKIES);
-        ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Cookies);
         yield return new WaitForSeconds(1f);
         transform.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
         yield return new WaitForSeconds(1f);
         animator.SetBool("AteCookies", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
-        ServiceLocator.GetDialogueService().PlayDialogue(chokingDialog);
-        // GetComponentInParent<Rigidbody2D>().MovePosition(transform.position);
+        GameStateScript.Instance.Set(GameState.KID_CHOKING_DIALOG);
         yield return null;
     }
 }

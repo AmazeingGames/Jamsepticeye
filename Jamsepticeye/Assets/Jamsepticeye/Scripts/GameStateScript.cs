@@ -27,7 +27,7 @@ public enum GameState : int
     ROCK_THROWN = 0x200000,
     KID_CHOKING = 0x400000,
     COOKIES_BAKED = 0x800000,
-    FIRST_SPAWN = 0x1000000,
+    KID_CHOKING_DIALOG = 0x1000000,
 
 };
 
@@ -56,14 +56,13 @@ public class GameStateScript
         Set(GameState.NEEDS_ROCKS);
         Set(GameState.NEEDS_STICKS);
 
-        Set(GameState.FIRST_SPAWN);
-
         //Set(GameState.KNOWS_ABOUT_BAKER);
         //Set(GameState.TALKED_TO_BAKER);
-        //Set(GameState.HAS_SUGAR);
-        //Set(GameState.HAS_EGGS);
+        //Set(GameState.BAKER_DEAD);
+        ////Set(GameState.HAS_SUGAR);
+        ////Set(GameState.HAS_EGGS);
         //Set(GameState.HAS_COOKIES);
-        // Set(GameState.HAS_COFFEE);
+        ////Set(GameState.HAS_COFFEE);
     }
     public bool Is(GameState state)
     {

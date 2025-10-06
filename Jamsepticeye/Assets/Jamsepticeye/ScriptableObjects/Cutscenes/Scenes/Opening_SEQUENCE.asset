@@ -104,3 +104,5 @@ MonoBehaviour:
     <Text>k__BackingField: 'I think it''s time for people to see the incredible Timm!
       Let''s go Peeps! '
     <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
+  <TextDialog>k__BackingField: {fileID: 4900000, guid: 28ce2365f171ed947bc5d8b2e174c2a0, type: 3}
+  musicIndexForCutscene: 0

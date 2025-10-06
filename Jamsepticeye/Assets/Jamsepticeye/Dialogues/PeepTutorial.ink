@@ -9,7 +9,7 @@ It looks like the first person on our list is named Bjorn.
 
 I don't know a Bjorn… #speaker:tim #emotion:surprise #layout:left
 
-Well we'll have to go look around for him. 
+Well we'll have to go look around for him. #speaker:peep #emotion:surprise #layout:right
 You should be able to speak to people and interact with objects 
-using E when applicable. That being said, onwards, child! #speaker:peep #emotion:surprise #layout:right
+using E when applicable. That being said, onwards, child! 
 -> END

@@ -2,7 +2,7 @@ INCLUDE globals.ink
 
 { 
     - TALKED_TO_BAKER and FOUND_NEST and NEEDS_ROCKS:
-        Hey ! One of those could surely knock down the nest! go grab one! #speaker:peep #emotion:neutral #layout:left 
+        Hey ! One of those could surely knock down the nest! go grab one! #speaker:peep #emotion:neutral #layout:right 
         ~ NEEDS_ROCKS = false
         ~ HAS_ROCKS = true
         ~ SetHasRocks()

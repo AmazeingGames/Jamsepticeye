@@ -6,7 +6,7 @@ public class SimpleInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject interactIcon;
 
-    [SerializeField] bool enabled_ = true;
+    [SerializeField] public bool enabled_ = true;
 
     public GameObject InteractIcon => interactIcon;
 

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class BakerScript : MonoBehaviour
 {
     [SerializeField] CutsceneSequence bakerMagic;
-    
+
     private Animator animator;
 
     [SerializeField]
@@ -45,6 +45,7 @@ public class BakerScript : MonoBehaviour
             item.SetActive(true);
 
     }
+
     public void Update()
     {
         //if (GameStateScript.Instance.Is(GameState.COOKIES_BAKED) && !GameStateScript.Instance.Is(GameState.HAS_COOKIES))
@@ -53,17 +54,19 @@ public class BakerScript : MonoBehaviour
         {
             // Magic time!!
 
-            
+
             ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(bakerMagic);
-            dialogueInteraction.Interact();
             GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
-            ServiceLocator.GetDialogueService().PlayDialogue(bakerDeadScript);
+
+
             foreach (var item in itemsAppearOnDeath)
                 item.SetActive(true);
 
             foreach (var item in itemsDisappearOnDeath)
                 item.SetActive(false);
 
+            cookies.GetComponent<SimpleInteraction>().enabled_ = true;
+            cookies.GetComponent<SimpleInteraction>().InteractIcon.SetActive(true);
             return;
         }
         if (pathFollower != null)
@@ -109,5 +112,8 @@ public class BakerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         cookies.SetActive(true);
+        // Put it on table, not interactable
+        cookies.GetComponent<SimpleInteraction>().enabled_ = false;
+        cookies.GetComponent<SimpleInteraction>().InteractIcon.SetActive(false);
     }
 }
