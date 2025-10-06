@@ -34,7 +34,7 @@ INCLUDE globals.ink
         I know you have to crack an egg to make an omelette, but we're baking right now. #speaker:peep #emotion:neutral #layout:right
         Your cape is large enough to catch them, we just need to attach it to something to soften the blow
         -> END
-    - NEEDS_EGGS:
+    - NOT NEEDS_EGGS and not PLACED_HAMMOCK and not HAS_STICKS and not HAS_ROCKS:
         Wow that nest sure is high up :o #speaker:peep #emotion:neutral #layout:right
         -> END
 }

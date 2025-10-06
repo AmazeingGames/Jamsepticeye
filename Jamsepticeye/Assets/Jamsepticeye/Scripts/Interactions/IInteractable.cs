@@ -14,9 +14,4 @@ public interface IInteractable
         if (IsEnabled() && InteractIcon != null && CanInteract())
             InteractIcon.SetActive(active);
     }
-
-    /// <summary>
-    ///     Disable interact icon on start.
-    /// </summary>
-    void OnStart();
 }

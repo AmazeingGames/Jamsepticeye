@@ -24,6 +24,15 @@ INCLUDE globals.ink
          ~ FLOUR_MAGIC_READY = true
          ~ PrepareFlourMagicTrick()
         -> END
+
+    - not BAKER_DEAD and FLOUR_MAGIC_READY:
+        Wha- he fell asleep! #speaker:tim #emotion:neutral #layout:left
+        I know I’m new to magic, but it wasn’t THAT boring of a trick, right?
+        Don’t worry about it, kid. 
+        A true genius is never appreciated in their time. #speaker:peep #emotion:surprise #layout:right
+        ~ BAKER_DEAD = true
+        ~ SetBakerDead()
+        -> END
 }
 
 ->DONE

@@ -9,7 +9,7 @@ public class EnterBakeryScript : MonoBehaviour
         var doorTeleport = GetComponentInParent<DoorTeleport>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.ALLOWED_BAKERY) && !GameStateScript.instance.Is(GameState.BAKER_DEAD))
+            if (GameStateScript.Instance.Is(GameState.ALLOWED_BAKERY) && !GameStateScript.Instance.Is(GameState.BAKER_DEAD))
             {
                 dialogueInteraction.Disable();
                 if (doorTeleport != null)
