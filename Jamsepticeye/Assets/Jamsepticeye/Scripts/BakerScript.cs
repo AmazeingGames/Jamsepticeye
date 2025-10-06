@@ -22,6 +22,9 @@ public class BakerScript : MonoBehaviour
     List<GameObject> itemsDisappearOnDeath = new List<GameObject>();
     [SerializeField]
     List<GameObject> itemsAppearOnDeath = new List<GameObject>();
+
+    [SerializeField]
+    TextAsset bakerDeadScript;
     public void Start()
     {
         animator = GetComponent<Animator>();
@@ -44,18 +47,19 @@ public class BakerScript : MonoBehaviour
     {
         //if (GameStateScript.Instance.Is(GameState.COOKIES_BAKED) && !GameStateScript.Instance.Is(GameState.HAS_COOKIES))
 
-        if (dialogueInteraction != null && GameStateScript.Instance.Is(GameState.FLOUR_MAGIC_READY))
+        if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.FLOUR_MAGIC_READY))
         {
             // Magic time!!
-            GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
 
             // TODO: Cutscene baker death
-            dialogueInteraction.Interact();
+            GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
+            ServiceLocator.GetDialogueService().PlayDialogue(bakerDeadScript);
             foreach (var item in itemsAppearOnDeath)
                 item.SetActive(true);
 
             foreach (var item in itemsDisappearOnDeath)
                 item.SetActive(false);
+
             return;
         }
         if (pathFollower != null)

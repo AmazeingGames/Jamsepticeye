@@ -25,11 +25,16 @@ public class Binder
         story.variablesState["FLOUR_MAGIC_READY"] = GameStateScript.Instance.Is(GameState.FLOUR_MAGIC_READY);
 
         story.BindExternalFunction("SetKnowsAboutBaker", () => GameStateScript.Instance.Set(GameState.KNOWS_ABOUT_BAKER));
-        story.BindExternalFunction("SetHasCoffee", () => GameStateScript.Instance.Set(GameState.HAS_COFFEE));
+        story.BindExternalFunction("SetHasCoffee", () =>
+        {
+            GameStateScript.Instance.Set(GameState.HAS_COFFEE);
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Coffee);
+        });
         story.BindExternalFunction("SetKidFed", () =>
         {
             GameStateScript.Instance.Set(GameState.KID_FED);
             GameStateScript.Instance.Unset(GameState.HAS_COOKIES);
+            ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Cookies);
         });
         story.BindExternalFunction("SetHasSugar", () =>
         {
@@ -53,11 +58,13 @@ public class Binder
         {
             GameStateScript.Instance.Set(GameState.PLACED_HAMMOCK);
             GameStateScript.Instance.Unset(GameState.HAS_STICKS);
+            ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Stick);
         });
         story.BindExternalFunction("SetNestRocked", () =>
         {
             GameStateScript.Instance.Set(GameState.NEST_ROCKING_STARTS);
             GameStateScript.Instance.Unset(GameState.HAS_ROCKS);
+            ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Rocks);
         });
         story.BindExternalFunction("SetTalkedToBaker", () =>
         {
@@ -73,6 +80,8 @@ public class Binder
         {
             GameStateScript.Instance.Unset(GameState.HAS_SUGAR);
             GameStateScript.Instance.Unset(GameState.HAS_EGGS);
+            ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Sugar);
+            ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Eggs);
         });
         story.BindExternalFunction("PrepareFlourMagicTrick", () =>
         {
@@ -82,6 +91,14 @@ public class Binder
         {
             GameStateScript.Instance.Set(GameState.BAKER_DEAD);
             GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
+        });
+        story.BindExternalFunction("EndGame", () =>
+        {
+            FadeController.instance.TriggerFadeForever();
+        });
+        story.BindExternalFunction("SetFoundNest", () =>
+        {
+            GameStateScript.Instance.Set(GameState.FOUND_NEST);
         });
     }
 }

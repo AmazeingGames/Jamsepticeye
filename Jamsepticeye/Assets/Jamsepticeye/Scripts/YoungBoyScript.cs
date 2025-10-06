@@ -46,6 +46,7 @@ public class YoungBoyScript : MonoBehaviour
         FadeController.instance.TriggerFade();
 
         GameStateScript.Instance.Unset(GameState.HAS_COOKIES);
+        ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Cookies);
         yield return new WaitForSeconds(1f);
         transform.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
         yield return new WaitForSeconds(1f);

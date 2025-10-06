@@ -33,12 +33,18 @@ public class PlayerController : MonoBehaviour
 
     public DynamicMovement dynamicMover;
 
+    [SerializeField]
+    private TextAsset tutorial;
 
     void Awake()
     {
     }
     void Start()
     {
+        // Force cookies if left bakery without
+        if (GameStateScript.Instance.Is(GameState.BAKER_DEAD))
+            GameStateScript.Instance.Set(GameState.HAS_COOKIES);
+
         if (GameStateScript.Instance.Is(GameState.HAS_COOKIES))
             ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Cookies);
         if (GameStateScript.Instance.Is(GameState.HAS_SUGAR))
@@ -49,6 +55,8 @@ public class PlayerController : MonoBehaviour
             ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Rocks);
         if (GameStateScript.Instance.Is(GameState.HAS_EGGS))
             ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Eggs);
+        if (GameStateScript.Instance.Is(GameState.HAS_COFFEE))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Coffee);
 
         DialogueManager.GetInstance();
         moveDirection = new Vector2(1, 0);
@@ -59,8 +67,15 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // dynamicMover = GetComponentInParent<DynamicMovement>();
         SpawnPlayer();
+
+
+
+        if (GameStateScript.Instance.Is(GameState.FIRST_SPAWN))
+        {
+            DialogueManager.GetInstance().PlayDialogue(tutorial);
+            GameStateScript.Instance.Unset(GameState.FIRST_SPAWN);
+        }
     }
 
     void SpawnPlayer()
@@ -85,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (spriteRenderer != null)
             spriteRenderer.sprite = GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK) ? noCapeSprite : capeSprite;
 
+        float speed = 0f;
         if (!GameStateScript.Instance.Is(GameState.KID_CHOKING))
         {
             if (!DialogueManager.GetInstance().IsDialoguePlaying)
@@ -104,13 +120,14 @@ public class PlayerController : MonoBehaviour
                     moveDirection.Set(movement.x, movement.y);
                     moveDirection.Normalize();
                 }
+                speed = movement.magnitude;
             }
-
-            // Handle animation variables
-            animator.SetFloat("LookX", moveDirection.x);
-            animator.SetFloat("LookY", moveDirection.y);
-            animator.SetFloat("Speed", movement.magnitude);
-            animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
         }
+
+        // Handle animation variables
+        animator.SetFloat("LookX", moveDirection.x);
+        animator.SetFloat("LookY", moveDirection.y);
+        animator.SetFloat("Speed", speed);
+        animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
     }
 }

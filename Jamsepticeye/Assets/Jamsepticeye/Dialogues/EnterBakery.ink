@@ -11,17 +11,17 @@ INCLUDE globals.ink
         -> END
 
     - KNOWS_ABOUT_BAKER and not TALKED_TO_BAKER:
-        Hello sir? I’m told a Bjorn works here? #speaker:tim #emotion:neutral #layout:left
-        Sorry! We’re closed for today #speaker:baker #emotion:neutral #layout:right
-        But you’re inside?  #speaker:tim #emotion:neutral #layout:left
+        Hello sir? I'm told a Bjorn works here? #speaker:tim #emotion:neutral #layout:left
+        Sorry! We're closed for today #speaker:baker #emotion:neutral #layout:right
+        But you're inside?  #speaker:tim #emotion:neutral #layout:left
         Yes, well my assistant seems to have forgotten to order enough ingredients, #speaker:baker #emotion:neutral #layout:right
-        so I can’t open and I can’t leave to grab them myself until said godforsaken assistant arrives… 
+        so I can't open and I can't leave to grab them myself until said godforsaken assistant arrives… 
         but heaven knows the lad sleeps in til noon…
         What are you missing?  #speaker:tim #emotion:neutral #layout:left
         Eggs and sugar. Sort of important for a pastry chef are they not? #speaker:baker #emotion:neutral #layout:right
         I can go get them for you!  #speaker:tim #emotion:neutral #layout:left
         Really?  #speaker:baker #emotion:neutral #layout:right
-        Perfect, here’s some money, it should be enough for sugar and eggs at grocerymart. #speaker:baker #emotion:neutral #layout:right
+        Perfect, here's some money, it should be enough for sugar and eggs at grocerymart. #speaker:baker #emotion:neutral #layout:right
         ~ SetTalkedToBaker()
         ~ TALKED_TO_BAKER = true
         -> END

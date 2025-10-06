@@ -1161,7 +1161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -198938125430884413, guid: 0cbe918205e7b4945ae6289ef76f2060, type: 3}
+  m_Sprite: {fileID: 7216350912835819259, guid: 9d6970832cea75a42af8af5cb5acf17a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1331,6 +1331,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 544219901}
     m_Modifications:
+    - target: {fileID: 5638838932673079977, guid: ed87c02ddd789f04393a43e9708128b0, type: 3}
+      propertyPath: m_text
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 6937173572011565447, guid: ed87c02ddd789f04393a43e9708128b0, type: 3}
       propertyPath: m_Name
       value: Play
