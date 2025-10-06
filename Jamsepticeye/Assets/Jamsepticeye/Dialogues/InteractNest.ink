@@ -30,12 +30,23 @@ INCLUDE globals.ink
         Yea but I can't reach them :c #speaker:tim #emotion:sad #layout:left
         No big, I'm sure we can find something to knock it down #speaker:peep #emotion:neutral #layout:right
         -> END
+        ~ FOUND_NEST = true
+        ~ SetFoundNest()
     - not PLACED_HAMMOCK and not HAS_STICKS and HAS_ROCKS:
         I know you have to crack an egg to make an omelette, but we're baking right now. #speaker:peep #emotion:neutral #layout:right
         Your cape is large enough to catch them, we just need to attach it to something to soften the blow
+        ~ FOUND_NEST = true
+        ~ SetFoundNest()
         -> END
-    - NOT NEEDS_EGGS and not PLACED_HAMMOCK and not HAS_STICKS and not HAS_ROCKS:
+    - not NEEDS_EGGS and not PLACED_HAMMOCK and not HAS_STICKS and not HAS_ROCKS:
         Wow that nest sure is high up :o #speaker:peep #emotion:neutral #layout:right
+        ~ FOUND_NEST = true
+        ~ SetFoundNest()
+        -> END
+    - not PLACED_HAMMOCK and not HAS_STICKS and not HAS_ROCKS and NEEDS_EGGS:
+        Those eggs look PERFECT for the baker. #speaker:peep #emotion:neutral #layout:right
+        ~ FOUND_NEST = true
+        ~ SetFoundNest()
         -> END
 }
 

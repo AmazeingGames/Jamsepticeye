@@ -1,5 +1,4 @@
 using MoreMountains.Tools;
-using NUnit.Framework;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -40,7 +39,7 @@ public class ItemInteractable : ItemBase, IInteractable
 
     public void SetIcon(bool active)
     {
-        Assert.IsNotNull(InteractIcon, "Icon should not be null");
+        //Assert.IsNotNull(InteractIcon, "Icon should not be null");
 
         if (!active)
         {

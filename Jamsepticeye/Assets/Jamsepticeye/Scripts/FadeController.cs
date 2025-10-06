@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class FadeController : MonoBehaviour
     {
         StartCoroutine(FadeOutAndIn());
     }
+    public void TriggerFadeForever()
+    {
+        StartCoroutine(FadeIn());
+    }
 
     private IEnumerator FadeOutAndIn()
     {
@@ -52,6 +57,14 @@ public class FadeController : MonoBehaviour
 
         // Fade back in
         yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
+    }
+
+    private IEnumerator FadeIn()
+    {
+        yield return StartCoroutine(Fade(0f, 3f, fadeDuration));
+        yield return new WaitForSeconds(10);
+
+        SceneManager.LoadScene("Menu");
     }
 
     private IEnumerator Fade(float startAlpha, float endAlpha, float duration)
