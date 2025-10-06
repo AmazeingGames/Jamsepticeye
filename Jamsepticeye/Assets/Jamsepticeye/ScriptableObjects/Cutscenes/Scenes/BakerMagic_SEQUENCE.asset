@@ -16,13 +16,18 @@ MonoBehaviour:
   - <SceneImage>k__BackingField: {fileID: 702771967421315344, guid: 8e32af8ff8d207e4a8e8593e49f2f547, type: 3}
     <Text>k__BackingField: 'And with a wave of his magic wand, Tim performed his
       levitation trick for Bjorn.  '
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: -9088708466795462082, guid: d8b9cc4dd57a49949b684045f9e7513f, type: 3}
     <Text>k__BackingField: 'Timmy mutters his magic words, then - '
+    <Color>k__BackingField: {r: 0.9245283, g: 0.31922388, b: 0.31922388, a: 0}
   - <SceneImage>k__BackingField: {fileID: 2798397324699779027, guid: 45192016eeb78414598774479a129ef7, type: 3}
     <Text>k__BackingField: POOF
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: 2906886895624515699, guid: dedc23ccf28003c4d8d2e45a32380f6a, type: 3}
     <Text>k__BackingField: 'The jar disappeared into thin air! Timmy was surprised
       it worked. '
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: 0}
     <Text>k__BackingField: He lowered his gaze to Bjorn who had seemingly fallen
       asleep during the act.
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
