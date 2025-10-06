@@ -23,7 +23,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
 
     [Header("Scene Global Properties")]
-    [SerializeField] float timeTillCanContinue = .5f;
+    [SerializeField] float timeTillCanContinue = 1f;
 
     bool CanContinueToNextLine
     {
@@ -100,7 +100,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     IEnumerator StartSceneEnd_CO()
     {
         yield return new WaitForSeconds(timeTillCanContinue);
-        canContinueToNextLine = true;
+        CanContinueToNextLine = true;
     }
 
     void HideText()
