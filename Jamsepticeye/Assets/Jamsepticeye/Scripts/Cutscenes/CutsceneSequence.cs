@@ -5,4 +5,6 @@ using UnityEngine;
 public class CutsceneSequence : ScriptableObject
 {
     [field: SerializeField] public List<CutsceneScene> Scenes { get; private set; }
+
+    public int musicIndexForCutscene;
 }

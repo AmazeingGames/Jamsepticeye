@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 // So much duplication with the dialogue manager indicates some refactoring should be done
 public class CutscenesPlayer : MonoBehaviour, ICutscenesService
@@ -62,6 +64,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     {
         cutscene_CANVAS.enabled = true;
         currentSequence = cutsceneSequence;
+        RuntimeManager.StudioSystem.setParameterByName("MusicType", cutsceneSequence.musicIndexForCutscene);
         sceneIndex = -1;
 
         DisplayNextScene();
