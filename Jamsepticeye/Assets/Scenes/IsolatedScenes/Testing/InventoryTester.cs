@@ -32,7 +32,7 @@ public class InventoryTester : MonoBehaviour
         if (ServiceLocator.GetInventoryService().HasItem(itemData))
             ServiceLocator.GetInventoryService().UseItem(itemData);
         else
-            ServiceLocator.GetInventoryService().CollectItem(itemData);
+            ServiceLocator.GetInventoryService().CollectItem(itemData.MyItemType);
 #endif
     }
 }
