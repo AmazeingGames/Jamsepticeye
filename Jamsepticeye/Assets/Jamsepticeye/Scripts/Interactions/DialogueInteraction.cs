@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,6 +18,17 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
 
     bool IInteractable.CanInteract()
         => iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
+
+    public static EventHandler<DialogueInteractEventArgs> DialogueInteractEventHandler;
+
+    public class DialogueInteractEventArgs : EventArgs
+    {
+        public DialogueInteractEventArgs()
+        {
+
+        }
+    }
+
 
     public void Interact()
     {

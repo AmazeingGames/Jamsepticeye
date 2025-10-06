@@ -280,7 +280,7 @@ MonoBehaviour:
           iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
-        - colorIndex: 0
+        - colorIndex: 7
           iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0

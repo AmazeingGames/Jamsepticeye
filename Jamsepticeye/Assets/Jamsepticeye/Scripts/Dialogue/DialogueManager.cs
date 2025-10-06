@@ -1,5 +1,6 @@
 using EasyTextEffects;
 using Ink.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -171,10 +172,23 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         Debug.Log("Exit dialogue");
     }
 
+    public static EventHandler<StartDialogueLineEventArgs> StartDialogueLineEventHandler;
+
+    public class StartDialogueLineEventArgs : EventArgs
+    {
+        public readonly Speaker speaker;
+        public StartDialogueLineEventArgs(Speaker speaker)
+        {
+            this.speaker = speaker;
+        }
+    }
+
+
     void ContinueStory()
     {
         if (!currentStory.canContinue)
             StartCoroutine(ExitDialogueMode());
+
 
         string upcomingLine = currentStory.Continue();
 
@@ -194,6 +208,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     void DisplayLine(string line)
     {
         Debug.Log("Display Line");
+        StartDialogueLineEventHandler?.Invoke(this, new(currentSpeaker));
         dialogue_TMP.enabled = true;
         dialogue_TMP.text = line;
 
