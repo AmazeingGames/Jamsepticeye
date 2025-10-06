@@ -77,10 +77,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
             ExitCutscene();
 
         if (isStoppingSpam)
-        {
-            // Debug.Log("Stopping Spam");
             return;
-        }
 
         if (Input.GetButtonDown("Continue") && currentSequence != null && CanContinueToNextLine && !isStoppingSpam)
             DisplayNextScene();
