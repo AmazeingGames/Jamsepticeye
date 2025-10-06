@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b874d9261e9394db7f56f1af0fa884, type: 3}
+  m_Name: Opening_SEQUENCE
+  m_EditorClassIdentifier: 
+  <Scenes>k__BackingField:
+  - <SceneImage>k__BackingField: {fileID: -7270624933174599472, guid: 95354ad51d0b24c2ca546c3366468c8c, type: 3}
+    <Text>k__BackingField: 'It was a quiet Sunday afternoon. '
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: 'Timothy was practicing his magic for an upcoming show-and-tell
+      at school when all of a sudden -  '
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  - <SceneImage>k__BackingField: {fileID: -4022940630234271022, guid: 8eb9eb825c1424ed0bcfce0955e328cc, type: 3}
+    <Text>k__BackingField: 
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  - <SceneImage>k__BackingField: {fileID: -328446561339415147, guid: fc246b1d1490d4927a51c3ea07dd5c86, type: 3}
+    <Text>k__BackingField: "\u201CIT IS TIME FOR YOUR REAPER EVALUATION GRI- "
+    <Color>k__BackingField: {r: 0, g: 0.8113208, b: 0.004733909, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: ":... Grimm?\u201D "
+    <Color>k__BackingField: {r: 0.015686275, g: 0.80784315, b: 0.003921569, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 7509161642177801645, guid: 7978ce04555fe45e6af87cbeb518aa78, type: 3}
+    <Text>k__BackingField: 
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 4956963625648758221, guid: 80d1c97c48ee14270a951d88b7418ca6, type: 3}
+    <Text>k__BackingField: "\u2026 "
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 9022700854806120788, guid: 667bd19cb83d9410da30444795824ea7, type: 3}
+    <Text>k__BackingField: "Eh\u2026 What was your name? "
+    <Color>k__BackingField: {r: 0.043137256, g: 0.8039216, b: 0.011764706, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "\u201CThere are some who call me\u2026.  "
+    <Color>k__BackingField: {r: 0.44855833, g: 0, b: 1, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "Tim\u201D "
+    <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
+  - <SceneImage>k__BackingField: {fileID: -9136075920162958818, guid: b5af8be9b0ba8487ba3dcec2aba10aa4, type: 3}
+    <Text>k__BackingField: "O, okay Tim \u2026WELL, IT WOULD SEEM AN ERROR HAS BEEN
+      MADE,  "
+    <Color>k__BackingField: {r: 0.08235294, g: 0.79607844, b: 0.023529412, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: 'BUT AS GRIMM IS NOWHERE TO BE FOUND, '
+    <Color>k__BackingField: {r: 0.08235294, g: 0.79607844, b: 0.023529412, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: 'THOU SHALT HAVE TO DO! '
+    <Color>k__BackingField: {r: 0.0627451, g: 0.8, b: 0.015686275, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 3510312996609040684, guid: 3cbbee394055b40f6b44bcb0473b5ccd, type: 3}
+    <Text>k__BackingField: " Dude\u2026 he doesn\u2019t even have a reaping scythe. "
+    <Color>k__BackingField: {r: 1, g: 0, b: 0.7673602, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 6300704042175037147, guid: 96fdcda284eb04a459ba44c16c9ef790, type: 3}
+    <Text>k__BackingField: 'Here - kid, give me that -  '
+    <Color>k__BackingField: {r: 0.0627451, g: 0.8, b: 0.015686275, a: 1}
+  - <SceneImage>k__BackingField: {fileID: -279527615139795837, guid: e78e59e3e794941c1b22c22f3fae5563, type: 3}
+    <Text>k__BackingField: '*Tape sounds* '
+    <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  - <SceneImage>k__BackingField: {fileID: -214456237174548318, guid: 9a284d740091d4f0783fdec879feed1c, type: 3}
+    <Text>k__BackingField: 'There. Fixed.  '
+    <Color>k__BackingField: {r: 0.015686275, g: 0.80784315, b: 0.003921569, a: 0}
+  - <SceneImage>k__BackingField: {fileID: -5352638288804969511, guid: f99b90e00176f41c3aee00ce53c5db04, type: 3}
+    <Text>k__BackingField: 'Woahhh does this make my magic better ? '
+    <Color>k__BackingField: {r: 0.44705883, g: 0, b: 1, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "Uhhhh\u2026 yeah, sure  "
+    <Color>k__BackingField: {r: 0.043137256, g: 0.8039216, b: 0.011764706, a: 1}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: 'Just make sure to show these specific people your cool
+      new magic.  '
+    <Color>k__BackingField: {r: 0.0627451, g: 0.8, b: 0.015686275, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "They\u2019re huge magician fans, so your upgrade will
+      surely knock\u2019em dead!  "
+    <Color>k__BackingField: {r: 0.08235294, g: 0.79607844, b: 0.023529412, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "They are all located somewhere in your town, I\u2019m
+      sure you\u2019ll find them with how tiny it is. "
+    <Color>k__BackingField: {r: 0.08235294, g: 0.79607844, b: 0.023529412, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: 'Now, our time is up, but we wouldn''t leave you helpless,
+      take Grim Peeper as your trustful companion"  '
+    <Color>k__BackingField: {r: 0.08235294, g: 0.79607844, b: 0.023529412, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "They will help guide you on your path toward greatness!\u201D "
+    <Color>k__BackingField: {r: 0.08235294, g: 0.79607844, b: 0.023529412, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 8664413157609682859, guid: e36e6f37df6f04a7087f7059d2e8799d, type: 3}
+    <Text>k__BackingField: Who dares summon the mighty.. Oh it's you guys, this had
+      better be good, I've got stuff to do, people to reap.
+    <Color>k__BackingField: {r: 0, g: 0.16926694, b: 1, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: "Oh gee! Thank you Mr skeleton, sir! I\u2019ve always
+      wanted my own magician\u2019s assistant!! But\u2026 where is the sparkly outfit
+      :o? "
+    <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
+  - <SceneImage>k__BackingField: {fileID: 5594251832131594059, guid: 061ac5dbc63954cb9a3482420e745670, type: 3}
+    <Text>k__BackingField: 'I think it''s time for people to see the incredible Timm!
+      Let''s go Peeps! '
+    <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
