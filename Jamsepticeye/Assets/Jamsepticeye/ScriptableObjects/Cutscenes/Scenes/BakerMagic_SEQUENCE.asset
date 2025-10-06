@@ -31,5 +31,5 @@ MonoBehaviour:
     <Text>k__BackingField: He lowered his gaze to Bjorn who had seemingly fallen
       asleep during the act.
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <TextDialog>k__BackingField: {fileID: 4900000, guid: 774461bf23aec474eb7bc8b496892746, type: 3}
+  <DialogueToPlayOnEnd>k__BackingField: {fileID: 4900000, guid: 774461bf23aec474eb7bc8b496892746, type: 3}
   musicIndexForCutscene: 0

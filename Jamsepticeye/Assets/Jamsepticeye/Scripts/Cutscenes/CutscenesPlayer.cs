@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
 using FMOD.Studio;
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 
 // So much duplication with the dialogue manager indicates some refactoring should be done
 public class CutscenesPlayer : MonoBehaviour, ICutscenesService
@@ -45,6 +46,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     CutsceneSequence currentSequence;
 
     int sceneIndex;
+
+    CutsceneScene CurrectScene => currentSequence.Scenes[sceneIndex];
 
     void Awake()
     {
@@ -115,9 +118,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
         StartCoroutine(StartSceneEnd_CO());
 
-        SetTextVisibility(scene.ShouldHideText);
         
-        if (!scene.ShouldHideText)
+        if (scene.HasText)
             StartDisplayingText(scene);
 
         if (scene.HasNewImage)
@@ -136,13 +138,14 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         CanContinueToNextLine = true;
     }
 
-    void SetTextVisibility(bool hide)
+    void SetTextVisibility(bool visible)
     {
-        textBox_IMAGE.enabled = hide;
-        if (hide)
-        {
+        Debug.Log($"visible: {visible}");
+        textBox_IMAGE.enabled = visible;
+        dialogue_TMP.alpha = visible ? 255 : 0;
+
+        if (!visible)
             dialogue_TMP.text = "";
-        }    
         
     }
 
@@ -152,7 +155,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     {
         // Finish hiding previous text before playing text
         // Resume execution on animation finish -> OnFinishDisappearAnimation()
-        if (sceneIndex != 0 && !currentSequence.Scenes[sceneIndex - 1].ShouldHideText) // did previous scene have text?
+        if (sceneIndex != 0 && !currentSequence.Scenes[sceneIndex - 1].HasText) // did previous scene have text?
         {
             foreach (string disappearEffect in disappearEffects)
                 dialogue_EFFECT.StartManualEffect(disappearEffect);
@@ -165,13 +168,13 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void PlayText(string text)
     {
-        SetTextVisibility(false);
         dialogue_TMP.text = text;
+        dialogue_TMP.color = CurrectScene.Color;
 
         foreach (string effect in appearEffects)
             dialogue_EFFECT.StartManualEffect(effect);
 
-        dialogue_TMP.enabled = true;
+        SetTextVisibility(CurrectScene.HasText);
     }
 
     public void OnFinishTextDisappearAnimation()
