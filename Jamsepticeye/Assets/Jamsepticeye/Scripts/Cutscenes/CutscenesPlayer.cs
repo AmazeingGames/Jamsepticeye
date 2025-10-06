@@ -1,12 +1,13 @@
 using EasyTextEffects;
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
+using FMOD.Studio;
+using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using FMODUnity;
-using FMOD.Studio;
-using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 
 // So much duplication with the dialogue manager indicates some refactoring should be done
 public class CutscenesPlayer : MonoBehaviour, ICutscenesService
@@ -46,6 +47,23 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     CutsceneSequence currentSequence;
 
     int sceneIndex;
+
+    public static EventHandler<TriggeringCutsceneEventArgs> TriggeringCutsceneEventHandler;
+    public static EventHandler<ExitedCutsceneEventArgs> ExitedCutsceneEventHandler;
+
+    public class ExitedCutsceneEventArgs : EventArgs { public ExitedCutsceneEventArgs() { } }
+
+
+
+    public class TriggeringCutsceneEventArgs : EventArgs 
+    { 
+        public readonly CutsceneSequence cutsceneSequence; 
+        public TriggeringCutsceneEventArgs(CutsceneSequence cutsceneSequence) 
+        { 
+            this.cutsceneSequence = cutsceneSequence; 
+        } 
+    }
+
 
     CutsceneScene CurrectScene => currentSequence.Scenes[sceneIndex];
 
@@ -94,12 +112,17 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     public void TriggerCutsceneSequence(CutsceneSequence cutsceneSequence)
     {
+        OnTriggeringCutscene(cutsceneSequence);
+        DisplayNextScene();
+    }
+
+    void OnTriggeringCutscene(CutsceneSequence cutsceneSequence)
+    {
+        TriggeringCutsceneEventHandler?.Invoke(this, new(cutsceneSequence));
         cutscene_CANVAS.enabled = true;
         currentSequence = cutsceneSequence;
-        // RuntimeManager.StudioSystem.setParameterByName("MusicType", cutsceneSequence.musicIndexForCutscene);
-        sceneIndex = -1;
 
-        DisplayNextScene();
+        sceneIndex = -1;
     }
 
     void DisplayNextScene()
@@ -188,8 +211,16 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         if (currentSequence != null && currentSequence.DialogueToPlayOnEnd != null)
             ServiceLocator.GetDialogueService().PlayDialogue(currentSequence.DialogueToPlayOnEnd);
 
-        currentSequence = null;
+        
+        OnExitedCutscene();
+    }
+
+    void OnExitedCutscene() 
+    {
         sceneIndex = -1;
+        currentSequence = null;
         cutscene_CANVAS.enabled = false;
+
+        ExitedCutsceneEventHandler?.Invoke(this, new()); 
     }
 }

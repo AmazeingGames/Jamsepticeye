@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +26,21 @@ public class DoorTeleport : MonoBehaviour
     private void Update()
     {
         timeSinceLastTeleport += Time.deltaTime;
+    }
+
+    public static EventHandler<TeleportingEventArgs> TeleportingEventHandler;
+
+    public class TeleportingEventArgs : EventArgs
+    {
+        public TeleportingEventArgs()
+        {
+
+        }
+    }
+
+    void OnTeleporting()
+    {
+
     }
 
     public void Teleport()

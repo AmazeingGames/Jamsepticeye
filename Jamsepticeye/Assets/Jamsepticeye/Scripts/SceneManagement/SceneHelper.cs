@@ -6,7 +6,7 @@ using VInspector;
 
 public class SceneHelper : MonoBehaviour, ISceneHelperService
 {
-    List<GameObject> sceneRootObjects = new();
+    readonly List<SceneRoot> sceneRoots = new();
 
     void Awake()
         => ServiceLocator.ProvideSceneHelperService(this);
@@ -40,16 +40,16 @@ public class SceneHelper : MonoBehaviour, ISceneHelperService
 
     void EnableSceneRoot(Scene scene)
     {
-        foreach (GameObject root in sceneRootObjects)
-            root.SetActive(false);
+        foreach (SceneRoot root in sceneRoots)
+            root.gameObject.SetActive(false);
 
         foreach (GameObject gameObject in scene.GetRootGameObjects())
         {
             Debug.Log("loop");
-            if (gameObject.name == "Root")
+            if (gameObject.TryGetComponent(out SceneRoot sceneRoot))
             {
                 gameObject.SetActive(true);
-                sceneRootObjects.Add(gameObject);
+                sceneRoots.Add(sceneRoot);
                 return;
             }
         }
