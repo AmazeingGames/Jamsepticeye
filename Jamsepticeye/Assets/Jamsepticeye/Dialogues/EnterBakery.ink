@@ -42,7 +42,7 @@ INCLUDE globals.ink
 
 
     - TALKED_TO_BAKER and HAS_EGGS and HAS_SUGAR:
-        Hello Mr.____ Sir, we got your eggs and sugar!  #speaker:tim #emotion:neutral #layout:left
+        Hello Mr Bjorn Sir, we got your eggs and sugar!  #speaker:tim #emotion:neutral #layout:left
         Oh no way! So quickly too! Come in! Come in! #speaker:baker #emotion:neutral #layout:right
         ~ ALLOWED_BAKERY = true
         ~ SetAllowBakery()

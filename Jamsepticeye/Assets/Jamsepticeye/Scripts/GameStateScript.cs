@@ -27,7 +27,7 @@ public enum GameState : int
     ROCK_THROWN = 0x200000,
     KID_CHOKING = 0x400000,
     COOKIES_BAKED = 0x800000,
-    FIRST_SPAWN = 0x1000000,
+    KID_CHOKING_DIALOG = 0x1000000,
 
 };
 
@@ -53,7 +53,8 @@ public class GameStateScript
         Set(GameState.NEEDS_ROCKS);
         Set(GameState.NEEDS_STICKS);
 
-        Set(GameState.FIRST_SPAWN);
+        // Not sure if this is needed for anything
+        // Set(GameState.FIRST_SPAWN);
 #if DEBUG
 
         Set(GameState.KNOWS_ABOUT_BAKER);

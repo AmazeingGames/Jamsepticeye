@@ -49,11 +49,10 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     void Awake()
     {
         ServiceLocator.ProvideCutscenesService(this);
-    }    
+    }
 
     void Start()
     {
-
         ExitCutscene();
         if (!hasPlayedOpening)
         {
@@ -61,7 +60,6 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
             // Resets state back to neutral
             TriggerCutsceneSequence(startingCutscene);
         }
-        ExitCutscene();
     }
 
     [SerializeField] float spamPreventionTimer = .2f;
@@ -90,7 +88,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
             timeSinceLastSpacePress = 0;
         }
 
-        
+
     }
 
     public void TriggerCutsceneSequence(CutsceneSequence cutsceneSequence)

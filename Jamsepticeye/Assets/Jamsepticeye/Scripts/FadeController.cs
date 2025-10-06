@@ -61,8 +61,9 @@ public class FadeController : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
-        yield return StartCoroutine(Fade(0f, 3f, fadeDuration));
+        yield return StartCoroutine(Fade(0f, 1f, 3f));
         yield return new WaitForSeconds(10);
+        yield return StartCoroutine(Fade(1f, 0f, 1f));
 
         SceneManager.LoadScene("Menu");
     }

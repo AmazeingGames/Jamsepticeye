@@ -44135,8 +44135,8 @@ Transform:
   m_GameObject: {fileID: 1352403337}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.97, y: -27.67, z: 0.025973871}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.09, y: -27.99, z: 0}
+  m_LocalScale: {x: 1.274, y: 1.274, z: 1.274}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1448403909}
@@ -56230,9 +56230,14 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   kid_hurt:
-    <Name>k__BackingField: 
+    <Name>k__BackingField: Young boy
     <EmotionToSprite>k__BackingField:
-      serializedKvps: []
+      serializedKvps:
+      - Key: neutral
+        Value: {fileID: -7035404275079219974, guid: cd54fae16183d434e8667003984d8277, type: 3}
+        index: 0
+        isKeyRepeated: 0
+        isKeyNull: 0
       dividerPos: 0.33
   nurse:
     <Name>k__BackingField: DocDoor (Nurse)
@@ -409804,8 +409809,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -267739477
+  m_SortingLayer: -3
   m_SortingOrder: -39
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -432199,11 +432204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6061738217486683372, guid: 773b44bacf8dcb744b785877f3c99882, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.07615
+      value: -7.84
       objectReference: {fileID: 0}
     - target: {fileID: 6061738217486683372, guid: 773b44bacf8dcb744b785877f3c99882, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.147299
+      value: -28.19
       objectReference: {fileID: 0}
     - target: {fileID: 6061738217486683372, guid: 773b44bacf8dcb744b785877f3c99882, type: 3}
       propertyPath: m_LocalPosition.z
@@ -432240,7 +432245,7 @@ PrefabInstance:
     - target: {fileID: 6710833659724083675, guid: 773b44bacf8dcb744b785877f3c99882, type: 3}
       propertyPath: tutorial
       value: 
-      objectReference: {fileID: 4900000, guid: 28ce2365f171ed947bc5d8b2e174c2a0, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6710833659724083675, guid: 773b44bacf8dcb744b785877f3c99882, type: 3}
       propertyPath: spawnPoint
       value: 

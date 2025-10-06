@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 
 public class BakerScript : MonoBehaviour
 {
+    [SerializeField] CutsceneSequence bakerMagic;
+
     private Animator animator;
 
     [SerializeField]
@@ -23,8 +25,6 @@ public class BakerScript : MonoBehaviour
     [SerializeField]
     List<GameObject> itemsAppearOnDeath = new List<GameObject>();
 
-    [SerializeField] CutsceneSequence bakerMagic;
-    [SerializeField]
     public void Start()
     {
         animator = GetComponent<Animator>();
@@ -43,16 +43,13 @@ public class BakerScript : MonoBehaviour
             item.SetActive(true);
 
     }
+
     public void Update()
     {
         //if (GameStateScript.Instance.Is(GameState.COOKIES_BAKED) && !GameStateScript.Instance.Is(GameState.HAS_COOKIES))
 
         if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.FLOUR_MAGIC_READY))
         {
-            // Magic time!!
-
-            // TODO: Cutscene baker death
-
             ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(bakerMagic);
             GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
 
@@ -62,6 +59,8 @@ public class BakerScript : MonoBehaviour
             foreach (var item in itemsDisappearOnDeath)
                 item.SetActive(false);
 
+            cookies.GetComponent<SimpleInteraction>().enabled_ = true;
+            cookies.GetComponent<SimpleInteraction>().InteractIcon.SetActive(true);
             return;
         }
         if (pathFollower != null)
@@ -106,5 +105,8 @@ public class BakerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         cookies.SetActive(true);
+        // Put it on table, not interactable
+        cookies.GetComponent<SimpleInteraction>().enabled_ = false;
+        cookies.GetComponent<SimpleInteraction>().InteractIcon.SetActive(false);
     }
 }

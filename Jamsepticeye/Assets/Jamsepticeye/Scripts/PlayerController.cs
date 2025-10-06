@@ -32,10 +32,6 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
 
     public DynamicMovement dynamicMover;
-
-    [SerializeField]
-    private TextAsset tutorial;
-
     void Awake()
     {
     }
@@ -72,14 +68,6 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         SpawnPlayer();
-
-
-
-        if (GameStateScript.Instance.Is(GameState.FIRST_SPAWN))
-        {
-            DialogueManager.GetInstance().PlayDialogue(tutorial);
-            GameStateScript.Instance.Unset(GameState.FIRST_SPAWN);
-        }
     }
 
     void SpawnPlayer()
