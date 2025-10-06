@@ -32,8 +32,24 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
 
     public DynamicMovement dynamicMover;
+
+
+    void Awake()
+    {
+    }
     void Start()
     {
+        if (GameStateScript.Instance.Is(GameState.HAS_COOKIES))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Cookies);
+        if (GameStateScript.Instance.Is(GameState.HAS_SUGAR))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Sugar);
+        if (GameStateScript.Instance.Is(GameState.HAS_STICKS))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Stick);
+        if (GameStateScript.Instance.Is(GameState.HAS_ROCKS))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Rocks);
+        if (GameStateScript.Instance.Is(GameState.HAS_EGGS))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Eggs);
+
         DialogueManager.GetInstance();
         moveDirection = new Vector2(1, 0);
         openMenuAction.Enable();
