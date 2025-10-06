@@ -12,6 +12,11 @@ public class AudioPlayer : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void PlayAudio()
     {
 

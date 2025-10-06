@@ -23,9 +23,12 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     [SerializeField] List<string> appearEffects;
     [SerializeField] List<string> disappearEffects;
 
+    [SerializeField] CutsceneSequence startingCutscene;
 
     [Header("Scene Global Properties")]
     [SerializeField] float timeTillCanContinue = 1f;
+
+    static bool hasPlayedOpening = false;
 
     bool CanContinueToNextLine
     {
@@ -50,21 +53,53 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void Start()
     {
-        // Resets state back to neutral
+# if DEBUG
+        ExitCutscene();
+        return;
+#endif
+        if (!hasPlayedOpening)
+        {
+            hasPlayedOpening = true;
+            // Resets state back to neutral
+            TriggerCutsceneSequence(startingCutscene);
+        }
         ExitCutscene();
     }
 
+    [SerializeField] float spamPreventionTimer = .1f;
+
+    bool isStoppingSpam;
+    float timeSinceLastSpacePress;
     private void Update()
     {
-        if (Input.GetButtonDown("Continue") && currentSequence != null && CanContinueToNextLine)
+        timeSinceLastSpacePress += Time.deltaTime;
+
+        if (timeSinceLastSpacePress > spamPreventionTimer)
+            isStoppingSpam = false;
+
+        if (isStoppingSpam)
+        {
+            // Debug.Log("Stopping Spam");
+            return;
+        }
+
+        if (Input.GetButtonDown("Continue") && currentSequence != null && CanContinueToNextLine && !isStoppingSpam)
             DisplayNextScene();
+
+        if (Input.GetButtonDown("Continue"))
+        {
+            isStoppingSpam = true;
+            timeSinceLastSpacePress = 0;
+        }
+
+        
     }
 
     public void TriggerCutsceneSequence(CutsceneSequence cutsceneSequence)
     {
         cutscene_CANVAS.enabled = true;
         currentSequence = cutsceneSequence;
-        RuntimeManager.StudioSystem.setParameterByName("MusicType", cutsceneSequence.musicIndexForCutscene);
+        // RuntimeManager.StudioSystem.setParameterByName("MusicType", cutsceneSequence.musicIndexForCutscene);
         sceneIndex = -1;
 
         DisplayNextScene();
@@ -74,6 +109,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     {
         sceneIndex++;
         CanContinueToNextLine = false;
+        timeSinceLastSpacePress = 0;
 
         if (sceneIndex >= currentSequence.Scenes.Count)
         {
