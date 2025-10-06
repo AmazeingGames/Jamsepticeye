@@ -12,7 +12,7 @@ public class SugarScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.NEEDS_SUGAR))
+            if (GameStateScript.Instance.Is(GameState.NEEDS_SUGAR))
             {
                 dialogueInteraction.Enable();
             }

@@ -22,11 +22,11 @@ public class InteractNestScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.PLACED_HAMMOCK))
+            if (GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK))
             {
                 if (hammockObject != null && !hammockObject.activeInHierarchy
-                    && GameStateScript.instance.Is(GameState.NEEDS_EGGS)
-                    && !GameStateScript.instance.Is(GameState.NEST_ROCKING_STARTS))
+                    && GameStateScript.Instance.Is(GameState.NEEDS_EGGS)
+                    && !GameStateScript.Instance.Is(GameState.NEST_ROCKING_STARTS))
                 {
                     //nest.GetComponent<CircleCollider2D>().enabled = false; // Disable large collider 
                     //nest.GetComponent<BoxCollider2D>().enabled = true; // Enable small collider
@@ -34,10 +34,10 @@ public class InteractNestScript : MonoBehaviour
                     StartCoroutine(PutHammock());
                     FadeController.instance.TriggerFade();
                 }
-                else if (GameStateScript.instance.Is(GameState.NEST_ROCKING_STARTS) && !GameStateScript.instance.Is(GameState.ROCK_THROWN))
+                else if (GameStateScript.Instance.Is(GameState.NEST_ROCKING_STARTS) && !GameStateScript.Instance.Is(GameState.ROCK_THROWN))
                 {
                     // We are ready to throw!
-                    GameStateScript.instance.Set(GameState.ROCK_THROWN);
+                    GameStateScript.Instance.Set(GameState.ROCK_THROWN);
                     hammockContainer.SetActive(true);
                     hammockObject.SetActive(false);
                     dialogueInteraction.Disable();
@@ -65,7 +65,7 @@ public class InteractNestScript : MonoBehaviour
             }
             if (!disabledExplicit)
             {
-                if (GameStateScript.instance.Is(GameState.NEEDS_EGGS))
+                if (GameStateScript.Instance.Is(GameState.NEEDS_EGGS))
                 {
                     dialogueInteraction.Enable();
                 }
@@ -94,17 +94,18 @@ public class InteractNestScript : MonoBehaviour
         hammockObject.SetActive(false);
         hammockContainer.SetActive(false);
         nest.SetActive(false);
-        GameStateScript.instance.Set(GameState.HAS_EGGS);
-        GameStateScript.instance.Unset(GameState.NEEDS_EGGS);
-        GameStateScript.instance.Unset(GameState.PLACED_HAMMOCK);
-        playerController.transform.position = new Vector2(-17.7f, -16.7f);
+        ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Eggs);
+        GameStateScript.Instance.Set(GameState.HAS_EGGS);
+        GameStateScript.Instance.Unset(GameState.NEEDS_EGGS);
+        GameStateScript.Instance.Unset(GameState.PLACED_HAMMOCK);
+        playerController.transform.position = new Vector2(-17.8f, -16.84f);
         yield return null;
     }
 
     private IEnumerator SetupHammockScene()
     {
         hammockObject.SetActive(true);
-        playerController.transform.position = new Vector2(-17.7f, -16.7f);
+        playerController.transform.position = new Vector2(-17.7f, -16.84f);
 
         yield return null;
     }

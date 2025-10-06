@@ -32,8 +32,24 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
 
     public DynamicMovement dynamicMover;
+
+
+    void Awake()
+    {
+    }
     void Start()
     {
+        if (GameStateScript.Instance.Is(GameState.HAS_COOKIES))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Cookies);
+        if (GameStateScript.Instance.Is(GameState.HAS_SUGAR))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Sugar);
+        if (GameStateScript.Instance.Is(GameState.HAS_STICKS))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Stick);
+        if (GameStateScript.Instance.Is(GameState.HAS_ROCKS))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Rocks);
+        if (GameStateScript.Instance.Is(GameState.HAS_EGGS))
+            ServiceLocator.GetInventoryService().CollectItem(ItemData.ItemType.Eggs);
+
         DialogueManager.GetInstance();
         moveDirection = new Vector2(1, 0);
         openMenuAction.Enable();
@@ -43,7 +59,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-       // dynamicMover = GetComponentInParent<DynamicMovement>();
+        // dynamicMover = GetComponentInParent<DynamicMovement>();
         SpawnPlayer();
     }
 
@@ -56,37 +72,45 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector2 position = rigidbody2d.position + movement * speed * Time.deltaTime;
-        rigidbody2d.MovePosition(position);
+        if (!DialogueManager.GetInstance().IsDialoguePlaying)
+        {
+            Vector2 position = rigidbody2d.position + movement * speed * Time.deltaTime;
+            rigidbody2d.MovePosition(position);
+        }
     }
 
     void Update()
     {
         // In case there is no animation running, we need to show the correct sprite
         if (spriteRenderer != null)
-            spriteRenderer.sprite = GameStateScript.instance.Is(GameState.PLACED_HAMMOCK) ? noCapeSprite : capeSprite;
+            spriteRenderer.sprite = GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK) ? noCapeSprite : capeSprite;
 
-
-        if (dynamicMover != null && dynamicMover.isMoving)
+        if (!GameStateScript.Instance.Is(GameState.KID_CHOKING))
         {
-            if (dynamicMover.finalLookDirectionSet)
-                moveDirection = dynamicMover.finalLookDirection; // Update the move direction to the final direction so this class doesn't override the player look direction
-            return;
-        }
+            if (!DialogueManager.GetInstance().IsDialoguePlaying)
+            {
+                if (dynamicMover != null && dynamicMover.isMoving)
+                {
+                    if (dynamicMover.finalLookDirectionSet)
+                        moveDirection = dynamicMover.finalLookDirection; // Update the move direction to the final direction so this class doesn't override the player look direction
+                    return;
+                }
 
-        // Handle movement
-        movement = moveAction.ReadValue<Vector2>();
-        if (!Mathf.Approximately(movement.x, 0.0f) || !Mathf.Approximately(movement.y, 0.0f))
-        {
-            // He do be schmoving
-            moveDirection.Set(movement.x, movement.y);
-            moveDirection.Normalize();
-        }
+                // Handle movement
+                movement = moveAction.ReadValue<Vector2>();
+                if (!Mathf.Approximately(movement.x, 0.0f) || !Mathf.Approximately(movement.y, 0.0f))
+                {
+                    // He do be schmoving
+                    moveDirection.Set(movement.x, movement.y);
+                    moveDirection.Normalize();
+                }
+            }
 
-        // Handle animation variables
-        animator.SetFloat("LookX", moveDirection.x);
-        animator.SetFloat("LookY", moveDirection.y);
-        animator.SetFloat("Speed", movement.magnitude);
-        animator.SetBool("HasCape", !GameStateScript.instance.Is(GameState.PLACED_HAMMOCK));
+            // Handle animation variables
+            animator.SetFloat("LookX", moveDirection.x);
+            animator.SetFloat("LookY", moveDirection.y);
+            animator.SetFloat("Speed", movement.magnitude);
+            animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
+        }
     }
 }

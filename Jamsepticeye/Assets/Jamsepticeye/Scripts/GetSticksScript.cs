@@ -7,7 +7,7 @@ public class GetSticksScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.NEEDS_STICKS))
+            if (GameStateScript.Instance.Is(GameState.NEEDS_STICKS))
             {
                 dialogueInteraction.Enable();
             }

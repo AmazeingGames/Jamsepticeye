@@ -12,11 +12,11 @@ public class GroceryStoreEggsScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.HAS_EGGS))
+            if (GameStateScript.Instance.Is(GameState.HAS_EGGS))
             {
                 dialogueInteraction.Disable();
                 dialogueInteraction.HideIcon();
-            } else if (GameStateScript.instance.Is(GameState.NEEDS_EGGS))
+            } else if (GameStateScript.Instance.Is(GameState.NEEDS_EGGS))
             {
                 dialogueInteraction.ShowIcon();
             }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c1285f37ac052a54da7ad842163d74bb
+guid: cd54fae16183d434e8667003984d8277
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7697785520067461367
-    second: Flour_broken_jar_lid_0
+      213: -7035404275079219974
+    second: Young_Boy_sick_Dia_UI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flour_broken_jar_lid_0
+      name: Young_Boy_sick_Dia_UI_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 11
-        width: 37
-        height: 27
+        x: 0
+        y: 0
+        width: 90
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90fbb37aad8fb2590800000000000000
-      internalID: -7697785520067461367
+      spriteID: af473a446193d5e90800000000000000
+      internalID: -7035404275079219974
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Flour_broken_jar_lid_0: -7697785520067461367
+      Young_Boy_sick_Dia_UI_0: -7035404275079219974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

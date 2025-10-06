@@ -66,9 +66,4 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
         if (interactIcon != null)
             interactIcon.SetActive(false);
     }
-
-    public void OnStart()
-    {
-        throw new System.NotImplementedException();
-    }
 }

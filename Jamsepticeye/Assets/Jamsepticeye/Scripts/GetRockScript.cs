@@ -12,7 +12,7 @@ public class GetRockScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.NEEDS_ROCKS))
+            if (GameStateScript.Instance.Is(GameState.NEEDS_ROCKS))
             {
                 dialogueInteraction.Enable();
             }
