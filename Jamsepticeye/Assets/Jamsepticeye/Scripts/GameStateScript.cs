@@ -56,11 +56,14 @@ public class GameStateScript
         // Not sure if this is needed for anything
         // Set(GameState.FIRST_SPAWN);
 #if DEBUG
-
-        Set(GameState.KNOWS_ABOUT_BAKER);
-        Set(GameState.TALKED_TO_BAKER);
-        Set(GameState.HAS_SUGAR);
-        Set(GameState.HAS_EGGS);
+        if (CheatsSettings.Instance.CheatGameStateOnStart)
+        {
+            Set(GameState.KNOWS_ABOUT_BAKER);
+            Set(GameState.TALKED_TO_BAKER);
+            Set(GameState.HAS_SUGAR);
+            Set(GameState.HAS_EGGS);
+        }
+        
         //Set(GameState.HAS_COOKIES);
         // Set(GameState.HAS_COFFEE);
 #endif

@@ -54869,6 +54869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneDestination: GroceryStoreScene
   enabled_: 1
+  doorCooldownDuration: 0
 --- !u!114 &1835720005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56360,7 +56361,8 @@ MonoBehaviour:
         isKeyRepeated: 0
         isKeyNull: 0
       dividerPos: 0.33
-  canContinueToNextLine: 0
+  canContinueToNextLine: 1
+  maxTimeTillCanContinue: 0.5
 --- !u!4 &1909709400
 Transform:
   m_ObjectHideFlags: 0
@@ -407482,6 +407484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneDestination: BakeryScene
   enabled_: 0
+  doorCooldownDuration: 0
 --- !u!1001 &2032322127
 PrefabInstance:
   m_ObjectHideFlags: 0

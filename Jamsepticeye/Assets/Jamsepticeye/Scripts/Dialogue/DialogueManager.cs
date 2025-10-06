@@ -118,14 +118,9 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (!IsDialoguePlaying)
             return;
 
-        Debug.Log("exit2");
-
 #if DEBUG
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("exit");
             StartCoroutine(ExitDialogueMode_CO());
-        }
 #endif
         Assert.IsNotNull(currentStory, "Current story shoud not be null");
         Assert.IsNotNull(currentStory.currentChoices, "Current choices shoud not be null");
