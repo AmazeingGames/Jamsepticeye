@@ -73,6 +73,9 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         if (timeSinceLastSpacePress > spamPreventionTimer)
             isStoppingSpam = false;
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ExitCutscene();
+
         if (isStoppingSpam)
         {
             // Debug.Log("Stopping Spam");
@@ -87,8 +90,6 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
             isStoppingSpam = true;
             timeSinceLastSpacePress = 0;
         }
-
-
     }
 
     public void TriggerCutsceneSequence(CutsceneSequence cutsceneSequence)
@@ -117,9 +118,9 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
         StartCoroutine(StartSceneEnd_CO());
 
-        if (scene.ShouldHideText)
-            HideText();
-        else
+        SetTextVisibility(scene.ShouldHideText);
+        
+        if (!scene.ShouldHideText)
             StartDisplayingText(scene);
 
         if (scene.HasNewImage)
@@ -138,17 +139,22 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         CanContinueToNextLine = true;
     }
 
-    void HideText()
+    void SetTextVisibility(bool hide)
     {
-        textBox_IMAGE.enabled = false;
-        dialogue_TMP.text = "";
+        textBox_IMAGE.enabled = hide;
+        if (hide)
+        {
+            dialogue_TMP.text = "";
+        }    
+        
     }
+
 
     bool isWaitingToPlayText;
     void StartDisplayingText(CutsceneScene scene)
     {
         // Finish hiding previous text before playing text
-        // Resume execution on animation finish
+        // Resume execution on animation finish -> OnFinishDisappearAnimation()
         if (sceneIndex != 0 && !currentSequence.Scenes[sceneIndex - 1].ShouldHideText) // did previous scene have text?
         {
             foreach (string disappearEffect in disappearEffects)
@@ -162,6 +168,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void PlayText(string text)
     {
+        SetTextVisibility(false);
         dialogue_TMP.text = text;
 
         foreach (string effect in appearEffects)
@@ -173,9 +180,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     public void OnFinishTextDisappearAnimation()
     {
         if (isWaitingToPlayText)
-        {
             PlayText(currentSequence.Scenes[sceneIndex].Text);
-        }
     }
 
     void ExitCutscene()

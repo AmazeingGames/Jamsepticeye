@@ -24,7 +24,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidbody2d;
     private SpriteRenderer spriteRenderer;
 
-    public float speed = 3.0f;
+    [SerializeField] float defaultSpeed = 3.0f;
+    float currentMoveSpeed;
+
+    [Header("Debug")]
+    [SerializeField] float cheatSpeed = 12;
 
     public Sprite capeSprite;
     public Sprite noCapeSprite;
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
     }
+
     void Start()
     {
         // Force cookies if left bakery without
@@ -81,13 +86,18 @@ public class PlayerController : MonoBehaviour
     {
         if (!DialogueManager.GetInstance().IsDialoguePlaying)
         {
-            Vector2 position = rigidbody2d.position + movement * speed * Time.deltaTime;
+            Vector2 position = rigidbody2d.position + movement * currentMoveSpeed * Time.deltaTime;
             rigidbody2d.MovePosition(position);
         }
     }
 
     void Update()
     {
+        currentMoveSpeed = defaultSpeed;
+#if DEBUG
+        if (Input.GetKey(KeyCode.LeftShift))
+            currentMoveSpeed = cheatSpeed;
+#endif
         // In case there is no animation running, we need to show the correct sprite
         if (spriteRenderer != null)
             spriteRenderer.sprite = GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK) ? noCapeSprite : capeSprite;

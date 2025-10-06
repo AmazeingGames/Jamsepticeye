@@ -10,15 +10,27 @@ public class TriggerZoneScript : MonoBehaviour
 
     [SerializeField]
     private Vector2 spawnPoint;
+    [SerializeField] float teleportCooldownDuration = 5;
+    float timeSinceLastTeleported;
+
+    private void Update()
+    {
+        timeSinceLastTeleported += Time.deltaTime;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (teleportCooldownDuration >= timeSinceLastTeleported)
+            return;
+
         PlayerController controller = other.GetComponent<PlayerController>();
         if (controller != null)
         {
             if (requiredGameState == new GameState() || GameStateScript.Instance.Is(requiredGameState))
             {
-                SceneManager.LoadScene(sceneDestination);
+                timeSinceLastTeleported = teleportCooldownDuration;
+
+                ServiceLocator.GetSceneHelperSerivce().EnableOnlyTargetScene(sceneDestination);
                 SpawnPointHandler.TeleportToScene(spawnPoint);
             }
         }

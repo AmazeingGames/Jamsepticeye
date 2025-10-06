@@ -66,6 +66,9 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     InkExternalFunctions inkExternalFunctions;
     private bool isDialogueDisappearing;
 
+    [Header("Dialogue Global Properties")]
+    [SerializeField] float maxTimeTillCanContinue = .5f;
+
     void Awake()
     {
         speakerNameToData = new()
@@ -115,9 +118,12 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         if (!IsDialoguePlaying)
             return;
 
+        Debug.Log("exit2");
+
 #if DEBUG
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("exit");
             StartCoroutine(ExitDialogueMode_CO());
         }
 #endif
@@ -208,10 +214,21 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
         CanContinueToNextLine = false;
 
+        StartCoroutine(StartSceneEnd_CO());
+
         // Can only continue to the next once the current line finishes displaying
         // From here, flow of execution is decided in Update to resolve next action
         foreach (string effect in appearEffects)
+        {
+            Debug.Log("Playing appear effects");
             dialogue_EFFECT.StartManualEffect(effect);
+        }
+    }
+
+    IEnumerator StartSceneEnd_CO()
+    {
+        yield return new WaitForSeconds(maxTimeTillCanContinue);
+        CanContinueToNextLine = true;
     }
 
     // Called from the inspector when the text finishes displaying

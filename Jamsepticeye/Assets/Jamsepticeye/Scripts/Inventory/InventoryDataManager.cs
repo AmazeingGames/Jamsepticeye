@@ -47,7 +47,7 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
 
     void Update()
     {
-        Debug.Log("running");
+        // Debug.Log("running");
         itemsInInventoryProxy.Clear();
         usedItemsProxy.Clear();
 
@@ -72,7 +72,7 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
 
             yield return new WaitForSeconds(1);
 
-            Debug.Log("running");
+           //  Debug.Log("running");
             foreach (var item in itemsInInventory)
                 itemsInInventoryProxy.Add(item);
 

@@ -27,7 +27,7 @@ MonoBehaviour:
     <Text>k__BackingField: "\u201CIT IS TIME FOR YOUR REAPER EVALUATION GRI- "
     <Color>k__BackingField: {r: 0, g: 0.8113208, b: 0.004733909, a: 0}
   - <SceneImage>k__BackingField: {fileID: 0}
-    <Text>k__BackingField: ":... Grimm?\u201D "
+    <Text>k__BackingField: "... Grimm?\u201D "
     <Color>k__BackingField: {r: 0.015686275, g: 0.80784315, b: 0.003921569, a: 0}
   - <SceneImage>k__BackingField: {fileID: 7509161642177801645, guid: 7978ce04555fe45e6af87cbeb518aa78, type: 3}
     <Text>k__BackingField: 
@@ -40,7 +40,7 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.043137256, g: 0.8039216, b: 0.011764706, a: 0}
   - <SceneImage>k__BackingField: {fileID: 0}
     <Text>k__BackingField: "\u201CThere are some who call me\u2026.  "
-    <Color>k__BackingField: {r: 0.44855833, g: 0, b: 1, a: 0}
+    <Color>k__BackingField: {r: 0.44855833, g: 0, b: 1, a: 1}
   - <SceneImage>k__BackingField: {fileID: 0}
     <Text>k__BackingField: "Tim\u201D "
     <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
@@ -104,5 +104,5 @@ MonoBehaviour:
     <Text>k__BackingField: 'I think it''s time for people to see the incredible Timm!
       Let''s go Peeps! '
     <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
-  <TextDialog>k__BackingField: {fileID: 4900000, guid: 28ce2365f171ed947bc5d8b2e174c2a0, type: 3}
+  <DialogueToPlayOnEnd>k__BackingField: {fileID: 0}
   musicIndexForCutscene: 0

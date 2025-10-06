@@ -1,14 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[Obsolete]
 public class ScenesManager : MonoBehaviour
 {
-    void Update()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-    }
+    // Do not use
 }

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public static class ServiceLocator 
@@ -5,6 +6,7 @@ public static class ServiceLocator
     static IDialogueService dialogueService;
     static IInventoryDataService inventoryDataService;
     static ICutscenesService cutscenesService;
+    static ISceneHelperService sceneHelperService;
 
     public static void ProvideDialogueService(IDialogueService dialogueService)
         => ServiceLocator.dialogueService = dialogueService;
@@ -25,6 +27,12 @@ public static class ServiceLocator
 
     public static ICutscenesService GetCutscenesService()
         => cutscenesService;
+
+    public static void ProvideSceneHelperService(ISceneHelperService sceneHelper)
+        => sceneHelperService = sceneHelper;
+
+    public static ISceneHelperService GetSceneHelperSerivce()
+        => sceneHelperService;
 }
 
 

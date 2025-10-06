@@ -65,7 +65,7 @@ public class FadeController : MonoBehaviour
         yield return new WaitForSeconds(10);
         yield return StartCoroutine(Fade(1f, 0f, 1f));
 
-        SceneManager.LoadScene("Menu");
+        ServiceLocator.GetSceneHelperSerivce().EnableOnlyTargetScene("Menu");
     }
 
     private IEnumerator Fade(float startAlpha, float endAlpha, float duration)

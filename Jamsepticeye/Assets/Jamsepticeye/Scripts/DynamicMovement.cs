@@ -3,7 +3,7 @@ using UnityEngine;
 public class DynamicMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
+    public float defaultMoveSpeed = 5f;
     public float reachThreshold = 0.1f;
     public bool updateAnimatorAutomatically = true;
     public bool moveHorizontalFirst = true; // If false, moves vertical first
@@ -12,6 +12,9 @@ public class DynamicMovement : MonoBehaviour
     [Header("References")]
     public Animator animator;
 
+    [Header("Debug")]
+    public float cheatSpeed = 20;
+
     public Vector2 finalLookDirection;
     public bool finalLookDirectionSet = false;
     private Vector2 finalDestination;
@@ -19,6 +22,7 @@ public class DynamicMovement : MonoBehaviour
     public bool isMoving = false;
     private bool onSecondLeg = false; // True when moving on the second axis
 
+    float currentMoveSpeed;
     void Start()
     {
         if (animator == null)
@@ -27,6 +31,12 @@ public class DynamicMovement : MonoBehaviour
 
     void Update()
     {
+        currentMoveSpeed = defaultMoveSpeed;
+#if DEBUG
+
+        if (Input.GetKey(KeyCode.LeftShift))
+            currentMoveSpeed = cheatSpeed;
+#endif
         if (isMoving)
         {
             MoveToDestination();
@@ -110,7 +120,7 @@ public class DynamicMovement : MonoBehaviour
         Vector2 newPos = Vector2.MoveTowards(
             currentPos,
             currentWaypoint,
-            moveSpeed * Time.deltaTime
+            currentMoveSpeed * Time.deltaTime
         );
 
         transform.position = newPos;
@@ -164,7 +174,7 @@ public class DynamicMovement : MonoBehaviour
         }
 
 
-        SetAnimatorValues(lookX, lookY, moveSpeed);
+        SetAnimatorValues(lookX, lookY, currentMoveSpeed);
     }
 
     void SetAnimatorValues(float lookX, float lookY, float speed)

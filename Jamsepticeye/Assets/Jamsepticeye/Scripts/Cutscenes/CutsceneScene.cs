@@ -15,5 +15,5 @@ public struct CutsceneScene
     [SerializeField] public string EntrySFX {get; private set; }
 
     public bool HasNewImage { get => SceneImage != null; }
-    public bool ShouldHideText { get => Text == string.Empty; }
+    public bool ShouldHideText { get => Text == string.Empty || Text == "" || Text == " "; }
 }

@@ -9,6 +9,9 @@ public class DoorTeleport : MonoBehaviour
     [SerializeField]
     private bool enabled_ = false;
 
+    [SerializeField] float doorCooldownDuration = 5f;
+    float timeSinceLastTeleport;
+
     public void Enable()
     {
         enabled_ = true;
@@ -18,13 +21,20 @@ public class DoorTeleport : MonoBehaviour
     {
         enabled_ = false;
     }
+
+    private void Update()
+    {
+        timeSinceLastTeleport += Time.deltaTime;
+    }
+
     public void Teleport()
     {
-        if (enabled_)
+        if (enabled_ && timeSinceLastTeleport >= 5)
         {
-            SceneManager.LoadScene(sceneDestination);
+            ServiceLocator.GetSceneHelperSerivce().EnableOnlyTargetScene(sceneDestination);
             SpawnPointHandler.TeleportToScene(Vector2.zero);
         }
     }
+
 }
 
