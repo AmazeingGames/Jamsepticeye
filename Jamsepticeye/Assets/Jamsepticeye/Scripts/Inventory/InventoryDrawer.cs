@@ -1,8 +1,7 @@
 using Ink.Parsed;
 using UnityEngine;
 using System.Collections.Generic;
-using VInspector.Libs;
-using NUnit.Framework;
+using UnityEngine.Assertions;
 
 public class InventoryDrawer : MonoBehaviour
 {
@@ -37,6 +36,6 @@ public class InventoryDrawer : MonoBehaviour
         var itemIconInstance = ItemDataToInstance[itemData];
         ItemDataToInstance.Remove(itemData);
         itemIconInstance.gameObject.SetActive(false);
-        itemIconInstance.Destroy();
+        Destroy(itemIconInstance);
     }
 }
