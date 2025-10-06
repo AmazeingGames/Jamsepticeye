@@ -8,12 +8,7 @@ public class CutsceneTriggerer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(startingSequence);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (startingSequence != null)
+            ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(startingSequence);
     }
 }

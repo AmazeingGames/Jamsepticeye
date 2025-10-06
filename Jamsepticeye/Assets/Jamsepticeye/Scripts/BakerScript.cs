@@ -19,6 +19,10 @@ public class BakerScript : MonoBehaviour
     GameObject cookies;
 
     [SerializeField]
+    CutsceneSequence bakerMagicSequence;
+
+
+    [SerializeField]
     List<GameObject> itemsDisappearOnDeath = new List<GameObject>();
     [SerializeField]
     List<GameObject> itemsAppearOnDeath = new List<GameObject>();
@@ -50,6 +54,7 @@ public class BakerScript : MonoBehaviour
             GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
 
             // TODO: Cutscene baker death
+            ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(bakerMagicSequence);
             dialogueInteraction.Interact();
             foreach (var item in itemsAppearOnDeath)
                 item.SetActive(true);

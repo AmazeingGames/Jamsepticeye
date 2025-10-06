@@ -14098,6 +14098,7 @@ Transform:
   m_Children:
   - {fileID: 910491373}
   - {fileID: 224366177}
+  - {fileID: 1822463438}
   m_Father: {fileID: 365458377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &220024822
@@ -24301,6 +24302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110df1eef59691c47bcf811b3d97ffd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chokingDialog: {fileID: 0}
 --- !u!114 &627514881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54029,6 +54031,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3645153944098276324, guid: e541aab3a60fc79418f5e2ffb8cbd3aa, type: 3}
   m_PrefabInstance: {fileID: 1821020183}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1822463437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822463438}
+  - component: {fileID: 1822463439}
+  m_Layer: 0
+  m_Name: CutsceneTriggerer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822463438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822463437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219915915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1822463439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822463437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdac7f88998b0504099dd3bf4f8f8157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingSequence: {fileID: 0}
+  bakerMagicSequence: {fileID: 11400000, guid: 2828f44ed2e43e3408930c967df77ee7, type: 2}
 --- !u!1001 &1823796229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56046,6 +56094,11 @@ MonoBehaviour:
         index: 0
         isKeyRepeated: 0
         isKeyNull: 0
+      dividerPos: 0.33
+  kid_hurt:
+    <Name>k__BackingField: 
+    <EmotionToSprite>k__BackingField:
+      serializedKvps: []
       dividerPos: 0.33
   nurse:
     <Name>k__BackingField: Nurse

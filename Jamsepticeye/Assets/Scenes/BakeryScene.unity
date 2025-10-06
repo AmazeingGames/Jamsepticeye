@@ -2046,6 +2046,11 @@ MonoBehaviour:
         isKeyRepeated: 0
         isKeyNull: 0
       dividerPos: 0.33
+  kid_hurt:
+    <Name>k__BackingField: 
+    <EmotionToSprite>k__BackingField:
+      serializedKvps: []
+      dividerPos: 0.33
   nurse:
     <Name>k__BackingField: Nurse
     <EmotionToSprite>k__BackingField:
@@ -23328,6 +23333,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathFollower: {fileID: 1985072719}
+  collider_: {fileID: 1673213655}
+  cookies: {fileID: 1455341351}
+  bakerMagicSequence: {fileID: 11400000, guid: 2828f44ed2e43e3408930c967df77ee7, type: 2}
+  itemsDisappearOnDeath:
+  - {fileID: 1645867391}
+  - {fileID: 1985072711}
+  itemsAppearOnDeath:
+  - {fileID: 1420930385}
+  - {fileID: 1735273236}
+  - {fileID: 465714849}
+  - {fileID: 1284224424}
+  - {fileID: 2048625445}
 --- !u!114 &1985072721
 MonoBehaviour:
   m_ObjectHideFlags: 0
