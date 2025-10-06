@@ -23,6 +23,7 @@ MonoBehaviour:
     - 40ba617dd5494b2469e23be5e257acc1
     - eeff54a829856524d80209082f27f638
     - 594aa23529a60ad4fb453e9a4f1b9b4a
+    - e05d1009efc0a3b44a0f60efc59340c9
     values:
     - goDatas_byGlobalId:
         keys:
@@ -222,6 +223,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-69416083-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-2018290586-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-481505905-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-509188630-0
         values:
         - colorIndex: 7
           iconNameOrGuid: Canvas Icon
@@ -287,16 +289,20 @@ MonoBehaviour:
           iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
         - colorIndex: 7
-          iconNameOrGuid: 
-          isIconRecursive: 0
-          isColorRecursive: 0
-        - colorIndex: 4
-          iconNameOrGuid: Settings Icon
-          isIconRecursive: 0
-          isColorRecursive: 0
-        - colorIndex: 4
-          iconNameOrGuid: Settings Icon
+          iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 7
@@ -334,6 +340,79 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-694974071-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-2023589078-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-1487243661-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-879995523-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-156740645-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-487841063-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-442702298-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-1973346525-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-1901311984-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-1322066542-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-79423646-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-701410302-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-859931252-0
+        - globalObjectIdString: GlobalObjectId_V1-2-e05d1009efc0a3b44a0f60efc59340c9-587087514-0
+        values:
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: UnityLogo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: NetworkTransform Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: MeshCollider Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: LightProbes Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
