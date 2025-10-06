@@ -18,7 +18,6 @@ public class BakerScript : MonoBehaviour
     [SerializeField]
     GameObject cookies;
 
-    SimpleInteraction cookieInteraction = new SimpleInteraction();
     [SerializeField]
     List<GameObject> itemsDisappearOnDeath = new List<GameObject>();
     [SerializeField]

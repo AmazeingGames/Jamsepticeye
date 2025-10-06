@@ -27,16 +27,11 @@ public class SimpleInteraction : MonoBehaviour, IInteractable
         }
     }
 
-    public void Disable()
+    private void Disable()
     {
         enabled_ = false;
         if (interactIcon != null)
             interactIcon.SetActive(false);
-    }
-
-
-
-    void Start()
-    {
+        gameObject.SetActive(false);
     }
 }

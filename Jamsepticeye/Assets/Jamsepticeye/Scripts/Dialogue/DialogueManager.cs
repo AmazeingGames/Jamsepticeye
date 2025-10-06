@@ -35,6 +35,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     [SerializeField] public Speaker peeper;
     [SerializeField] public Speaker tim;
     [SerializeField] public Speaker kid;
+    [SerializeField] public Speaker kid_hurt;
     [SerializeField] public Speaker nurse;
 
     Dictionary<string, Speaker> speakerNameToData;
@@ -73,6 +74,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             { "peep", peeper },
             { "tim", tim },
             { "kid", kid },
+            { "kid_hurt", kid_hurt },
             { "nurse", nurse },
         };
 
