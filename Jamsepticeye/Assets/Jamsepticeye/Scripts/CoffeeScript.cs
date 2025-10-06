@@ -12,7 +12,7 @@ public class CoffeeScript : MonoBehaviour
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (GameStateScript.instance.Is(GameState.HAS_COFFEE))
+            if (GameStateScript.Instance.Is(GameState.HAS_COFFEE))
             {
                 dialogueInteraction.Disable();
             }

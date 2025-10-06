@@ -25,49 +25,39 @@ public enum GameState : int
     ALLOWED_BAKERY = 0x80000,
     FLOUR_MAGIC_READY = 0x100000,
     ROCK_THROWN = 0x200000,
+    KID_CHOKING = 0x400000,
+    COOKIES_BAKED = 0x800000,
 
 };
 
-public class GameStateScript : MonoBehaviour
+public class GameStateScript
 {
-    [SerializeField]
-    GameState[] testingGameStates; // Only for testing purposes
-
     [SerializeField]
     private GameState gameState;
 
-    public static GameStateScript instance { get; private set; }
+    private static GameStateScript _instance;
 
-    private void Awake()
+    public static GameStateScript Instance
     {
-        // Check if an instance already exists
-        if (instance != null && instance != this)
+        get
         {
-            // If another instance exists, destroy this one
-            Destroy(gameObject);
-            return;
+            if (_instance == null)
+            {
+                _instance = new GameStateScript();
+            }
+            return _instance;
         }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
-
-    private void Start()
+    private GameStateScript()
     {
-        foreach (GameState state in testingGameStates)
-        {
-            gameState |= state;
-        }
-        if (testingGameStates.Length == 0)
-        {
-            // Initialize our game state with the correct state
-            Set(GameState.NEEDS_ROCKS);
-            Set(GameState.NEEDS_EGGS);
-            //Set(GameState.NEEDS_STICKS);
-            Set(GameState.HAS_STICKS);
-            Set(GameState.HAS_ROCKS);
-        }
+        // Initialize our game state with the correct state
+        Set(GameState.NEEDS_ROCKS);
+        Set(GameState.NEEDS_STICKS);
+        Set(GameState.KNOWS_ABOUT_BAKER);
+        Set(GameState.TALKED_TO_BAKER);
+        Set(GameState.HAS_EGGS);
+        Set(GameState.HAS_SUGAR);
     }
     public bool Is(GameState state)
     {
