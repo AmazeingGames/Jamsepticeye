@@ -1,6 +1,7 @@
 using FMODUnity;
 using Sirenix.OdinInspector;
 using System;
+using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -18,6 +19,9 @@ public class SceneRoot : MonoBehaviour
 
     public static EventHandler<EnablingRootEventArgs> EnablingRootEventHandler;
 
+    [SerializeField] float timeToWaitForScenesToLoad_SECONDS = .1f;
+    static bool hasLoadedRootBefore = false;
+
     public class EnablingRootEventArgs : EventArgs
     {
         public readonly bool isSettingActive;
@@ -34,7 +38,6 @@ public class SceneRoot : MonoBehaviour
         }
     }
 
-
     private void OnValidate()
     {
         if (hasNoTilemaps)
@@ -49,11 +52,26 @@ public class SceneRoot : MonoBehaviour
 
     public void OnEnable()
     {
-        EnablingRootEventHandler?.Invoke(this, new(RootData, true, groundOverlayTilemap, groundTilemap));
+        StartCoroutine(OnEnablingRoot_CO(true));
     }
 
     private void OnDisable()
     {
-        EnablingRootEventHandler?.Invoke(this, new(RootData, false, groundOverlayTilemap, groundTilemap));
+        // We only need the time delay if we're enabling the game object
+        // Ignore suggestion; calling with StartCoroutine produces an exception due to object being disabled
+        OnEnablingRoot_CO(false);
+    }
+
+    IEnumerator OnEnablingRoot_CO(bool setActive)
+    {
+        // Wait for everything in the scene to finish loading
+        if (!hasLoadedRootBefore)
+        {
+            hasLoadedRootBefore = true;
+            yield return new WaitForSeconds(timeToWaitForScenesToLoad_SECONDS);
+        }
+        EnablingRootEventHandler?.Invoke(this, new(RootData, setActive, groundOverlayTilemap, groundTilemap));
     }
 }
+
+        

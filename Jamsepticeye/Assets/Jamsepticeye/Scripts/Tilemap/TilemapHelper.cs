@@ -31,19 +31,19 @@ public class TilemapHelper : MonoBehaviour, ITilemapHelperService
         }
     }
 
-    public TileBase GetTileUnderObject(GameObject gameObject)
+    public DataTile GetTileUnderObject(GameObject gameObject)
         => GetTileAtPosition(Vector3Int.FloorToInt(gameObject.transform.position));
 
-    public TileBase GetTileAtPosition(Vector3Int position)
+    public DataTile GetTileAtPosition(Vector3Int position)
     {
         position.z = 0;
-        TileBase overlayTile = groundOverlayTilemap.GetTile(position);
+        DataTile overlayTile = groundOverlayTilemap.GetTile(position) as DataTile;
         Debug.Log($"Is overlay tile null? {overlayTile == null}");
 
         if (overlayTile != null)
             return overlayTile;
 
-        var groundTile = groundTilemap.GetTile(position);
+        DataTile groundTile = groundTilemap.GetTile(position) as DataTile;
         Debug.Log($"Is ground tile null? {groundTile == null}");
         return groundTile;
     }

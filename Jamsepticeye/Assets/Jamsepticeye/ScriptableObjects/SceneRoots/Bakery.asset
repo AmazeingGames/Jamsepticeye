@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7e54306ed052c4299fd28d34493e5a, type: 3}
   m_Name: Bakery
   m_EditorClassIdentifier: 
-  <MyMusic>k__BackingField: 5
-  <MyAmbience>k__BackingField: 1
-  <StartSFX>k__BackingField: 1
+  <MySceneType>k__BackingField: 2

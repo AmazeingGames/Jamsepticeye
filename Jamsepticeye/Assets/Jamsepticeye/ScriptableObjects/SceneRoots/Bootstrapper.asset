@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c7e54306ed052c4299fd28d34493e5a, type: 3}
-  m_Name: GroceryStore
+  m_Name: Bootstrapper
   m_EditorClassIdentifier: 
-  <MySceneType>k__BackingField: 3
+  <MySceneType>k__BackingField: 5

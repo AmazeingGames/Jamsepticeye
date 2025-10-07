@@ -1,3 +1,4 @@
+using DG.Tweening;
 using EasyTextEffects;
 using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using FMOD.Studio;
@@ -19,7 +20,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     [SerializeField] Canvas cutscene_CANVAS;
     [SerializeField] TextMeshProUGUI dialogue_TMP;
     [SerializeField] TextEffect dialogue_EFFECT;
-    [SerializeField] Image canContine_IMAGE;
+    [SerializeField] Image canContinue_IMAGE;
     [SerializeField] Image textBox_IMAGE;
     [SerializeField] Image scene_IMAGE;
 
@@ -31,7 +32,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     [Header("Scene Global Properties")]
     [SerializeField] float timeTillCanContinue = 1f;
-
+    [SerializeField] float fadeTime_Seconds = .25f;
     static bool hasPlayedOpening = false;
 
     bool CanContinueToNextLine
@@ -40,7 +41,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         set
         {
             canContinueToNextLine = value;
-            canContine_IMAGE.enabled = value;
+            canContinue_IMAGE.enabled = value;
         }
     }
 
@@ -64,7 +65,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         }
     }
 
-    CutsceneScene CurrectScene => currentSequence.Scenes[sceneIndex];
+    CutsceneScene CurrentScene => currentSequence.Scenes[sceneIndex];
 
     void Awake()
     {
@@ -140,19 +141,17 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
         StartCoroutine(StartSceneEnd_CO());
 
-        SetTextVisibility(CurrectScene.HasText);
 
         if (scene.HasText)
             StartDisplayingText(scene);
+        else
+            SetTextVisibility(CurrentScene.HasText);
 
         if (scene.HasNewImage)
             scene_IMAGE.sprite = scene.SceneImage;
 
         if (scene.EntrySFX != "")
             Debug.Log($"Play sfx {scene.EntrySFX}");
-
-        if (scene.EntryAnimation != null)
-            Debug.Log($"Play entry animation {scene.EntryAnimation}");
 
         OnStateChanged(StateChange.Continued);
     }
@@ -166,12 +165,12 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     void SetTextVisibility(bool visible)
     {
         Debug.Log($"visible: {visible}");
-        textBox_IMAGE.enabled = visible;
-        dialogue_TMP.alpha = visible ? 255 : 0;
-
-        if (!visible)
-            dialogue_TMP.text = "";
         
+        float targetAlpha = visible ? 1 : 0;
+
+            // textBox_IMAGE.enabled = visible;
+        textBox_IMAGE.DOFade(targetAlpha, fadeTime_Seconds);
+        dialogue_TMP.DOFade (targetAlpha, fadeTime_Seconds); 
     }
 
 
@@ -180,33 +179,43 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     {
         // Finish hiding previous text before playing text
         // Resume execution on animation finish -> OnFinishDisappearAnimation()
-        if (sceneIndex != 0 && !currentSequence.Scenes[sceneIndex - 1].HasText) // did previous scene have text?
+        if (sceneIndex != 0 && currentSequence.Scenes[sceneIndex - 1].HasText) // did previous scene have text?
         {
+            Debug.Log("wait for animation");
+
             foreach (string disappearEffect in disappearEffects)
                 dialogue_EFFECT.StartManualEffect(disappearEffect);
             isWaitingToPlayText = true;
             return;
         }
         else
+        {
+            Debug.Log("Play immediately ");
             PlayText(scene.Text);
+        }
     }
 
     void PlayText(string text)
     {
         float alpha = dialogue_TMP.alpha;
 
-        dialogue_TMP.text = text;
-        dialogue_TMP.color = CurrectScene.Color;
+        dialogue_TMP.color = CurrentScene.Color;
         dialogue_TMP.alpha = alpha;
 
         foreach (string effect in appearEffects)
             dialogue_EFFECT.StartManualEffect(effect);
+
+        dialogue_TMP.text = text;
+        Debug.Log($"Set dialogue text. {dialogue_TMP.text} | {text}");
+
+        SetTextVisibility(true);
     }
 
     public void OnFinishTextDisappearAnimation()
     {
         if (isWaitingToPlayText)
             PlayText(currentSequence.Scenes[sceneIndex].Text);
+        isWaitingToPlayText = false;
     }
 
     void ExitCutscene()

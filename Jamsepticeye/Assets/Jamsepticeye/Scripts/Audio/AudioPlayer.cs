@@ -64,7 +64,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void Awake()
     {
-        Assert.IsNull(audioPlayerInstance, "More than one AudioPlayer should not be present in the sscene.");
+        Debug.Log("More than one AudioPlayer should not be present in the scene.");
 
         audioPlayerInstance = this;
         currentParameters = new Dictionary<Type, object>
@@ -96,6 +96,7 @@ public class AudioPlayer : MonoBehaviour
 
     void Scenes_SetRootActive(object sender, EnablingRootEventArgs e)
     {
+        Debug.Log("Handled");
         if (!hasStartedMusic)
         {
             hasStartedMusic = true;
@@ -107,8 +108,39 @@ public class AudioPlayer : MonoBehaviour
                 Play(Events.Ambience_REF);
         }
 
-        SetParameter(e.rootData.MyAmbience);
-        SetParameter(e.rootData.MyMusic);
+        switch (e.rootData.MySceneType)
+        {
+            case SceneRootData.SceneType.None:
+                throw new NotImplementedException("Scene type on RootData scriptable object not set.");
+
+            case SceneRootData.SceneType.Village:
+                SetParameter(AmbType.Village);
+                SetParameter(MusicType.Village);
+                Play(Events.DoorOpen_REF);
+                break;
+
+            case SceneRootData.SceneType.Bakery:
+                SetParameter(AmbType.Store);
+                SetParameter(MusicType.Bakery);
+                Play(Events.DoorOpen_REF);
+                break;
+
+            case SceneRootData.SceneType.GroceryStore:
+                SetParameter(AmbType.Store);
+                SetParameter(MusicType.Grocery);
+                Play(Events.BellRing_REF);
+                break;
+
+            case SceneRootData.SceneType.Menu:
+                SetParameter(MusicType.Menu);
+                break;
+
+            case SceneRootData.SceneType.Bootstrap:
+                break;
+
+            default:
+                throw new NotImplementedException("Scene type case not covered.");
+        }
     }
 
     public void Play(EventReference sound)

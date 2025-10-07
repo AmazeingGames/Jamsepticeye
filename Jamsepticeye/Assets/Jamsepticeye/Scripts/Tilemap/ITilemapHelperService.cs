@@ -3,6 +3,6 @@ using UnityEngine.Tilemaps;
 
 public interface ITilemapHelperService 
 {
-    TileBase GetTileUnderObject(GameObject gameObject);
-    TileBase GetTileAtPosition(Vector3Int position);
+    DataTile GetTileUnderObject(GameObject gameObject);
+    DataTile GetTileAtPosition(Vector3Int position);
 }

@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7e54306ed052c4299fd28d34493e5a, type: 3}
   m_Name: Village
   m_EditorClassIdentifier: 
-  <MyMusic>k__BackingField: 3
-  <MyAmbience>k__BackingField: 0
+  <MySceneType>k__BackingField: 1

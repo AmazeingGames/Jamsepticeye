@@ -21,21 +21,17 @@ public class Stepper : MonoBehaviour
 
     public void OnStepped() 
     {
-        var tileUnderStepper = ServiceLocator.GetTilemapHelperSerivce().GetTileUnderObject(gameObject);
+        DataTile dataTileUnderStepper = ServiceLocator.GetTilemapHelperSerivce().GetTileUnderObject(gameObject);
 
-        Assert.IsNotNull(tileUnderStepper, "No tile exists below stepper.");
-
-        DataTile dataTile = tileUnderStepper as DataTile;
-
-        // Assert.IsNotNull(dataTile, "Tile under stepper is not a data tile");
-
-        if (dataTile == null)
+        if (dataTileUnderStepper == null)
         {
-            Debug.LogError("Tile under stepper is not a data tile: cannot trigger footstep.");
+            Debug.LogWarning($"No tile exists below stepper {gameObject.name}");
+
             return;
         }
-
-        SteppedEventHandler?.Invoke(this, new SteppedEventArgs(gameObject, dataTile));
+        
+        
+        SteppedEventHandler?.Invoke(this, new SteppedEventArgs(gameObject, dataTileUnderStepper));
     }
 
 }

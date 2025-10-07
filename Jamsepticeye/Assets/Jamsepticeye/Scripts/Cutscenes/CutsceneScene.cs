@@ -6,7 +6,6 @@ using VInspector;
 public struct CutsceneScene
 {
     // change
-    [SerializeField] public Animation EntryAnimation { get; private set; }
     [field: SerializeField] public Sprite SceneImage { get; private set; }
     [field: SerializeField] public string Text {get; private set; }
     [field: SerializeField] public Color Color { get; private set; }
@@ -15,5 +14,5 @@ public struct CutsceneScene
     [SerializeField] public string EntrySFX {get; private set; }
 
     public bool HasNewImage { get => SceneImage != null; }
-    public bool HasText { get => Text != string.Empty && Text != "" && Text != " "; }
+    [field: SerializeField] public bool HasText { get => Text != string.Empty && Text != "" && Text != " "; }
 }
