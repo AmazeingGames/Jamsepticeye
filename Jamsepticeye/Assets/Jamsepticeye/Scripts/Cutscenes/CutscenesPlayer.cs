@@ -213,6 +213,12 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     public void OnFinishTextDisappearAnimation()
     {
+        // We don't want to throw an error because you can force exit cutscenes with escape
+        if (currentSequence == null)
+        {
+            Debug.LogWarning("Cutscene sequence became null mid conversation");
+            return;
+        }
         if (isWaitingToPlayText)
             PlayText(currentSequence.Scenes[sceneIndex].Text);
         isWaitingToPlayText = false;
