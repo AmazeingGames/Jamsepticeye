@@ -1,4 +1,5 @@
 using FMODUnity;
+using Sirenix.OdinInspector;
 using System;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -7,7 +8,11 @@ using UnityEngine.Tilemaps;
 public class SceneRoot : MonoBehaviour
 {
     [field: SerializeField] SceneRootData RootData { get; set; }
+    [field: SerializeField] bool hasNoTilemaps;
+
+    [field: HideIf("hasNoTilemaps")]
     [field: SerializeField] Tilemap groundTilemap { get; set; }
+    [field: HideIf("hasNoTilemaps")]
     [field: SerializeField] Tilemap groundOverlayTilemap { get; set; }
 
     public static EventHandler<SetRootActiveEventArgs> SettingActiveEventHandler;
@@ -26,6 +31,9 @@ public class SceneRoot : MonoBehaviour
 
     private void OnValidate()
     {
+        if (hasNoTilemaps)
+            return;
+
         if (groundTilemap == null)
             Debug.LogError("Ground tilemap should not be null");
 

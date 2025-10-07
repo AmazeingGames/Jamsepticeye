@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MyMusic>k__BackingField: 5
   <MyAmbience>k__BackingField: 1
+  <StartSFX>k__BackingField: 1

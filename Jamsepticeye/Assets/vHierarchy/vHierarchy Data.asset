@@ -232,6 +232,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-931355476-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1633375520-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-181382827-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-125569841-0
         values:
         - colorIndex: 7
           iconNameOrGuid: Canvas Icon
@@ -339,6 +340,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Tilemap Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:

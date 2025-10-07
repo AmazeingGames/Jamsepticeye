@@ -10,14 +10,19 @@ public class FMODEvents : MMSingleton<FMODEvents>
     public enum AmbType { None = -1, Village = 0, Store = 1 }
     public enum MusicType { None = -1, Menu = 0, OpeningSequence = 2, BakerMagic = 1, Village = 3, Grocery = 4, Bakery = 5, Ending = 6 }
     public enum FootstepType { None = -1, Grass = 0, Stone = 1 }
+    public enum StartSFX { None, BakeryEnter, StoreEnter }
 
     [field: SerializeField] public EventReference Ambience_REF { get; private set; }
     [field: SerializeField] public EventReference FootSteps_REF { get; private set; }
     [field: SerializeField] public EventReference Music_REF { get; private set; }
 
+    [field: SerializeField] public EventReference DoorOpen_REF { get; private set; }
+    [field: SerializeField] public EventReference BellRing_REF { get; private set; }
+
     [Header("User Interface")]
     [field: SerializeField] public EventReference UIButtonClick { get; private set; }
     [field: SerializeField] public EventReference UIButtonHover { get; private set; }
+
 
     public EventInstance Ambience_INST { get; private set; }
     public EventInstance Music_INST { get; set; }

@@ -16,7 +16,7 @@ public class AudioPlayer : MonoBehaviour
     static AudioPlayer audioPlayerInstance;
     FMODEvents Events => FMODEvents.Instance;
 
-    private Dictionary<Type, object> currentParameters;
+    private Dictionary<Type, object> currentParameters = new();
 
     MusicType myMusicTypeBeforeCutscene = MusicType.None;
 
