@@ -15,8 +15,33 @@ MonoBehaviour:
   folderDatas_byGuid:
     keys:
     - 542713d008f0b5949b70355b2ab94307
+    - 0f1d60b40080ed443a5590fb13ae7421
+    - 93f780d2524f4564088a7281697a00ad
+    - 9ae87bfbc40690744aef17b0ed1bc75a
+    - 195e3f221a41ced49be1d588e375fdbf
+    - 03ac7596f89206649977a46ca0cf74ad
     values:
     - iconNameOrGuid: ScriptableObject Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: MeshCollider Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: SceneAsset Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: ParticleSystem Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Settings Icon
+      colorIndex: 0
+      isIconRecursive: 0
+      isColorRecursive: 0
+    - iconNameOrGuid: Dependency
       colorIndex: 0
       isIconRecursive: 0
       isColorRecursive: 0

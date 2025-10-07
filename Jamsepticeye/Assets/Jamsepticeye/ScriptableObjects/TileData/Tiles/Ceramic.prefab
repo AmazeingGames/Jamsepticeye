@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 9979971584017630}
   - component: {fileID: 1545826274578213167}
   m_Layer: 0
-  m_Name: Tile
+  m_Name: Ceramic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

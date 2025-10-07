@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -42,7 +43,10 @@ public class PlayerController : MonoBehaviour
 
     public class SteppedEventArgs : EventArgs { public SteppedEventArgs() { } }
 
-
+    Vector2 mostRecentDirectionKeyPress = Vector2.zero;
+    Vector2 rawAxisLastFrame;
+    Vector2 rawAxisThisFrame;
+    Vector2 mostRecentAxisPress;
 
     void Start()
     {
@@ -90,6 +94,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        /*
+        rawAxisLastFrame = rawAxisThisFrame;
+        rawAxisThisFrame.x = Input.GetAxisRaw("Horizontal");
+        rawAxisThisFrame.y = Input.GetAxisRaw("Vertical");
+
+        if (rawAxisLastFrame != rawAxisThisFrame)
+        {
+            bool newXPress = (rawAxisThisFrame.x != rawAxisLastFrame.x) && (rawAxisThisFrame.x != 0);
+            bool newYPress = (rawAxisThisFrame.y != rawAxisLastFrame.y) && (rawAxisThisFrame.y != 0);
+
+            bool pressedDirectionalKey = newXPress || newYPress;
+            if (pressedDirectionalKey)
+            {
+                mostRecentAxisPress = rawAxisThisFrame - rawAxisLastFrame;
+                Debug.Log($"New axis pressed: ({mostRecentAxisPress.x}, {mostRecentAxisPress.y})");
+            }
+        }*/
+
+
         currentMoveSpeed = defaultSpeed;
 #if DEBUG
         if (Input.GetKey(KeyCode.LeftShift))
@@ -123,9 +146,23 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
         // Handle animation variables
-        animator.SetFloat("LookX", moveDirection.x);
-        animator.SetFloat("LookY", moveDirection.y);
+
+        Vector2 animatorMoveDirection = Vector2.zero;
+        if (moveDirection.x > 0.1 || moveDirection.x < -0.1)
+        {
+            animatorMoveDirection.y = 0;
+            animatorMoveDirection.x = Mathf.Sign(moveDirection.x); // 1 or -1
+        }
+        else
+        {
+            animatorMoveDirection.y = Mathf.Sign(moveDirection.y);
+        }
+
+        animator.SetFloat("LookX", animatorMoveDirection.x);
+        animator.SetFloat("LookY", animatorMoveDirection.y);
+
         animator.SetFloat("Speed", speed);
         animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
     }

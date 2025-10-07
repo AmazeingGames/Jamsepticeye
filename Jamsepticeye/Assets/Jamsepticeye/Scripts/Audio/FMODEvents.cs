@@ -24,14 +24,6 @@ public class FMODEvents : MMSingleton<FMODEvents>
     [field: SerializeField] public EventReference UIButtonHover { get; private set; }
 
 
-    public EventInstance Ambience_INST { get; private set; }
-    public EventInstance Music_INST { get; set; }
-
-    void Start()
-    {
-        Ambience_INST = CreateInstance(Ambience_REF);
-    }
-
     EventInstance CreateInstance(EventReference sound)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(sound);

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b874d9261e9394db7f56f1af0fa884, type: 3}
   m_Name: BakerMagic_SEQUENCE
   m_EditorClassIdentifier: 
+  <MyCutscene>k__BackingField: 1
   <Scenes>k__BackingField:
   - <SceneImage>k__BackingField: {fileID: 702771967421315344, guid: 03a141ac9c77e4f73a5860872bf46e9f, type: 3}
     <Text>k__BackingField: 'And with a wave of his magic wand, Tim performed his

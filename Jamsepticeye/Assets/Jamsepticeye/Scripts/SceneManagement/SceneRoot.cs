@@ -10,21 +10,27 @@ public class SceneRoot : MonoBehaviour
     [field: SerializeField] SceneRootData RootData { get; set; }
     [field: SerializeField] bool hasNoTilemaps;
 
-    [field: HideIf("hasNoTilemaps")]
-    [field: SerializeField] Tilemap groundTilemap { get; set; }
-    [field: HideIf("hasNoTilemaps")]
-    [field: SerializeField] Tilemap groundOverlayTilemap { get; set; }
+    [HideIf("hasNoTilemaps")]
+    [SerializeField] public Tilemap groundOverlayTilemap;
+    [HideIf("hasNoTilemaps")]
+    [SerializeField] public Tilemap groundTilemap;
 
-    public static EventHandler<SetRootActiveEventArgs> SettingActiveEventHandler;
 
-    public class SetRootActiveEventArgs : EventArgs
+    public static EventHandler<EnablingRootEventArgs> EnablingRootEventHandler;
+
+    public class EnablingRootEventArgs : EventArgs
     {
-        public readonly bool isActive;
+        public readonly bool isSettingActive;
         public readonly SceneRootData rootData;
-        public SetRootActiveEventArgs(SceneRootData rootData, bool isActive)
+        public readonly Tilemap groundOverlayTilemap;
+        public readonly Tilemap groundTilemap;
+
+        public EnablingRootEventArgs(SceneRootData rootData, bool isActive, Tilemap groundOverlayTilemap, Tilemap groundTilemap)
         {
-            this.isActive = isActive;
+            this.isSettingActive = isActive;
             this.rootData = rootData;
+            this.groundOverlayTilemap = groundOverlayTilemap;
+            this.groundTilemap = groundTilemap;
         }
     }
 
@@ -35,19 +41,19 @@ public class SceneRoot : MonoBehaviour
             return;
 
         if (groundTilemap == null)
-            Debug.LogError("Ground tilemap should not be null");
+            Debug.LogError("Ground tilemap not set on Root gameobject in the hierarchy");
 
         if (groundOverlayTilemap == null)
-            Debug.LogError("Ground overlay tilemap should not be null");
+            Debug.LogError("Ground overlay tilemap not set on Root gameobject in the hierarchy");
     }
 
     public void OnEnable()
     {
-        SettingActiveEventHandler?.Invoke(this, new(RootData, true));
+        EnablingRootEventHandler?.Invoke(this, new(RootData, true, groundOverlayTilemap, groundTilemap));
     }
 
     private void OnDisable()
     {
-        SettingActiveEventHandler?.Invoke(this, new(RootData, false));
+        EnablingRootEventHandler?.Invoke(this, new(RootData, false, groundOverlayTilemap, groundTilemap));
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b874d9261e9394db7f56f1af0fa884, type: 3}
   m_Name: Opening_SEQUENCE
   m_EditorClassIdentifier: 
+  <MyCutscene>k__BackingField: 2
   <Scenes>k__BackingField:
   - <SceneImage>k__BackingField: {fileID: -7270624933174599472, guid: 95354ad51d0b24c2ca546c3366468c8c, type: 3}
     <Text>k__BackingField: 'It was a quiet Sunday afternoon. '
@@ -40,7 +41,7 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.043137256, g: 0.8039216, b: 0.011764706, a: 0}
   - <SceneImage>k__BackingField: {fileID: 0}
     <Text>k__BackingField: "\u201CThere are some who call me\u2026.  "
-    <Color>k__BackingField: {r: 0.44855833, g: 0, b: 1, a: 1}
+    <Color>k__BackingField: {r: 0.44855833, g: 0, b: 1, a: 0}
   - <SceneImage>k__BackingField: {fileID: 0}
     <Text>k__BackingField: "Tim\u201D "
     <Color>k__BackingField: {r: 0.44705883, g: 0.007843138, b: 1, a: 0}
@@ -59,7 +60,7 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 1, g: 0, b: 0.7673602, a: 0}
   - <SceneImage>k__BackingField: {fileID: 6300704042175037147, guid: 96fdcda284eb04a459ba44c16c9ef790, type: 3}
     <Text>k__BackingField: 'Here - kid, give me that -  '
-    <Color>k__BackingField: {r: 0.0627451, g: 0.8, b: 0.015686275, a: 1}
+    <Color>k__BackingField: {r: 0.0627451, g: 0.8, b: 0.015686275, a: 0}
   - <SceneImage>k__BackingField: {fileID: -279527615139795837, guid: e78e59e3e794941c1b22c22f3fae5563, type: 3}
     <Text>k__BackingField: '*Tape sounds* '
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

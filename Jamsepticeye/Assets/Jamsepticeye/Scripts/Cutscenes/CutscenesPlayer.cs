@@ -73,7 +73,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void Start()
     {
-        ExitCutscene();
+        Reset();
         if (!hasPlayedOpening)
         {
             hasPlayedOpening = true;
@@ -140,7 +140,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
         StartCoroutine(StartSceneEnd_CO());
 
-        
+        SetTextVisibility(CurrectScene.HasText);
+
         if (scene.HasText)
             StartDisplayingText(scene);
 
@@ -192,13 +193,14 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void PlayText(string text)
     {
+        float alpha = dialogue_TMP.alpha;
+
         dialogue_TMP.text = text;
         dialogue_TMP.color = CurrectScene.Color;
+        dialogue_TMP.alpha = alpha;
 
         foreach (string effect in appearEffects)
             dialogue_EFFECT.StartManualEffect(effect);
-
-        SetTextVisibility(CurrectScene.HasText);
     }
 
     public void OnFinishTextDisappearAnimation()
@@ -217,11 +219,16 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void OnExitedCutscene() 
     {
+        Reset();
+
+        OnStateChanged(StateChange.Exited);
+    }
+
+    void Reset()
+    {
         sceneIndex = -1;
         currentSequence = null;
         cutscene_CANVAS.enabled = false;
-
-        OnStateChanged(StateChange.Triggered);
     }
 
     void OnStateChanged(StateChange myStateChange)

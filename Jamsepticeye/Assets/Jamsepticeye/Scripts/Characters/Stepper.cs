@@ -27,7 +27,13 @@ public class Stepper : MonoBehaviour
 
         DataTile dataTile = tileUnderStepper as DataTile;
 
-        Assert.IsNotNull(dataTile, "Tile under stepper is not a data tile");
+        // Assert.IsNotNull(dataTile, "Tile under stepper is not a data tile");
+
+        if (dataTile == null)
+        {
+            Debug.LogError("Tile under stepper is not a data tile: cannot trigger footstep.");
+            return;
+        }
 
         SteppedEventHandler?.Invoke(this, new SteppedEventArgs(gameObject, dataTile));
     }

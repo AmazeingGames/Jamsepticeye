@@ -20,6 +20,11 @@ public class AudioPlayer : MonoBehaviour
 
     MusicType myMusicTypeBeforeCutscene = MusicType.None;
 
+
+    [Header("Debug")]
+    [SerializeField] bool startWithMusic_DEBUG;
+    [SerializeField] bool startWithAmbience_DEBUG;
+
     public MusicType MyCurrentMusic
     {
         get => currentParameters.TryGetValue(typeof(MusicType), out var value) ? (MusicType)value : MusicType.None;
@@ -40,7 +45,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneRoot.SettingActiveEventHandler += Scenes_SetRootActive;
+        SceneRoot.EnablingRootEventHandler += Scenes_SetRootActive;
         CutscenesPlayer.StateChangedEventHandler += Cutscenes_StateChanged;
         Stepper.SteppedEventHandler += Entities_Stepped;
         UIButton.InteractingEventHandler += UI_Interacting;
@@ -50,7 +55,7 @@ public class AudioPlayer : MonoBehaviour
     
     private void OnDisable()
     {
-        SceneRoot.SettingActiveEventHandler -= Scenes_SetRootActive;
+        SceneRoot.EnablingRootEventHandler -= Scenes_SetRootActive;
         CutscenesPlayer.StateChangedEventHandler -= Cutscenes_StateChanged;
         Stepper.SteppedEventHandler -= Entities_Stepped;
         UIButton.InteractingEventHandler -= UI_Interacting;
@@ -72,6 +77,7 @@ public class AudioPlayer : MonoBehaviour
 
     void UI_Interacting(object sender, UIButton.InteractingEventArgs e)
     {
+        Debug.Log("UI Interact handled");
         var soundToPlay = e.myInteraciton switch
         {
             UIButton.Interaction.Enter => Events.UIButtonHover,
@@ -88,13 +94,17 @@ public class AudioPlayer : MonoBehaviour
         
     }
 
-    void Scenes_SetRootActive(object sender, SetRootActiveEventArgs e)
+    void Scenes_SetRootActive(object sender, EnablingRootEventArgs e)
     {
         if (!hasStartedMusic)
         {
             hasStartedMusic = true;
 
-            Play(Events.Music_REF);
+            if (startWithMusic_DEBUG)
+                Play(Events.Music_REF);
+
+            if (startWithAmbience_DEBUG)
+                Play(Events.Ambience_REF);
         }
 
         SetParameter(e.rootData.MyAmbience);
@@ -115,7 +125,7 @@ public class AudioPlayer : MonoBehaviour
             DataTile.Category.Wood  or
             DataTile.Category.Tile  => FootstepType.Stone,
 
-            DataTile.Category.None  => throw new NotImplementedException("Category of 'TileData' scriptable object is not set"),
+            DataTile.Category.None  => throw new NotImplementedException($"DataTile scriptable object has not set {nameof(e.dataTile.MyType)}"),
             _ => throw new NotImplementedException("Switch expression is not exhaustive"),
         };
         SetParameter(footstepType);
@@ -134,7 +144,7 @@ public class AudioPlayer : MonoBehaviour
                     CutsceneSequence.Cutscene.BakerMagic => MusicType.BakerMagic,
                     CutsceneSequence.Cutscene.OpeningSequence => MusicType.OpeningSequence,
 
-                    CutsceneSequence.Cutscene.NotSet => throw new NotImplementedException("Cutscene type hasn't been defined in the Scriptable Object"),
+                    CutsceneSequence.Cutscene.NotSet => throw new NotImplementedException("Cutscene type hasn't been set in the 'CutsceneSequence' ScriptableObject instance"),
                     _ => throw new NotImplementedException("Switch expression is not exhaustive"),
                 };
 
