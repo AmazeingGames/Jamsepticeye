@@ -11,18 +11,6 @@ public class TilemapHelper : MonoBehaviour, ITilemapHelperService
         ServiceLocator.ProvideTilemapHelperService(this);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void GetTileUnderGameObject(GameObject gameObject)
         => GetTileAtPosition(Vector3Int.FloorToInt(gameObject.transform.position));
 
