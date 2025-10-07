@@ -2884,7 +2884,7 @@ GameObject:
   - component: {fileID: 110861282}
   - component: {fileID: 110861281}
   m_Layer: 0
-  m_Name: GrassTiles
+  m_Name: DecorationTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

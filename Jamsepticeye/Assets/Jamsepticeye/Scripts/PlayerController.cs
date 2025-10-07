@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -36,9 +37,12 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
 
     public DynamicMovement dynamicMover;
-    void Awake()
-    {
-    }
+    
+    public static EventHandler<SteppedEventArgs> SteppedEventHandler;
+
+    public class SteppedEventArgs : EventArgs { public SteppedEventArgs() { } }
+
+
 
     void Start()
     {
@@ -75,13 +79,6 @@ public class PlayerController : MonoBehaviour
         SpawnPlayer();
     }
 
-    void SpawnPlayer()
-    {
-        if (SpawnPointHandler.shouldTeleport)
-            transform.position = SpawnPointHandler.targetPosition;
-        else
-            transform.position = spawnPoint.transform.position;
-    }
     void FixedUpdate()
     {
         if (!DialogueManager.GetInstance().IsDialoguePlaying)
@@ -132,4 +129,18 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", speed);
         animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
     }
+
+    void SpawnPlayer()
+    {
+        if (SpawnPointHandler.shouldTeleport)
+            transform.position = SpawnPointHandler.targetPosition;
+        else
+            transform.position = spawnPoint.transform.position;
+    }
+
+    void OnStepped() 
+    {         
+        SteppedEventHandler?.Invoke(this, new SteppedEventArgs()); 
+    }
+
 }

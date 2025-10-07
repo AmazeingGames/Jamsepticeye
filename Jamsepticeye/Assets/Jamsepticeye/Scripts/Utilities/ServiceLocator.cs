@@ -7,6 +7,7 @@ public static class ServiceLocator
     static IInventoryDataService inventoryDataService;
     static ICutscenesService cutscenesService;
     static ISceneHelperService sceneHelperService;
+    static ITilemapHelperService tilemapHelperService;
 
     public static void ProvideDialogueService(IDialogueService dialogueService)
         => ServiceLocator.dialogueService = dialogueService;
@@ -33,6 +34,12 @@ public static class ServiceLocator
 
     public static ISceneHelperService GetSceneHelperSerivce()
         => sceneHelperService;
+
+    public static void ProvideTilemapHelperService(ITilemapHelperService tilemapHelper)
+        => tilemapHelperService = tilemapHelper;
+
+    public static ITilemapHelperService GetTilemapHelperSerivce()
+        => tilemapHelperService;
 }
 
 
