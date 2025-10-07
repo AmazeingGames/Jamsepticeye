@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static UIButton;
 
-public class UIButtonAnimator : MonoBehaviour
+public class UIButtonAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Components")]
     [SerializeField] TextMeshProUGUI text_TMP;
@@ -66,15 +66,12 @@ public class UIButtonAnimator : MonoBehaviour
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
-    {
-        HandleMouseOver(true);
-    }
-    public void OnPointerExit(PointerEventData pointerEventData)
-    {
-        HandleMouseOver(false);
-    }
+        => HoverAnimation(true);
 
-    void HandleMouseOver(bool isSelected)
+    public void OnPointerExit(PointerEventData pointerEventData)
+        => HoverAnimation(false);
+
+    void HoverAnimation(bool isSelected)
     {
         if (!gameObject.activeInHierarchy)
             return;

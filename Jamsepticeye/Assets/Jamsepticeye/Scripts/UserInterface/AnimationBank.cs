@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class PauseMenuAnimator : MonoBehaviour
+public class AnimationBank : MonoBehaviour
 {
     [Header("List Toggle Tween")]
     [SerializeField] float moveInDuration = .45f;
