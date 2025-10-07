@@ -44,15 +44,17 @@ public class AudioPlayer : MonoBehaviour
         CutscenesPlayer.StateChangedEventHandler += Cutscenes_StateChanged;
         Stepper.SteppedEventHandler += Entities_Stepped;
         UIButton.InteractingEventHandler += UI_Interacting;
+        DialogueManager.StateChangedEventHandler += Dialogue_StateChanged;
 
     }
     
     private void OnDisable()
     {
         SceneRoot.SettingActiveEventHandler -= Scenes_SetRootActive;
-        CutscenesPlayer.StateChangedEventHandler += Cutscenes_StateChanged;
+        CutscenesPlayer.StateChangedEventHandler -= Cutscenes_StateChanged;
         Stepper.SteppedEventHandler -= Entities_Stepped;
         UIButton.InteractingEventHandler -= UI_Interacting;
+        DialogueManager.StateChangedEventHandler -= Dialogue_StateChanged;
     }
 
     private void Awake()
@@ -68,7 +70,7 @@ public class AudioPlayer : MonoBehaviour
         };
     }
 
-    private void UI_Interacting(object sender, UIButton.InteractingEventArgs e)
+    void UI_Interacting(object sender, UIButton.InteractingEventArgs e)
     {
         var soundToPlay = e.myInteraciton switch
         {
@@ -79,6 +81,11 @@ public class AudioPlayer : MonoBehaviour
         };
 
         Play(soundToPlay);
+    }
+
+    void Dialogue_StateChanged(object sender, DialogueManager.StateChangedEventArgs e)
+    {
+        
     }
 
     void Scenes_SetRootActive(object sender, SetRootActiveEventArgs e)

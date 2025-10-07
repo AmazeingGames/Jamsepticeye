@@ -1,5 +1,6 @@
 using EasyTextEffects;
 using Ink.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -38,15 +39,26 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     [SerializeField] public Speaker kid_hurt;
     [SerializeField] public Speaker nurse;
 
+    [Header("Dialogue Global Properties")]
+    [SerializeField] float maxTimeTillCanContinue = .5f;
+    
     Dictionary<string, Speaker> speakerNameToData;
-
     List<TextMeshProUGUI> choicesText;
-
     Story currentStory;
+
+    bool isSelectingChoice;
+
+    DialogueVariables dialogueVariables;
+    InkExternalFunctions inkExternalFunctions;
+
+    private bool isDialogueDisappearing;
 
     public bool IsDialoguePlaying { get; set; }
     public Speaker currentSpeaker { get; set; }
+    
+    static DialogueManager instance;
 
+    public bool canContinueToNextLine = false;
     bool CanContinueToNextLine
     {
         get => canContinueToNextLine;
@@ -57,17 +69,23 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-    bool isSelectingChoice;
-    public bool canContinueToNextLine = false;
+    public enum StateChange { None, Triggered, Exited, Continued }
 
-    static DialogueManager instance;
+    public static EventHandler<StateChangedEventArgs> StateChangedEventHandler;
 
-    DialogueVariables dialogueVariables;
-    InkExternalFunctions inkExternalFunctions;
-    private bool isDialogueDisappearing;
+    public class StateChangedEventArgs : EventArgs
+    {
+        public readonly Speaker speaker;
+        public readonly StateChange myStateChange;
 
-    [Header("Dialogue Global Properties")]
-    [SerializeField] float maxTimeTillCanContinue = .5f;
+        public StateChangedEventArgs(Speaker speaker, StateChange myStateChange) 
+        {
+            this.speaker = speaker;
+            this.myStateChange = myStateChange;
+        } 
+    }
+
+
 
     void Awake()
     {
@@ -161,6 +179,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         inkExternalFunctions.BindEmoteFunction(currentStory);
         Binder.Bind(currentStory);
 
+        OnStateChanged(StateChange.Triggered);
+
         ContinueStory();
     }
 
@@ -176,6 +196,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         dialogue_TMP.text = "";
 
         Debug.Log("Exit dialogue");
+
+        OnStateChanged(StateChange.Exited);
     }
 
     void ContinueStory()
@@ -218,6 +240,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             Debug.Log("Playing appear effects");
             dialogue_EFFECT.StartManualEffect(effect);
         }
+
+        OnStateChanged(StateChange.Continued);
     }
 
     IEnumerator StartSceneEnd_CO()
@@ -288,6 +312,12 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             ContinueStory();
         }
     }
+
+    void OnStateChanged(StateChange myStateChange) 
+    { 
+        StateChangedEventHandler?.Invoke(this, new StateChangedEventArgs(currentSpeaker, myStateChange)); 
+    }
+
 
     void HandleTags(List<string> currentTags)
     {
