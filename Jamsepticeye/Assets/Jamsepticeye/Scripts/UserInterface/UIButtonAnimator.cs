@@ -17,13 +17,7 @@ public class UIButtonAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [field: Range(0, 1)][field: SerializeField] public float RegularOpacity { get; private set; } = .66f;
     [field: Range(0, 1)][field: SerializeField] public float HoverOpacity { get; private set; } = 1;
 
-    [field: Header("Button Lerp")]
-    [field: SerializeField] public float ButtonLerpSpeed { get; private set; } = 8;
-    [field: SerializeField] public float UnderlineLerpSpeed { get; private set; } = 8;
-    [field: SerializeField] public AnimationCurve ButtonLerpCurve { get; private set; }
-    [field: SerializeField] public AnimationCurve UnderlineLerpCurve { get; private set; }
-
-    Coroutine hoverAnimationCoroutine = null;
+    AnimationBank Animations => AnimationBank.Instance;
 
     private void Start()
     {
@@ -40,45 +34,10 @@ public class UIButtonAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExi
         text_TMP.alpha = RegularOpacity;
     }
 
-    IEnumerator AnimateButton_Co(bool isSelected)
-    {
-        float time = 0;
-
-        float startingScale = text_TMP.transform.localScale.x;
-        float targetScale = isSelected ? HoverScale : RegularScale;
-
-        float startingOpacity = text_TMP.alpha;
-        float targetOpacity = isSelected ? HoverOpacity : RegularOpacity;
-
-        while (time < 1)
-        {
-            var lerpCurve = ButtonLerpCurve;
-
-            float newScale = Mathf.Lerp(startingScale, targetScale, lerpCurve.Evaluate(time));
-            text_TMP.transform.localScale = new Vector3(newScale, newScale, text_TMP.transform.localScale.z);
-
-            float newOpacity = Mathf.Lerp(startingOpacity, targetOpacity, lerpCurve.Evaluate(time));
-            text_TMP.alpha = newOpacity;
-
-            time += Time.deltaTime * ButtonLerpSpeed;
-            yield return null;
-        }
-    }
-
+    // This needs to also be able to stop the animation on enter/exit
     public void OnPointerEnter(PointerEventData pointerEventData)
-        => HoverAnimation(true);
+        => StartCoroutine(Animations.AnimateButton_Co(true, text_TMP, RegularScale, HoverScale, HoverOpacity, RegularOpacity));
 
     public void OnPointerExit(PointerEventData pointerEventData)
-        => HoverAnimation(false);
-
-    void HoverAnimation(bool isSelected)
-    {
-        if (!gameObject.activeInHierarchy)
-            return;
-
-        if (hoverAnimationCoroutine != null)
-            StopCoroutine(hoverAnimationCoroutine);
-
-        hoverAnimationCoroutine = StartCoroutine(AnimateButton_Co(isSelected));
-    }
+        => StartCoroutine(Animations.AnimateButton_Co(false, text_TMP, RegularScale, HoverScale, HoverOpacity, RegularOpacity));
 }

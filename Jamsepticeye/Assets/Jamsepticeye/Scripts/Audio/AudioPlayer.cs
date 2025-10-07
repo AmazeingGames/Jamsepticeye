@@ -41,21 +41,19 @@ public class AudioPlayer : MonoBehaviour
     private void OnEnable()
     {
         SceneRoot.SettingActiveEventHandler += Scenes_SetRootActive;
-        CutscenesPlayer.TriggeringCutsceneEventHandler += Cutscenes_TriggeringCutscene;
-        CutscenesPlayer.ExitedCutsceneEventHandler += Cutscenes_ExitedCutscene;
+        CutscenesPlayer.StateChangedEventHandler += Cutscenes_StateChanged;
         Stepper.SteppedEventHandler += Entities_Stepped;
-    }
+        UIButton.InteractingEventHandler += UI_Interacting;
 
+    }
     
     private void OnDisable()
     {
         SceneRoot.SettingActiveEventHandler -= Scenes_SetRootActive;
-        CutscenesPlayer.TriggeringCutsceneEventHandler -= Cutscenes_TriggeringCutscene;
-        CutscenesPlayer.ExitedCutsceneEventHandler -= Cutscenes_ExitedCutscene;
+        CutscenesPlayer.StateChangedEventHandler += Cutscenes_StateChanged;
         Stepper.SteppedEventHandler -= Entities_Stepped;
+        UIButton.InteractingEventHandler -= UI_Interacting;
     }
-
-   
 
     private void Awake()
     {
@@ -68,6 +66,19 @@ public class AudioPlayer : MonoBehaviour
             { typeof(MusicType), MyCurrentMusic },
             { typeof(FootstepType), MyCurrentFootstep }
         };
+    }
+
+    private void UI_Interacting(object sender, UIButton.InteractingEventArgs e)
+    {
+        var soundToPlay = e.myInteraciton switch
+        {
+            UIButton.Interaction.Enter => Events.UIButtonHover,
+            UIButton.Interaction.Click => Events.UIButtonClick,
+            UIButton.Interaction.None => throw new NotImplementedException(),
+            _ => default,
+        };
+
+        Play(soundToPlay);
     }
 
     void Scenes_SetRootActive(object sender, SetRootActiveEventArgs e)
@@ -104,24 +115,37 @@ public class AudioPlayer : MonoBehaviour
         Play(Events.FootSteps_REF);
     }
 
-    void Cutscenes_TriggeringCutscene(object sender, CutscenesPlayer.TriggeringCutsceneEventArgs e)
+    void Cutscenes_StateChanged(object sender, CutscenesPlayer.StateChangedEventArgs e)
     {
-        myMusicTypeBeforeCutscene = MyCurrentMusic;
+        switch (e.myStateChange)
+        {   
+            case CutscenesPlayer.StateChange.Triggered:
+                myMusicTypeBeforeCutscene = MyCurrentMusic;
 
-        MusicType myMusicType = e.cutsceneSequence.MyCutscene switch
-        {
-            CutsceneSequence.Cutscene.BakerMagic      => MusicType.BakerMagic,
-            CutsceneSequence.Cutscene.OpeningSequence => MusicType.OpeningSequence,
+                MusicType myMusicType = e.cutsceneSequence.MyCutscene switch
+                {
+                    CutsceneSequence.Cutscene.BakerMagic => MusicType.BakerMagic,
+                    CutsceneSequence.Cutscene.OpeningSequence => MusicType.OpeningSequence,
 
-            CutsceneSequence.Cutscene.NotSet => throw new NotImplementedException("Cutscene type hasn't been defined in the Scriptable Object"),
-            _                                => throw new NotImplementedException("Switch expression is not exhaustive"),
-        };
+                    CutsceneSequence.Cutscene.NotSet => throw new NotImplementedException("Cutscene type hasn't been defined in the Scriptable Object"),
+                    _ => throw new NotImplementedException("Switch expression is not exhaustive"),
+                };
 
-        SetParameter(myMusicType);
+                SetParameter(myMusicType);
+            break;
+
+            case CutscenesPlayer.StateChange.Exited:
+                SetParameter(myMusicTypeBeforeCutscene);
+            break;
+
+            case CutscenesPlayer.StateChange.Continued:
+            break;
+
+            case CutscenesPlayer.StateChange.None:
+                throw new NotImplementedException();
+        }
     }
 
-    void Cutscenes_ExitedCutscene(object sender, CutscenesPlayer.ExitedCutsceneEventArgs e)
-        => SetParameter(MusicType.BakerMagic);
 
     void SetParameter<T>(T parameter) where T : Enum
     {

@@ -12,6 +12,8 @@ using UnityEngine.UI;
 // So much duplication with the dialogue manager indicates some refactoring should be done
 public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 {
+    public enum StateChange { None, Triggered, Exited, Continued }
+
     // Tried a new naming convention here, which I honestly dislike a lot
     [Header("Dialogue UI")]
     [SerializeField] Canvas cutscene_CANVAS;
@@ -48,22 +50,19 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     int sceneIndex;
 
-    public static EventHandler<TriggeringCutsceneEventArgs> TriggeringCutsceneEventHandler;
-    public static EventHandler<ExitedCutsceneEventArgs> ExitedCutsceneEventHandler;
+    public static EventHandler<StateChangedEventArgs> StateChangedEventHandler;
 
-    public class ExitedCutsceneEventArgs : EventArgs { public ExitedCutsceneEventArgs() { } }
-
-
-
-    public class TriggeringCutsceneEventArgs : EventArgs 
+    public class StateChangedEventArgs : EventArgs 
     { 
-        public readonly CutsceneSequence cutsceneSequence; 
-        public TriggeringCutsceneEventArgs(CutsceneSequence cutsceneSequence) 
-        { 
-            this.cutsceneSequence = cutsceneSequence; 
-        } 
-    }
+        public readonly StateChange myStateChange;
+        public readonly CutsceneSequence cutsceneSequence;
 
+        public StateChangedEventArgs(CutsceneSequence cutsceneSequence, StateChange myStateChange)
+        {
+            this.myStateChange = myStateChange;
+            this.cutsceneSequence = cutsceneSequence;
+        }
+    }
 
     CutsceneScene CurrectScene => currentSequence.Scenes[sceneIndex];
 
@@ -118,11 +117,11 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void OnTriggeringCutscene(CutsceneSequence cutsceneSequence)
     {
-        TriggeringCutsceneEventHandler?.Invoke(this, new(cutsceneSequence));
         cutscene_CANVAS.enabled = true;
         currentSequence = cutsceneSequence;
-
         sceneIndex = -1;
+
+        OnStateChanged(StateChange.Triggered);
     }
 
     void DisplayNextScene()
@@ -153,6 +152,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
         if (scene.EntryAnimation != null)
             Debug.Log($"Play entry animation {scene.EntryAnimation}");
+
+        OnStateChanged(StateChange.Continued);
     }
 
     IEnumerator StartSceneEnd_CO()
@@ -208,11 +209,10 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void ExitCutscene()
     {
+        OnExitedCutscene();
+
         if (currentSequence != null && currentSequence.DialogueToPlayOnEnd != null)
             ServiceLocator.GetDialogueService().PlayDialogue(currentSequence.DialogueToPlayOnEnd);
-
-        
-        OnExitedCutscene();
     }
 
     void OnExitedCutscene() 
@@ -221,6 +221,11 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         currentSequence = null;
         cutscene_CANVAS.enabled = false;
 
-        ExitedCutsceneEventHandler?.Invoke(this, new()); 
+        OnStateChanged(StateChange.Triggered);
+    }
+
+    void OnStateChanged(StateChange myStateChange)
+    {
+        StateChangedEventHandler?.Invoke(this, new StateChangedEventArgs(currentSequence, myStateChange));
     }
 }

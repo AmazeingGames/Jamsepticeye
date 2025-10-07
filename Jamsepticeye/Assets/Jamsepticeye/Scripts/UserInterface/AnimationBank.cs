@@ -1,55 +1,70 @@
 using DG.Tweening;
+using MoreMountains.Tools;
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
-public class AnimationBank : MonoBehaviour
+// This could potentially be a transform extension class
+public class AnimationBank : MMSingleton<AnimationBank>
 {
-    [Header("List Toggle Tween")]
+    [Header("Slide-In Tween")]
     [SerializeField] float moveInDuration = .45f;
     [SerializeField] float moveOutDuration = .6f;
     [SerializeField] float inPosition = 0;
     [SerializeField] float outPosition = 870;
     [SerializeField] Ease moveEase = Ease.OutBack;
 
-    [Header("List Canvas")]
-    [SerializeField] Canvas menu_CANVAS;
-    [SerializeField] RectTransform menu;
+    [field: Header("Text Grow Tween")]
+    [field: SerializeField] public float ButtonLerpSpeed { get; private set; } = 8;
+    [field: SerializeField] public float UnderlineLerpSpeed { get; private set; } = 8;
+    [field: SerializeField] public AnimationCurve ButtonLerpCurve { get; private set; }
+    [field: SerializeField] public AnimationCurve UnderlineLerpCurve { get; private set; }
 
     Sequence menuAnimationSequence;
     bool isMenuOpen;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // This needs to be able to kill animations properly
+    public void SlideIn(RectTransform transform, bool boolSlideIn, Action onComplete)
     {
-        ToggleList(false); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-# if DEBUG
-        if (Input.GetKeyDown(KeyCode.Tab))
-            ToggleList(!isMenuOpen);
-#endif
-    }
-
-    void ToggleList(bool isOpening)
-    {
-        isMenuOpen = isOpening;
-        // ToggleNotesHandler?.HandleToggleNotes(new(isOpening));
+        isMenuOpen = boolSlideIn;
 
         menuAnimationSequence?.Kill();
         menuAnimationSequence = DOTween.Sequence();
 
-        if (isOpening)
+        if (boolSlideIn)
         {
-            menu_CANVAS.gameObject.SetActive(isOpening);
-            menuAnimationSequence.Append(menu.DOLocalMoveY(inPosition, moveInDuration).SetEase(moveEase));
+            menuAnimationSequence.Append(transform.DOLocalMoveY(inPosition, moveInDuration).SetEase(moveEase));
         }
         else
         {
-            menuAnimationSequence.Append(menu.DOLocalMoveY(outPosition, moveOutDuration).SetEase(moveEase));
-            menuAnimationSequence.OnComplete(() => menu_CANVAS.gameObject.SetActive(isOpening));
+            menuAnimationSequence.Append(transform.DOLocalMoveY(outPosition, moveOutDuration).SetEase(moveEase));
+            menuAnimationSequence.OnComplete(() => onComplete());
+        }
+    }
+
+    public IEnumerator AnimateButton_Co(bool isSelected, TextMeshProUGUI text_TMP, float regularScale, float hoverScale, float hoverOpacity, float regularOpacity)
+    {
+        float time = 0;
+
+        float startingScale = text_TMP.transform.localScale.x;
+        float targetScale = isSelected ? hoverScale : regularScale;
+
+        float startingOpacity = text_TMP.alpha;
+        float targetOpacity = isSelected ? hoverOpacity : regularOpacity;
+
+        while (time < 1)
+        {
+            var lerpCurve = ButtonLerpCurve;
+
+            float newScale = Mathf.Lerp(startingScale, targetScale, lerpCurve.Evaluate(time));
+            text_TMP.transform.localScale = new Vector3(newScale, newScale, text_TMP.transform.localScale.z);
+
+            float newOpacity = Mathf.Lerp(startingOpacity, targetOpacity, lerpCurve.Evaluate(time));
+            text_TMP.alpha = newOpacity;
+
+            time += Time.deltaTime * ButtonLerpSpeed;
+            yield return null;
         }
     }
 }

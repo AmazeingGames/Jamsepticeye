@@ -15,6 +15,10 @@ public class FMODEvents : MMSingleton<FMODEvents>
     [field: SerializeField] public EventReference FootSteps_REF { get; private set; }
     [field: SerializeField] public EventReference Music_REF { get; private set; }
 
+    [Header("User Interface")]
+    [field: SerializeField] public EventReference UIButtonClick { get; private set; }
+    [field: SerializeField] public EventReference UIButtonHover { get; private set; }
+
     public EventInstance Ambience_INST { get; private set; }
     public EventInstance Music_INST { get; set; }
 
