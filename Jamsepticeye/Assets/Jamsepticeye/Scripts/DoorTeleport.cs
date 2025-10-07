@@ -45,7 +45,7 @@ public class DoorTeleport : MonoBehaviour
 
     public void Teleport()
     {
-        if (enabled_ && timeSinceLastTeleport >= 5)
+        if (enabled_ && timeSinceLastTeleport >= doorCooldownDuration)
         {
             ServiceLocator.GetSceneHelperSerivce().EnableOnlyTargetScene(sceneDestination);
             SpawnPointHandler.TeleportToScene(Vector2.zero);

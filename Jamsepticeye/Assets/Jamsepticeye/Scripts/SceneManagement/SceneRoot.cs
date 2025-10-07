@@ -2,10 +2,13 @@ using FMODUnity;
 using System;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SceneRoot : MonoBehaviour
 {
     [field: SerializeField] SceneRootData RootData { get; set; }
+    [field: SerializeField] Tilemap groundTilemap { get; set; }
+    [field: SerializeField] Tilemap groundOverlayTilemap { get; set; }
 
     public static EventHandler<SetRootActiveEventArgs> SettingActiveEventHandler;
 
@@ -20,6 +23,15 @@ public class SceneRoot : MonoBehaviour
         }
     }
 
+
+    private void OnValidate()
+    {
+        if (groundTilemap == null)
+            Debug.LogError("Ground tilemap should not be null");
+
+        if (groundOverlayTilemap == null)
+            Debug.LogError("Ground overlay tilemap should not be null");
+    }
 
     public void OnEnable()
     {

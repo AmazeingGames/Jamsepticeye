@@ -23,7 +23,7 @@ AnimationClip:
     - time: 0
       value: {fileID: -1202416954589450582, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
     - time: 0.2
-      value: {fileID: -7675152324353526423, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
+      value: {fileID: -1202416954589450582, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
     - time: 0.4
       value: {fileID: 49907012467042411, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
     - time: 0.6
@@ -51,7 +51,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -1202416954589450582, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
-    - {fileID: -7675152324353526423, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
+    - {fileID: -1202416954589450582, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
     - {fileID: 49907012467042411, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
     - {fileID: -6344771177462760705, guid: e31c6935e8a2ddd43a0811e6349f582b, type: 3}
   m_AnimationClipSettings:
@@ -78,4 +78,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.2
+    functionName: OnStepped
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: OnStepped
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

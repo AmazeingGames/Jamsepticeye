@@ -137,10 +137,4 @@ public class PlayerController : MonoBehaviour
         else
             transform.position = spawnPoint.transform.position;
     }
-
-    void OnStepped() 
-    {         
-        SteppedEventHandler?.Invoke(this, new SteppedEventArgs()); 
-    }
-
 }

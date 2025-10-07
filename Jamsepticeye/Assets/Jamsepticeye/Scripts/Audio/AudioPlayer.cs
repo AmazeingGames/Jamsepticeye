@@ -43,6 +43,7 @@ public class AudioPlayer : MonoBehaviour
         SceneRoot.SettingActiveEventHandler += Scenes_SetRootActive;
         CutscenesPlayer.TriggeringCutsceneEventHandler += Cutscenes_TriggeringCutscene;
         CutscenesPlayer.ExitedCutsceneEventHandler += Cutscenes_ExitedCutscene;
+        Stepper.SteppedEventHandler += Entities_Stepped;
     }
 
     
@@ -51,7 +52,10 @@ public class AudioPlayer : MonoBehaviour
         SceneRoot.SettingActiveEventHandler -= Scenes_SetRootActive;
         CutscenesPlayer.TriggeringCutsceneEventHandler -= Cutscenes_TriggeringCutscene;
         CutscenesPlayer.ExitedCutsceneEventHandler -= Cutscenes_ExitedCutscene;
+        Stepper.SteppedEventHandler -= Entities_Stepped;
     }
+
+   
 
     private void Awake()
     {
@@ -75,63 +79,49 @@ public class AudioPlayer : MonoBehaviour
             Play(Events.Music_REF);
         }
 
-        // Set music and ambience
-        // Start ambience onc on start and only adjust parameters
-
         SetParameter(e.rootData.MyAmbience);
         SetParameter(e.rootData.MyMusic);
     }
 
     public void Play(EventReference sound)
+        => RuntimeManager.PlayOneShot(sound);
+
+    void Entities_Stepped(object sender, Stepper.SteppedEventArgs e)
     {
-        RuntimeManager.PlayOneShot(sound);
+        FootstepType footstepType = e.dataTile.MyType switch
+        {
+            DataTile.Category.Grass => FootstepType.Grass,
+
+            DataTile.Category.Dirt  or
+            DataTile.Category.Stone or
+            DataTile.Category.Wood  or
+            DataTile.Category.Tile  => FootstepType.Stone,
+
+            DataTile.Category.None  => throw new NotImplementedException("Category of 'TileData' scriptable object is not set"),
+            _ => throw new NotImplementedException("Switch expression is not exhaustive"),
+        };
+        SetParameter(footstepType);
+        Play(Events.FootSteps_REF);
     }
 
     void Cutscenes_TriggeringCutscene(object sender, CutscenesPlayer.TriggeringCutsceneEventArgs e)
     {
         myMusicTypeBeforeCutscene = MyCurrentMusic;
 
-        switch (e.cutsceneSequence.MyCutscene)
+        MusicType myMusicType = e.cutsceneSequence.MyCutscene switch
         {
-            case CutsceneSequence.Cutscene.NotSet:
-                throw new NotImplementedException("Cutscene type hasn't been defined in the Scriptable Object");
+            CutsceneSequence.Cutscene.BakerMagic      => MusicType.BakerMagic,
+            CutsceneSequence.Cutscene.OpeningSequence => MusicType.OpeningSequence,
 
-            case CutsceneSequence.Cutscene.BakerMagic:
-                SetParameter(MusicType.BakerMagic);
-                break;
+            CutsceneSequence.Cutscene.NotSet => throw new NotImplementedException("Cutscene type hasn't been defined in the Scriptable Object"),
+            _                                => throw new NotImplementedException("Switch expression is not exhaustive"),
+        };
 
-            case CutsceneSequence.Cutscene.OpeningSequence:
-                SetParameter(MusicType.OpeningSequence);
-                break;
-        }
-
-        Play(Events.Music_REF);
+        SetParameter(myMusicType);
     }
 
     void Cutscenes_ExitedCutscene(object sender, CutscenesPlayer.ExitedCutsceneEventArgs e)
-    {
-        SetParameter(MusicType.BakerMagic);
-        Play(Events.Music_REF);
-    }
-
-    
-
-    void Player_Stepped(object sender, FootstepType e)
-    {
-        switch (e)
-        {
-            case FootstepType.Grass:
-                SetParameter(FootstepType.Grass);
-                break;
-                
-            case FootstepType.Stone:
-                SetParameter(FootstepType.Stone);
-                break;
-        }
-
-        Play(Events.FootSteps_REF);
-    }
-
+        => SetParameter(MusicType.BakerMagic);
 
     void SetParameter<T>(T parameter) where T : Enum
     {
@@ -140,8 +130,8 @@ public class AudioPlayer : MonoBehaviour
         else
             Debug.LogWarning("No matching `CurrentParameter` variable found!");
 
-        string typeName = typeof(T).Name; // Gets the enum type name, e.g., "MusicType"
-        string parameterName = Enum.GetName(typeof(T), parameter); // Gets the value name, e.g., "Ambience"
+        string typeName = typeof(T).Name;
+        string parameterName = Enum.GetName(typeof(T), parameter); 
         int parameterValue = Convert.ToInt32(parameter);
 
         string output = $"Set the parameter of \"{typeName}\" to \"{parameterValue} ({parameterName})\"";
