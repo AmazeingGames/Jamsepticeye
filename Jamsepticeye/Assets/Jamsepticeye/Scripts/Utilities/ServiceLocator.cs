@@ -8,6 +8,7 @@ public static class ServiceLocator
     static ICutscenesService cutscenesService;
     static ISceneHelperService sceneHelperService;
     static ITilemapHelperService tilemapHelperService;
+    static IGameFlowService gameFlowService;
 
     public static void ProvideDialogueService(IDialogueService dialogueService)
         => ServiceLocator.dialogueService = dialogueService;
@@ -40,6 +41,12 @@ public static class ServiceLocator
 
     public static ITilemapHelperService GetTilemapHelperSerivce()
         => tilemapHelperService;
+
+    public static void ProvideGameFlowService(IGameFlowService gameFlow)
+        => gameFlowService = gameFlow;
+
+    public static IGameFlowService GetGameFlowSerivce()
+        => gameFlowService;
 }
 
 

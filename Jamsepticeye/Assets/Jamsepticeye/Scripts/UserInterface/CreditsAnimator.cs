@@ -1,4 +1,5 @@
 using DG.Tweening;
+using EasyTextEffects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ public class CreditsAnimator : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI gameBy;
+    [SerializeField] TextMeshProUGUI thanks;
     [SerializeField] VerticalLayoutGroup namesHolder;
 
     [Header("Game By")]
@@ -24,7 +26,8 @@ public class CreditsAnimator : MonoBehaviour
 
     [Header("Continue Properties")]
     [SerializeField] float timeBetweenDisappears = .5f;
-
+    [SerializeField] float timeForDisappearAnimation = 1f;
+    [SerializeField] float continueTime = 5;
     Sequence namesAppearSequence;
     Sequence continueSequence;
 
@@ -44,19 +47,33 @@ public class CreditsAnimator : MonoBehaviour
         }
     }
 
+    List<TextEffect> TextEffects
+    {
+        get
+        {
+            List<TextEffect> textEffects = new();
+            foreach (var effect in Names_TMP)
+                textEffects.Add(effect.GetComponent<TextEffect>());
+            return textEffects;
+        }
+
+    }
+    /*
     private void OnEnable()
     {
-        GameFlow.EndedGameEventHandler += GameFlow_EndedGame;
+        GameFlow.EndingGameEventHandler += GameFlow_EndedGame;
     }
 
     private void OnDisable()
     {
-        GameFlow.EndedGameEventHandler -= GameFlow_EndedGame;
-    }
+        GameFlow.EndingGameEventHandler -= GameFlow_EndedGame;
+    }*/
 
     private void Start()
     {
         ReadyCanvas(false);
+        Debug.Log("end gae");
+        GameFlow_EndedGame(null, null);
     }
 
     private void Update()
@@ -71,16 +88,24 @@ public class CreditsAnimator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
             GameFlow_EndedGame(null, null);
 
+#endif
+        // Quick solution 
+        if (!hasPlayedCredits)
+            GameFlow_EndedGame(null, null);
+
         if (Input.GetButtonDown("Continue") && canContinue)
         {
             Debug.Log("Did continue");
-            Continue();
+            StartCoroutine(Continue());
         }
-#endif
     }
 
-    void GameFlow_EndedGame(object sender, GameFlow.EndedGameEventArgs e)
+    bool hasPlayedCredits = false;
+    void GameFlow_EndedGame(object sender, GameFlow.EndingGameEventArgs e)
     {
+        hasPlayedCredits = true;
+        Debug.Log("ending game");
+
         ReadyCanvas(true);
 
         namesAppearSequence = DOTween.Sequence();
@@ -101,19 +126,22 @@ public class CreditsAnimator : MonoBehaviour
         }
     }
 
-    void Continue()
+    IEnumerator Continue()
     {
-        Debug.Log("Continue sa");
-        gameBy.text = "Thanks for playing.";
+        canContinue = false;
+        thanks.text = "Thanks for playing.";
 
         continueSequence = DOTween.Sequence();
 
-        foreach (TextMeshProUGUI name_TMP in Names_TMP)
+        foreach (TextEffect textEffect in TextEffects)
         {
-            Debug.Log($"null : {name_TMP == null}");
-            continueSequence.AppendCallback(() => name_TMP.gameObject.SetActive(false));
+            textEffect.gameObject.SetActive(true);
+            continueSequence.AppendCallback(() => textEffect.StartManualEffects());
             continueSequence.AppendInterval(timeBetweenDisappears);
         }
+
+        yield return new WaitForSeconds(Names_TMP.Count * timeBetweenDisappears + gameByPadding);
+        thanks.DOFade(1, fadeDuration).SetDelay(gameByPadding);
     }
 
     void ReadyCanvas(bool setReady)

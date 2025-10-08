@@ -45,8 +45,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  clampBetween0And1: 0
+  timeType: 0
   effects:
   - {fileID: 11400000, guid: cd41b859823e14d159b3952d66b82235, type: 2}
-  - {fileID: 11400000, guid: bcd8ef2323fa2427f929af92766afa95, type: 2}
-  - {fileID: 11400000, guid: 22dc1f14c93b648209affc247ceb1c76, type: 2}
+  - {fileID: 11400000, guid: 137386f28a3cd4b64b839515802b17ec, type: 2}
   - {fileID: 11400000, guid: 137386f28a3cd4b64b839515802b17ec, type: 2}

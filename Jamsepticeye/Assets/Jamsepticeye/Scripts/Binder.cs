@@ -97,6 +97,7 @@ public class Binder
         story.BindExternalFunction("EndGame", () =>
         {
             FadeController.instance.TriggerFadeForever();
+            ServiceLocator.GetGameFlowSerivce().EndGame();
         });
         story.BindExternalFunction("SetFoundNest", () =>
         {

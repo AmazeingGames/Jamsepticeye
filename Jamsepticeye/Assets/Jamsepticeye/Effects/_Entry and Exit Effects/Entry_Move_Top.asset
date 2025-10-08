@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e66ffc343c5f4ecaa9115a4c0e055e81, type: 3}
-  m_Name: Exit_Composite
+  m_Script: {fileID: 11500000, guid: 8f8a5a04a3b145299afb77db9d03c233, type: 3}
+  m_Name: Entry_Move_Top
   m_EditorClassIdentifier: 
-  effectTag: exit
+  effectTag: 
   startCharIndex: 0
   charLength: 0
   animationType: 3
   fixedDuration: 0
-  durationPerChar: 0
-  timeBetweenChars: 0.1
+  durationPerChar: 0.6
+  timeBetweenChars: 0.01
   noDelayForChars: 0
   reverseCharOrder: 0
   easingCurve:
@@ -27,8 +27,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
+      inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
@@ -47,8 +47,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   clampBetween0And1: 0
   timeType: 0
-  effects:
-  - {fileID: 11400000, guid: 66e2a3b851d9542fe94f2caa84525b4d, type: 2}
-  - {fileID: 11400000, guid: fbc64870c1fbc4332b3a285abf83fb6a, type: 2}
-  - {fileID: 11400000, guid: 6801c5eb7275c428ab306f7f18fff6f9, type: 2}
-  - {fileID: 11400000, guid: fbc64870c1fbc4332b3a285abf83fb6a, type: 2}
+  startOffset: {x: 50, y: 100}
+  endOffset: {x: 0, y: 0}

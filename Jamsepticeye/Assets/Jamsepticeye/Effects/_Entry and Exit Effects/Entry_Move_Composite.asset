@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8a5a04a3b145299afb77db9d03c233, type: 3}
-  m_Name: Entry_Move
+  m_Name: Entry_Move_Composite
   m_EditorClassIdentifier: 
   effectTag: 
   startCharIndex: 0
@@ -45,5 +45,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startOffset: {x: 50, y: -50}
+  clampBetween0And1: 0
+  timeType: 0
+  startOffset: {x: 50, y: 50}
   endOffset: {x: 0, y: 0}

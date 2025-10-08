@@ -662,6 +662,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-1580525227-0
         - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-737941754-0
         - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-1136235045-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-694970541-0
         values:
         - colorIndex: 6
           iconNameOrGuid: BuildSettings.Editor
@@ -689,6 +690,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: Favorite
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

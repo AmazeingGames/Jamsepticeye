@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BakeryScene.unity
     guid: e05d1009efc0a3b44a0f60efc59340c9
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: b454cbd31aae2a941883233dd9b6144a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
