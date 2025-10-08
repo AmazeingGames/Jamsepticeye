@@ -40,14 +40,15 @@ public class FadeController : MonoBehaviour
     // Call this method to trigger the fade effect
     public void TriggerFade()
     {
-        StartCoroutine(FadeOutAndIn());
+        StartCoroutine(FadeOutAndIn_CO());
     }
+
     public void TriggerFadeForever()
     {
         StartCoroutine(FadeIn());
     }
 
-    private IEnumerator FadeOutAndIn()
+    private IEnumerator FadeOutAndIn_CO()
     {
         
         // Fade out to black

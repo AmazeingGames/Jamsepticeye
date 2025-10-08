@@ -27,6 +27,7 @@ MonoBehaviour:
     - c48a1316f9b93294fbe432b6466d5e06
     - a90c3ec1d57d5bc4e9c160fe1650ddd6
     - bdf19f92a868dea4289e869dc5e8ad26
+    - b454cbd31aae2a941883233dd9b6144a
     values:
     - goDatas_byGlobalId:
         keys:
@@ -239,6 +240,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-424539550-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-433216491-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1295846838-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1319166390-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1968737235-0
         values:
         - colorIndex: 7
           iconNameOrGuid: Canvas Icon
@@ -370,6 +373,14 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 8
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:
@@ -640,6 +651,44 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 3
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-8539322-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-2038103168-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-1928833761-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-1402935617-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-1580525227-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-737941754-0
+        - globalObjectIdString: GlobalObjectId_V1-2-b454cbd31aae2a941883233dd9b6144a-1136235045-0
+        values:
+        - colorIndex: 6
+          iconNameOrGuid: BuildSettings.Editor
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
