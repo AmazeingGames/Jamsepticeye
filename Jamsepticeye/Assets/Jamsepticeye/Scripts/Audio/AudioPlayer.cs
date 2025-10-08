@@ -146,7 +146,12 @@ public class AudioPlayer : MonoBehaviour
             case DialogueManager.StateChange.Triggered:
                 break;
             case DialogueManager.StateChange.Exited:
+                if (e.endGame)
+                {
+                    SetParameter(MusicType.Ending);
+                }
                 break;
+
             case DialogueManager.StateChange.Continued:
                 FMODEvents.GarbleChar myGarbleParameter = e.speaker.MySpeaker switch
                 {
@@ -203,6 +208,9 @@ public class AudioPlayer : MonoBehaviour
 
             case SceneRootData.SceneType.Menu:
                 SetParameter(MusicType.Menu);
+                break;
+
+            case SceneRootData.SceneType.Credits:
                 break;
 
             case SceneRootData.SceneType.Bootstrap:

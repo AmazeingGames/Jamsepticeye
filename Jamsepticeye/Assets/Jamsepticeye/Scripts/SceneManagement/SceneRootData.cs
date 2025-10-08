@@ -4,6 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SceneRootData", menuName = "ScriptableObjects/SceneRootData")]
 public class SceneRootData : ScriptableObject
 {
-    public enum SceneType { None, Village, Bakery, GroceryStore, Menu, Bootstrap }
+    public enum SceneType { None, Village, Bakery, GroceryStore, Menu, Bootstrap, Credits }
     [field: SerializeField] public SceneType MySceneType { get; private set; } = SceneType.None;
 }

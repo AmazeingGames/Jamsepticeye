@@ -41,7 +41,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     [Header("Dialogue Global Properties")]
     [SerializeField] float maxTimeTillCanContinue = .5f;
-    
+
+    [SerializeField] TextAsset endGameDialogue;
+
+    TextAsset currentDialogue;
     Dictionary<string, Speaker> speakerNameToData;
     List<TextMeshProUGUI> choicesText;
     Story currentStory;
@@ -77,11 +80,12 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     {
         public readonly Speaker speaker;
         public readonly StateChange myStateChange;
-
-        public StateChangedEventArgs(Speaker speaker, StateChange myStateChange) 
+        public readonly bool endGame;
+        public StateChangedEventArgs(Speaker speaker, StateChange myStateChange, bool endGame) 
         {
             this.speaker = speaker;
             this.myStateChange = myStateChange;
+            this.endGame = endGame;
         } 
     }
 
@@ -163,10 +167,13 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
+    // We should change this to accept a scriptable object as an argument to give more information to listeners
     public void PlayDialogue(TextAsset inkJSON)
     {
         Assert.IsNotNull(inkJSON, "Conversation is not set by the interactable entity.");
         Debug.Log("Play dialogue");
+        
+        currentDialogue = inkJSON;
 
         // Staging
         currentStory = new Story(inkJSON.text);
@@ -312,8 +319,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     }
 
     void OnStateChanged(StateChange myStateChange) 
-    { 
-        StateChangedEventHandler?.Invoke(this, new StateChangedEventArgs(currentSpeaker, myStateChange)); 
+    {
+        bool shouldEndGame = currentDialogue == endGameDialogue;
+
+        StateChangedEventHandler?.Invoke(this, new StateChangedEventArgs(currentSpeaker, myStateChange, shouldEndGame)); 
     }
 
 

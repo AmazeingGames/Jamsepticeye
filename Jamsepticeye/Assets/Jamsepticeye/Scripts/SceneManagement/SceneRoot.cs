@@ -8,7 +8,8 @@ using UnityEngine.Tilemaps;
 public class SceneRoot : MonoBehaviour
 {
     [field: SerializeField] SceneRootData RootData { get; set; }
-    [field: SerializeField] bool hasNoTilemaps;
+    [field: SerializeField] bool hasNoTilemaps; // move this to root data
+
 
     [HideIf("hasNoTilemaps")]
     [SerializeField] public Tilemap groundOverlayTilemap;

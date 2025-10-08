@@ -40938,8 +40938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90f91b74a29a6d43b267bd0964120d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWithMusic_DEBUG: 0
-  startWithAmbience_DEBUG: 0
+  startWithMusic_DEBUG: 1
+  startWithAmbience_DEBUG: 1
 --- !u!1001 &196367300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84586,7 +84586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14, y: -3.7457733}
+  m_AnchoredPosition: {x: -14, y: -3.745758}
   m_SizeDelta: {x: -403.4492, y: 328.0781}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983339396
@@ -114541,6 +114541,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   maxTimeTillCanContinue: 0.5
+  endGameDialogue: {fileID: 4900000, guid: 04c4891daad3e6f4894167d378fb5d2c, type: 3}
   canContinueToNextLine: 1
 --- !u!4 &1909709400
 Transform:
