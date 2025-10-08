@@ -19,6 +19,7 @@ VAR BAKER_DEAD = false
 VAR PLACED_HAMMOCK = false
 VAR ALLOWED_BAKERY = false
 VAR FLOUR_MAGIC_READY = false
+VAR END_SCENE_SETUP = false
 
 EXTERNAL playEmote(emoteName)
 EXTERNAL SetKnowsAboutBaker()
@@ -37,3 +38,5 @@ EXTERNAL SetHasEggs()
 EXTERNAL EndGame()
 EXTERNAL SetFoundNest()
 EXTERNAL SetBakerDead()
+EXTERNAL SetupEndScene()
+EXTERNAL PeepGoesPoof()

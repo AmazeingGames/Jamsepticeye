@@ -49,6 +49,7 @@ public class FadeController : MonoBehaviour
 
     private IEnumerator FadeOutAndIn()
     {
+        
         // Fade out to black
         yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
 

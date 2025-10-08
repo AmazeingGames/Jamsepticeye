@@ -13,12 +13,17 @@ public class TriggerZoneScript : MonoBehaviour
     [SerializeField] float teleportCooldownDuration = 5;
     float timeSinceLastTeleported;
 
+    void Start()
+    {
+        timeSinceLastTeleported = teleportCooldownDuration;
+    }
+
     private void Update()
     {
         timeSinceLastTeleported += Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (teleportCooldownDuration >= timeSinceLastTeleported)
             return;

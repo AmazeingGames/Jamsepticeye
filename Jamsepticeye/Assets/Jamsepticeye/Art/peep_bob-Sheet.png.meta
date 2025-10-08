@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: 608e5c6b6b2b4c2448d5570a93aa18aa
+guid: 470ebf52cb500384c8be943894f297e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2461904718662675609
-    second: leaves 1_0
+      213: 7813863030240426103
+    second: peep_bob-Sheet_0
+  - first:
+      213: -738658165120218291
+    second: peep_bob-Sheet_1
+  - first:
+      213: 7545356466682877064
+    second: peep_bob-Sheet_2
+  - first:
+      213: -1213809317593481316
+    second: peep_bob-Sheet_3
+  - first:
+      213: -3579807116645690204
+    second: peep_bob-Sheet_4
+  - first:
+      213: -7513919244408638348
+    second: peep_bob-Sheet_5
+  - first:
+      213: -5862727100381851295
+    second: peep_bob-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,23 +144,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: leaves 1_0
+      name: peep_bob-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 38
-        width: 96
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 763d04db3be85ddd0800000000000000
-      internalID: -2461904718662675609
+      spriteID: 778b901c60b607c60800000000000000
+      internalID: 7813863030240426103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peep_bob-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4b4199ff42cfb5f0800000000000000
+      internalID: -738658165120218291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peep_bob-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884545cbabd76b860800000000000000
+      internalID: 7545356466682877064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peep_bob-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ff7cf4bdea72fe0800000000000000
+      internalID: -1213809317593481316
       vertices: []
       indices: 
       edges: []
@@ -151,7 +235,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4fcb70c0fa8c2bb48a85c6894da51e4d
+    spriteID: 64bb98f69ca14ac4d8b705ef24d0af9b
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +245,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      leaves 1_0: -2461904718662675609
+      peep_bob-Sheet_0: 7813863030240426103
+      peep_bob-Sheet_1: -738658165120218291
+      peep_bob-Sheet_2: 7545356466682877064
+      peep_bob-Sheet_3: -1213809317593481316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

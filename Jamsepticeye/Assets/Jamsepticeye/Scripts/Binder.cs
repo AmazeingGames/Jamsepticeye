@@ -23,6 +23,7 @@ public class Binder
         story.variablesState["PLACED_HAMMOCK"] = GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK);
         story.variablesState["ALLOWED_BAKERY"] = GameStateScript.Instance.Is(GameState.ALLOWED_BAKERY);
         story.variablesState["FLOUR_MAGIC_READY"] = GameStateScript.Instance.Is(GameState.FLOUR_MAGIC_READY);
+        story.variablesState["END_SCENE_SETUP"] = GameStateScript.Instance.Is(GameState.END_SCENE_SETUP);
 
         story.BindExternalFunction("SetKnowsAboutBaker", () => GameStateScript.Instance.Set(GameState.KNOWS_ABOUT_BAKER));
         story.BindExternalFunction("SetHasCoffee", () =>
@@ -99,6 +100,14 @@ public class Binder
         story.BindExternalFunction("SetFoundNest", () =>
         {
             GameStateScript.Instance.Set(GameState.FOUND_NEST);
+        });
+        story.BindExternalFunction("SetupEndScene", () =>
+        {
+            GameStateScript.Instance.Set(GameState.END_SCENE_SETUP);
+        });
+        story.BindExternalFunction("PeepGoesPoof", () =>
+        {
+            GameStateScript.Instance.Set(GameState.PEEP_POOFED);
         });
     }
 }

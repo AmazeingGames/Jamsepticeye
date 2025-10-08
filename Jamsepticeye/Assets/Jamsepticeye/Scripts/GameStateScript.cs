@@ -7,7 +7,7 @@ public enum GameState : int
     HAS_EGGS = 0x02,
     NEEDS_SUGAR = 0x04,
     KNOWS_ABOUT_BAKER = 0x08,
-    TALKED_TO_BAKER = 0x10,
+    TALKED_TO_BAKER = 0x10, 
     NEEDS_EGGS = 0x20,
     GAVE_INGREDIENTS_TO_BAKER = 0x40,
     HAS_ROCKS = 0x80,
@@ -28,7 +28,10 @@ public enum GameState : int
     KID_CHOKING = 0x400000,
     COOKIES_BAKED = 0x800000,
     KID_CHOKING_DIALOG = 0x1000000,
-
+    HAMMOCK_FADE_STARTED = 0x2000000,
+    END_SCENE_SETUP = 0x4000000,
+    END_SCENE_SETUP_DONE = 0x8000000,
+    PEEP_POOFED = 0x10000000,
 };
 
 public class GameStateScript
@@ -53,19 +56,18 @@ public class GameStateScript
         Set(GameState.NEEDS_ROCKS);
         Set(GameState.NEEDS_STICKS);
 
-        // Not sure if this is needed for anything
-        // Set(GameState.FIRST_SPAWN);
 #if DEBUG
         if (CheatsSettings.Instance.CheatGameStateOnStart)
         {
+            //Set(GameState.HAS_ROCKS);
+            //Set(GameState.HAS_STICKS);
+            //Set(GameState.NEEDS_EGGS);
             Set(GameState.KNOWS_ABOUT_BAKER);
             Set(GameState.TALKED_TO_BAKER);
             Set(GameState.HAS_SUGAR);
+            //Set(GameState.HAS_COOKIES);
             Set(GameState.HAS_EGGS);
         }
-        
-        //Set(GameState.HAS_COOKIES);
-        // Set(GameState.HAS_COFFEE);
 #endif
     }
     public bool Is(GameState state)

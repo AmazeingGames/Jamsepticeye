@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,6 +8,8 @@ public class YoungBoyScript : MonoBehaviour
     Animator animator;
     DialogueInteraction dialogueInteraction;
     [SerializeField] TextAsset chokingDialog;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject peep;
 
     void Start()
     {
@@ -42,8 +45,23 @@ public class YoungBoyScript : MonoBehaviour
             {
                 // Only start the coroutine once thanks to this condition
                 GameStateScript.Instance.Set(GameState.KID_CHOKING);
+                dialogueInteraction.Disable();
                 StartCoroutine(TeleportKid());
             }
+            if (GameStateScript.Instance.Is(GameState.END_SCENE_SETUP) && !GameStateScript.Instance.Is(GameState.END_SCENE_SETUP_DONE))
+            {
+                GameStateScript.Instance.Set(GameState.END_SCENE_SETUP_DONE);
+                StartCoroutine(SetupEndScene(ContinueEndDialog));
+
+            }
+        }
+    }
+
+    void ContinueEndDialog()
+    {
+        if (dialogueInteraction != null)
+        {
+            ServiceLocator.GetDialogueService().PlayDialogue(chokingDialog);
         }
     }
     private IEnumerator TeleportKid()
@@ -57,6 +75,20 @@ public class YoungBoyScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         GameStateScript.Instance.Set(GameState.KID_CHOKING_DIALOG);
+        yield return null;
+    }
+    private IEnumerator SetupEndScene(Action action)
+    {
+        FadeController.instance.TriggerFade();
+
+        yield return new WaitForSeconds(1f);
+
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        peep.transform.position = new Vector2(20.75385f, -15.5427f);
+        peep.SetActive(true);
+        yield return new WaitForSeconds(3f);
+
+        action?.Invoke();
         yield return null;
     }
 }

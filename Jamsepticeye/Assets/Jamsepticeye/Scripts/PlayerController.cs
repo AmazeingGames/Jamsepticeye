@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
 
     public DynamicMovement dynamicMover;
-    
+
     public static EventHandler<SteppedEventArgs> SteppedEventHandler;
 
     public class SteppedEventArgs : EventArgs { public SteppedEventArgs() { } }
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         // Force cookies if left bakery without
 
-        
+
         if (GameStateScript.Instance.Is(GameState.BAKER_DEAD))
             GameStateScript.Instance.Set(GameState.HAS_COOKIES);
 
@@ -94,6 +94,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (SpawnPointHandler.shouldTeleport)
+        {
+            transform.position = SpawnPointHandler.targetPosition;
+            SpawnPointHandler.shouldTeleport = false;
+        }
         /*
         rawAxisLastFrame = rawAxisThisFrame;
         rawAxisThisFrame.x = Input.GetAxisRaw("Horizontal");
@@ -111,7 +116,6 @@ public class PlayerController : MonoBehaviour
                 Debug.Log($"New axis pressed: ({mostRecentAxisPress.x}, {mostRecentAxisPress.y})");
             }
         }*/
-
 
         currentMoveSpeed = defaultSpeed;
 #if DEBUG
@@ -145,32 +149,40 @@ public class PlayerController : MonoBehaviour
                 speed = movement.magnitude;
             }
         }
-
-
-        // Handle animation variables
-
-        Vector2 animatorMoveDirection = Vector2.zero;
-        if (moveDirection.x > 0.1 || moveDirection.x < -0.1)
-        {
-            animatorMoveDirection.y = 0;
-            animatorMoveDirection.x = Mathf.Sign(moveDirection.x); // 1 or -1
-        }
         else
+            moveDirection = new Vector2(-1, 0);
+
+
+        if (dynamicMover == null || !dynamicMover.isMoving)
         {
-            animatorMoveDirection.y = Mathf.Sign(moveDirection.y);
+            // Handle animation variables
+
+            Vector2 animatorMoveDirection = Vector2.zero;
+            if (moveDirection.x > 0.1 || moveDirection.x < -0.1)
+            {
+                animatorMoveDirection.y = 0;
+                animatorMoveDirection.x = Mathf.Sign(moveDirection.x); // 1 or -1
+            }
+            else
+            {
+                animatorMoveDirection.y = Mathf.Sign(moveDirection.y);
+            }
+
+            animator.SetFloat("LookX", animatorMoveDirection.x);
+            animator.SetFloat("LookY", animatorMoveDirection.y);
+
+            animator.SetFloat("Speed", speed);
+            animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
         }
-
-        animator.SetFloat("LookX", animatorMoveDirection.x);
-        animator.SetFloat("LookY", animatorMoveDirection.y);
-
-        animator.SetFloat("Speed", speed);
-        animator.SetBool("HasCape", !GameStateScript.Instance.Is(GameState.PLACED_HAMMOCK));
     }
 
     void SpawnPlayer()
     {
         if (SpawnPointHandler.shouldTeleport)
+        {
             transform.position = SpawnPointHandler.targetPosition;
+            SpawnPointHandler.shouldTeleport = false;
+        }
         else
             transform.position = spawnPoint.transform.position;
     }

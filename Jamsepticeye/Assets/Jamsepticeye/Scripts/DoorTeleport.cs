@@ -6,6 +6,8 @@ public class DoorTeleport : MonoBehaviour
 {
     [SerializeField]
     private string sceneDestination;
+    [SerializeField]
+    private Vector2 sceneDestinationCoordinates;
 
     [SerializeField]
     private bool enabled_ = false;
@@ -21,6 +23,11 @@ public class DoorTeleport : MonoBehaviour
     public void Disable()
     {
         enabled_ = false;
+    }
+
+    void Start()
+    {
+        timeSinceLastTeleport = doorCooldownDuration;
     }
 
     private void Update()
@@ -48,7 +55,7 @@ public class DoorTeleport : MonoBehaviour
         if (enabled_ && timeSinceLastTeleport >= doorCooldownDuration)
         {
             ServiceLocator.GetSceneHelperSerivce().EnableOnlyTargetScene(sceneDestination);
-            SpawnPointHandler.TeleportToScene(Vector2.zero);
+            SpawnPointHandler.TeleportToScene(sceneDestinationCoordinates);
         }
     }
 

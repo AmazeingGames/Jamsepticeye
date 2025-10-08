@@ -53,8 +53,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     public static EventHandler<StateChangedEventArgs> StateChangedEventHandler;
 
-    public class StateChangedEventArgs : EventArgs 
-    { 
+    public class StateChangedEventArgs : EventArgs
+    {
         public readonly StateChange myStateChange;
         public readonly CutsceneSequence cutsceneSequence;
 
@@ -165,12 +165,12 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     void SetTextVisibility(bool visible)
     {
         Debug.Log($"visible: {visible}");
-        
+
         float targetAlpha = visible ? 1 : 0;
 
-            // textBox_IMAGE.enabled = visible;
+        // textBox_IMAGE.enabled = visible;
         textBox_IMAGE.DOFade(targetAlpha, fadeTime_Seconds);
-        dialogue_TMP.DOFade (targetAlpha, fadeTime_Seconds); 
+        dialogue_TMP.DOFade(targetAlpha, fadeTime_Seconds);
     }
 
 
@@ -226,13 +226,15 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void ExitCutscene()
     {
+        TextAsset playDialogue = currentSequence != null && currentSequence.DialogueToPlayOnEnd != null ? currentSequence.DialogueToPlayOnEnd : null;
+
         OnExitedCutscene();
 
-        if (currentSequence != null && currentSequence.DialogueToPlayOnEnd != null)
-            ServiceLocator.GetDialogueService().PlayDialogue(currentSequence.DialogueToPlayOnEnd);
+        if (playDialogue != null)
+            ServiceLocator.GetDialogueService().PlayDialogue(playDialogue);
     }
 
-    void OnExitedCutscene() 
+    void OnExitedCutscene()
     {
         Reset();
 
