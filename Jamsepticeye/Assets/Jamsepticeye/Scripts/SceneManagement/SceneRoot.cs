@@ -64,6 +64,7 @@ public class SceneRoot : MonoBehaviour
 
     IEnumerator OnEnablingRoot_CO(bool setActive)
     {
+        Debug.Log("Enabling root");
         // Wait for everything in the scene to finish loading
         if (!hasLoadedRootBefore)
         {

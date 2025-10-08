@@ -24,8 +24,10 @@ public class TilemapHelper : MonoBehaviour, ITilemapHelperService
 
     void Scenes_EnablingRoot(object sender, SceneRoot.EnablingRootEventArgs e)
     {
+        Debug.Log($"handled enabling root {e.rootData.MySceneType}");
         if (e.isSettingActive)
         {
+            Debug.Log($"fully handled enabling root {e.rootData.MySceneType}");
             groundOverlayTilemap = e.groundOverlayTilemap;
             groundTilemap = e.groundTilemap;
         }
@@ -36,6 +38,7 @@ public class TilemapHelper : MonoBehaviour, ITilemapHelperService
 
     public DataTile GetTileAtPosition(Vector3Int position)
     {
+        Debug.Log($"isgroundoverlay null ? {groundOverlayTilemap == null}");
         position.z = 0;
         DataTile overlayTile = groundOverlayTilemap.GetTile(position) as DataTile;
         Debug.Log($"Is overlay tile null? {overlayTile == null}");

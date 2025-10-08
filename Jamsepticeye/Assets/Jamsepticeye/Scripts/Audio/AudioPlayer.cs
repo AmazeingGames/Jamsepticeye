@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Ink.Parsed;
 using UnityEngine.Assertions;
+using UnityEditor.Il2Cpp;
 
 public class AudioPlayer : MonoBehaviour
 {
@@ -49,8 +50,11 @@ public class AudioPlayer : MonoBehaviour
         Stepper.SteppedEventHandler += Entities_Stepped;
         UIButton.InteractingEventHandler += UI_Interacting;
         DialogueManager.StateChangedEventHandler += Dialogue_StateChanged;
+        InventoryDataManager.ItemsInInventory.ItemAdded += Inventory_ItemAdded;
+        InteractNestScript.BuildingHammockEventHandler += Cinematic_BuildingHammock;
+        InteractNestScript.UpdatingCinematicEventHandler += Nest_UpdatingCinematic;
     }
-    
+
     private void OnDisable()
     {
         SceneRoot.EnablingRootEventHandler -= Scenes_SetRootActive;
@@ -58,6 +62,9 @@ public class AudioPlayer : MonoBehaviour
         Stepper.SteppedEventHandler -= Entities_Stepped;
         UIButton.InteractingEventHandler -= UI_Interacting;
         DialogueManager.StateChangedEventHandler -= Dialogue_StateChanged;
+        InventoryDataManager.ItemsInInventory.ItemAdded -= Inventory_ItemAdded;
+        InteractNestScript.BuildingHammockEventHandler -= Cinematic_BuildingHammock;
+        InteractNestScript.UpdatingCinematicEventHandler -= Nest_UpdatingCinematic;
     }
 
     private void Awake()
@@ -72,6 +79,53 @@ public class AudioPlayer : MonoBehaviour
             { typeof(FootstepType), MyCurrentFootstep }
         };
     }
+
+    private void Update()
+    {
+#if DEBUG
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Play(Events.NestFall_REF);
+            Play(Events.ThrowRock_REF);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Play(Events.CashRegister_REF);
+        }
+#endif
+    }
+
+    private void Cinematic_BuildingHammock(object sender, InteractNestScript.BuildingHammockEventArgs e)
+    {
+        Play(Events.BuildHammock_REF);
+    }
+
+    private void Nest_UpdatingCinematic(object sender, InteractNestScript.UpdatingCinematicEventArgs e)
+    {
+        EventReference soundToPlay = e.myCinematicPoint switch
+        {
+            InteractNestScript.CinematicPoint.ThrowRock => Events.ThrowRock_REF,
+            InteractNestScript.CinematicPoint.NestFall => Events.NestFall_REF,
+            InteractNestScript.CinematicPoint.None => throw new NotImplementedException("Cinematic point not set."),
+            InteractNestScript.CinematicPoint.Beginning or
+            InteractNestScript.CinematicPoint.End => default,
+            _ => throw new NotImplementedException("Switch expression is not exhaustive"),
+        };
+        Debug.Log($"{e.myCinematicPoint} => {soundToPlay}");
+        Play(soundToPlay);
+    }
+
+    void Inventory_ItemAdded(ItemData itemAdded)
+    {
+        EventReference soundToPlay = itemAdded.MyItemType switch
+        {
+            ItemData.ItemType.Sugar => Events.CashRegister_REF,
+            _ => default,
+        };
+
+        Play(soundToPlay);
+    }
+
 
     void UI_Interacting(object sender, UIButton.InteractingEventArgs e)
     {
@@ -108,7 +162,8 @@ public class AudioPlayer : MonoBehaviour
                     Speaker.Character.None => throw new NotImplementedException("Speaker not set in DialogueManager struct"),
                     _ => throw new NotImplementedException("Switch expression is not exhaustive"),
                 };
-                SetParameter(myGarbleParameter);    
+                SetParameter(myGarbleParameter);
+                Play(Events.Dialogue);
                 break;
         }
     }
@@ -171,12 +226,12 @@ public class AudioPlayer : MonoBehaviour
         {
             DataTile.Category.Grass => FootstepType.Grass,
 
-            DataTile.Category.Dirt  or
+            DataTile.Category.Dirt or
             DataTile.Category.Stone or
-            DataTile.Category.Wood  or
-            DataTile.Category.Tile  => FootstepType.Stone,
+            DataTile.Category.Wood or
+            DataTile.Category.Tile => FootstepType.Stone,
 
-            DataTile.Category.None  => throw new NotImplementedException($"DataTile scriptable object has not set {nameof(e.dataTile.MyType)}"),
+            DataTile.Category.None => throw new NotImplementedException($"DataTile scriptable object has not set {nameof(e.dataTile.MyType)}"),
             _ => throw new NotImplementedException("Switch expression is not exhaustive"),
         };
         SetParameter(footstepType);
@@ -186,7 +241,7 @@ public class AudioPlayer : MonoBehaviour
     void Cutscenes_StateChanged(object sender, CutscenesPlayer.StateChangedEventArgs e)
     {
         switch (e.myStateChange)
-        {   
+        {
             case CutscenesPlayer.StateChange.Triggered:
                 myMusicTypeBeforeCutscene = MyCurrentMusic;
 
@@ -200,14 +255,14 @@ public class AudioPlayer : MonoBehaviour
                 };
 
                 SetParameter(myMusicType);
-            break;
+                break;
 
             case CutscenesPlayer.StateChange.Exited:
                 SetParameter(myMusicTypeBeforeCutscene);
-            break;
+                break;
 
             case CutscenesPlayer.StateChange.Continued:
-            break;
+                break;
 
             case CutscenesPlayer.StateChange.None:
                 throw new NotImplementedException();
@@ -223,7 +278,7 @@ public class AudioPlayer : MonoBehaviour
             Debug.LogWarning("No matching `CurrentParameter` variable found!");
 
         string typeName = typeof(T).Name;
-        string parameterName = Enum.GetName(typeof(T), parameter); 
+        string parameterName = Enum.GetName(typeof(T), parameter);
         int parameterValue = Convert.ToInt32(parameter);
 
         string output = $"Set the parameter of \"{typeName}\" to \"{parameterValue} ({parameterName})\"";

@@ -2576,20 +2576,55 @@ MonoBehaviour:
       Data3: 896357008
       Data4: 440766830
     Path: event:/Music
+  <Dialogue>k__BackingField:
+    Guid:
+      Data1: 80328217
+      Data2: 1180500277
+      Data3: -625424735
+      Data4: 2059181221
+    Path: event:/Dialouge_Garble
+  <BuildHammock_REF>k__BackingField:
+    Guid:
+      Data1: 1473434631
+      Data2: 1129605415
+      Data3: -1836298617
+      Data4: -920709644
+    Path: event:/Environmental/Hammock
+  <ThrowRock_REF>k__BackingField:
+    Guid:
+      Data1: -1623062181
+      Data2: 1201632482
+      Data3: -192409969
+      Data4: 1592422435
+    Path: event:/Environmental/RockThrow
+  <NestFall_REF>k__BackingField:
+    Guid:
+      Data1: -2095673453
+      Data2: 1163692233
+      Data3: -1630736498
+      Data4: 1502487851
+    Path: event:/Environmental/NestFall
+  <CashRegister_REF>k__BackingField:
+    Guid:
+      Data1: 1449516998
+      Data2: 1095665493
+      Data3: 596765345
+      Data4: -1721469573
+    Path: event:/Environmental/CashRegister
   <DoorOpen_REF>k__BackingField:
     Guid:
       Data1: 269292815
       Data2: 1334980836
       Data3: -1355668856
       Data4: 1979202163
-    Path: event:/DoorOpen
+    Path: event:/Environmental/DoorOpen
   <BellRing_REF>k__BackingField:
     Guid:
       Data1: -782634326
       Data2: 1150503493
       Data3: -1958202447
       Data4: -307070642
-    Path: event:/BellRing
+    Path: event:/Environmental/BellRing
   <UIButtonClick>k__BackingField:
     Guid:
       Data1: -1820104902

@@ -10,7 +10,7 @@ using VInspector;
 // I think Inventory Data Manager should be a service, located by a service locator. Scripts inform the inventory data manager directly regarding item changes, to which the data manager acts as a singular source of truth, which broadcasts its information to other scripts via events.
 public class InventoryDataManager : MonoBehaviour, IInventoryDataService
 {
-    [SerializeField] SerializedDictionary<ItemData.ItemType, ItemData> itemTypeToData; 
+    [SerializeField] SerializedDictionary<ItemData.ItemType, ItemData> itemTypeToData;
 
     // Change to readonly lists in the future
     static readonly ObservableList<ItemData> itemsInInventory = new();
@@ -60,15 +60,11 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
     {
         while (true)
         {
-            
-
             yield return new WaitForSeconds(1);
 
-           //  Debug.Log("running");
+            //  Debug.Log("running");
             foreach (var item in itemsInInventory)
                 itemsInInventoryProxy.Add(item);
-
-            
 
             itemsInInventoryProxy.AddRange(itemsInInventory);
             usedItemsProxy.AddRange(usedItems);
@@ -78,7 +74,11 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
     public void CollectItem(ItemData.ItemType itemType)
         => CollectItem(itemTypeToData[itemType]);
     public void CollectItem(ItemData itemData)
-        => itemsInInventory.Add(itemData);
+    {
+
+        Debug.Log($"Added {itemData.name} with {itemData.MyItemType}");
+        itemsInInventory.Add(itemData);
+    }
 
     public void UseItem(ItemData.ItemType itemType)
         => UseItem(itemTypeToData[itemType]);

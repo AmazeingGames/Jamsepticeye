@@ -56,19 +56,6 @@ public class GameStateScript
         Set(GameState.NEEDS_ROCKS);
         Set(GameState.NEEDS_STICKS);
 
-#if DEBUG
-        if (CheatsSettings.Instance.CheatGameStateOnStart)
-        {
-            //Set(GameState.HAS_ROCKS);
-            //Set(GameState.HAS_STICKS);
-            //Set(GameState.NEEDS_EGGS);
-            Set(GameState.KNOWS_ABOUT_BAKER);
-            Set(GameState.TALKED_TO_BAKER);
-            Set(GameState.HAS_SUGAR);
-            //Set(GameState.HAS_COOKIES);
-            Set(GameState.HAS_EGGS);
-        }
-#endif
     }
     public bool Is(GameState state)
     {
