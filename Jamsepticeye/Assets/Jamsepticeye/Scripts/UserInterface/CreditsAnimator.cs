@@ -129,7 +129,7 @@ public class CreditsAnimator : MonoBehaviour
     IEnumerator Continue()
     {
         canContinue = false;
-        thanks.text = "Thanks for playing.";
+        thanks.text = "Thank you for playing.";
 
         continueSequence = DOTween.Sequence();
 
