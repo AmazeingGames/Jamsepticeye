@@ -55,5 +55,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   clampBetween0And1: 0
+  timeType: 0
   startOffset: {x: 0, y: 0}
-  endOffset: {x: 0, y: 50}
+  endOffset: {x: 0, y: 200}

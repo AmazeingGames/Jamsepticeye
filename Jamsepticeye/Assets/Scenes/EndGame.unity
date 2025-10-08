@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 747253101}
   - component: {fileID: 747253103}
   - component: {fileID: 747253102}
-  - component: {fileID: 747253104}
   - component: {fileID: 747253105}
   m_Layer: 0
   m_Name: Eccelias
@@ -426,30 +425,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747253100}
   m_CullTransparentMesh: 1
---- !u!114 &747253104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747253100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 747253102}
-  usePreset: 0
-  preset: {fileID: 0}
-  tagEffects: []
-  globalEffects:
-  - triggerWhen: 0
-    effect: {fileID: 11400000, guid: 87846ef82c4e84f0fa3c5d04450dd117, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
-  updatesPerSecond: 30
 --- !u!114 &747253105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +474,30 @@ MonoBehaviour:
     overrideTagEffects: 0
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: 130d7f3fc0ee942f8919d80ef5633910, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 883eed0339150497db58b8bd89b633ac, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: e20222890c9914418b883d0f430b5794, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 11e9a575cbef6436a825333a8e7a533f, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 592941218edca43cab0b51c973e6190f, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
         m_Calls: []
@@ -770,14 +769,32 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     overrideTagEffects: 0
-  - triggerWhen: 0
+  - triggerWhen: 1
     effect: {fileID: 11400000, guid: 130d7f3fc0ee942f8919d80ef5633910, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
         m_Calls: []
     overrideTagEffects: 0
-  - triggerWhen: 0
+  - triggerWhen: 1
     effect: {fileID: 11400000, guid: cd41b859823e14d159b3952d66b82235, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 8a6b9be7b4fe7454aaeb8a296c5fb0cf, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 37db8e32c48cf4579b04b8dc436a7bb8, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: ef00755a4217243fcb65b15852dd2f6d, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
         m_Calls: []
@@ -827,6 +844,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de273767bf29d04458e300043fada66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1402935619}
+  gameBy: {fileID: 2027044314}
+  namesHolder: {fileID: 1199991070}
+  gameByPadding: 1
+  intervalTime: 2
+  fadeDuration: 0.5
+  timeTillFadeOut: 4
+  timeBetweenDisappears: 2
 --- !u!1 &1199991068
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +863,7 @@ GameObject:
   - component: {fileID: 1199991069}
   - component: {fileID: 1199991070}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Names
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,6 +1201,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 415c717fe36b6424f9674111f2a16121, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
   updatesPerSecond: 30
 --- !u!1 &1883545816
 GameObject:
@@ -1188,7 +1219,6 @@ GameObject:
   - component: {fileID: 1883545817}
   - component: {fileID: 1883545819}
   - component: {fileID: 1883545818}
-  - component: {fileID: 1883545820}
   - component: {fileID: 1883545821}
   m_Layer: 0
   m_Name: Blake
@@ -1315,30 +1345,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883545816}
   m_CullTransparentMesh: 1
---- !u!114 &1883545820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883545816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1883545818}
-  usePreset: 0
-  preset: {fileID: 0}
-  tagEffects: []
-  globalEffects:
-  - triggerWhen: 0
-    effect: {fileID: 11400000, guid: 87846ef82c4e84f0fa3c5d04450dd117, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
-  updatesPerSecond: 30
 --- !u!114 &1883545821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,6 +1398,12 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     overrideTagEffects: 0
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 415c717fe36b6424f9674111f2a16121, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
   updatesPerSecond: 30
 --- !u!1 &1905547906
 GameObject:
@@ -1404,7 +1416,6 @@ GameObject:
   - component: {fileID: 1905547907}
   - component: {fileID: 1905547909}
   - component: {fileID: 1905547908}
-  - component: {fileID: 1905547910}
   - component: {fileID: 1905547911}
   m_Layer: 0
   m_Name: Liz
@@ -1531,30 +1542,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905547906}
   m_CullTransparentMesh: 1
---- !u!114 &1905547910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905547906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1905547908}
-  usePreset: 0
-  preset: {fileID: 0}
-  tagEffects: []
-  globalEffects:
-  - triggerWhen: 0
-    effect: {fileID: 11400000, guid: 87846ef82c4e84f0fa3c5d04450dd117, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
-  updatesPerSecond: 30
 --- !u!114 &1905547911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,6 +1585,12 @@ MonoBehaviour:
     overrideTagEffects: 0
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: feda8673648fc7045a3c59238768a341, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 54cbe01c1d374490bb4ea128abf807bf, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
         m_Calls: []
@@ -1647,7 +1640,7 @@ GameObject:
   - component: {fileID: 2027044315}
   - component: {fileID: 2027044314}
   m_Layer: 0
-  m_Name: Text
+  m_Name: A Game By
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
