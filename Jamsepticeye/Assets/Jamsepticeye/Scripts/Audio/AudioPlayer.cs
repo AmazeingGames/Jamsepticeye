@@ -6,10 +6,6 @@ using UnityEngine;
 using static SceneRoot;
 using static FMODEvents;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Ink.Parsed;
-using UnityEngine.Assertions;
-using UnityEditor.Il2Cpp;
 
 public class AudioPlayer : MonoBehaviour
 {

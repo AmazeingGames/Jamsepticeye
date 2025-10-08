@@ -6,7 +6,7 @@ using System.Linq;
 
 public class TileCreator
 {
-    [MenuItem("Assets/Batch Create/DataTiles")]
+/*    // [CreateAssetMenu()]
     public static void CreateTilesFromMultipleSprites()
     {
         // Get the selected Texture2D assets
@@ -39,4 +39,6 @@ public class TileCreator
         AssetDatabase.Refresh();
         Debug.Log("Created tiles from multiple sprites.");
     }
+#endif
+*/
 }
