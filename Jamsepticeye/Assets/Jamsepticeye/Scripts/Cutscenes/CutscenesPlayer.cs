@@ -35,6 +35,9 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     [SerializeField] float fadeTime_Seconds = .25f;
     static bool hasPlayedOpening = false;
 
+
+    [SerializeField] GameObject player;
+
     bool CanContinueToNextLine
     {
         get => canContinueToNextLine;
@@ -112,6 +115,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     public void TriggerCutsceneSequence(CutsceneSequence cutsceneSequence)
     {
+        player.GetComponent<PlayerController>().disableMovement = true;
         OnTriggeringCutscene(cutsceneSequence);
         DisplayNextScene();
     }
@@ -237,7 +241,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     void OnExitedCutscene()
     {
         Reset();
-
+        player.GetComponent<PlayerController>().disableMovement = false;
         OnStateChanged(StateChange.Exited);
     }
 

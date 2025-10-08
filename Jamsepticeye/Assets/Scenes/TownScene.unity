@@ -84586,7 +84586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14, y: -3.745758}
+  m_AnchoredPosition: {x: -14, y: -3.7457886}
   m_SizeDelta: {x: -403.4492, y: 328.0781}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983339396
@@ -89348,6 +89348,7 @@ MonoBehaviour:
   startingCutscene: {fileID: 11400000, guid: 5ffa7ac3f8214432c87da164e29dbcff, type: 2}
   timeTillCanContinue: 0.5
   fadeTime_Seconds: 0.25
+  player: {fileID: 57319825}
   spamPreventionTimer: 0.5
 --- !u!1001 &1159367507
 PrefabInstance:
@@ -112978,7 +112979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneDestination: GroceryStoreScene
-  sceneDestinationCoordinates: {x: 0, y: 0.5}
+  sceneDestinationCoordinates: {x: -636.5262, y: 13.98905}
   enabled_: 1
   doorCooldownDuration: 0
 --- !u!114 &1835720005

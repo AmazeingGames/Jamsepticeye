@@ -85,7 +85,7 @@ public class YoungBoyScript : MonoBehaviour
 
         player.GetComponent<SpriteRenderer>().enabled = false;
         peep.transform.position = new Vector2(20.75385f, -15.5427f);
-        peep.SetActive(true);
+        peep.GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(3f);
 
         action?.Invoke();

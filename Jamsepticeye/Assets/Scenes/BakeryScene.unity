@@ -25827,7 +25827,7 @@ Transform:
   m_GameObject: {fileID: 1102171144}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.7461514, y: 1.0427012, z: 0.043316737}
+  m_LocalPosition: {x: 3, y: 1.0427012, z: 0.043316737}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -28961,6 +28961,7 @@ MonoBehaviour:
   startingCutscene: {fileID: 11400000, guid: 5ffa7ac3f8214432c87da164e29dbcff, type: 2}
   timeTillCanContinue: 0.5
   fadeTime_Seconds: 0.25
+  player: {fileID: 8578485870171512773}
   spamPreventionTimer: 1
 --- !u!4 &1989031650
 Transform:
@@ -29764,6 +29765,7 @@ MonoBehaviour:
   capeSprite: {fileID: 3391018602048382168, guid: 857afc8980ee7654c8a586c265a5d6a7, type: 3}
   noCapeSprite: {fileID: 3888009606188674153, guid: 857afc8980ee7654c8a586c265a5d6a7, type: 3}
   spawnPoint: {fileID: 1765456108}
+  disableMovement: 0
   dynamicMover: {fileID: 0}
 --- !u!4 &8240768734244881641
 Transform:

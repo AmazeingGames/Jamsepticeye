@@ -42,6 +42,6 @@ public class CheatsSettings : MMSingleton<CheatsSettings>
         }
         foreach (GameState cheatedState in cheatedStates)
             State.Set(cheatedState);
-    }
 #endif
+    }
 }

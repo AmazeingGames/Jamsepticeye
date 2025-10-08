@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public Sprite noCapeSprite;
 
     public GameObject spawnPoint;
+    public bool disableMovement;
 
     public DynamicMovement dynamicMover;
 
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         SpawnPlayer();
+        disableMovement = false;
     }
 
     void FixedUpdate()
@@ -129,7 +131,7 @@ public class PlayerController : MonoBehaviour
         float speed = 0f;
         if (!GameStateScript.Instance.Is(GameState.KID_CHOKING))
         {
-            if (!DialogueManager.GetInstance().IsDialoguePlaying)
+            if (!DialogueManager.GetInstance().IsDialoguePlaying && !disableMovement)
             {
                 if (dynamicMover != null && dynamicMover.isMoving)
                 {
