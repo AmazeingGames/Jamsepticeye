@@ -570,6 +570,7 @@ MonoBehaviour:
   - exit
   choicesParent: {fileID: 1821153036}
   bjorn:
+    MySpeaker: 1
     <Name>k__BackingField: Baker
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -585,6 +586,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   peeper:
+    MySpeaker: 2
     <Name>k__BackingField: Grim Peeper
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -600,6 +602,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   tim:
+    MySpeaker: 3
     <Name>k__BackingField: Tim
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -615,6 +618,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   kid:
+    MySpeaker: 4
     <Name>k__BackingField: Young boy
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -625,6 +629,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   kid_hurt:
+    MySpeaker: 4
     <Name>k__BackingField: Young boy
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -635,6 +640,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   nurse:
+    MySpeaker: 5
     <Name>k__BackingField: DocDoor (Nurse)
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -1035,8 +1041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a80b1c44bf2f34ca8a665158b3d707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bootstrapScene:
-    m_Handle: 0
 --- !u!1 &437874403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1242,41 @@ MonoBehaviour:
       Data3: 896357008
       Data4: 440766830
     Path: event:/Music
+  <Dialogue>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <BuildHammock_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <ThrowRock_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <NestFall_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <CashRegister_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <DoorOpen_REF>k__BackingField:
     Guid:
       Data1: 269292815

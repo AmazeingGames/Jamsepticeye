@@ -32,14 +32,6 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
     void Awake()
         => ServiceLocator.ProvideInventoryService(this);
 
-    public void CollectItem(ItemData.ItemType itemType)
-        => CollectItem(itemTypeToData[itemType]);
-    public void CollectItem(ItemData itemData)
-        => itemsInInventory.Add(itemData);
-
-    public void UseItem(ItemData.ItemType itemType)
-        => UseItem(itemTypeToData[itemType]);
-
     void Start()
     {
         StartCoroutine(UpdateProxyLists_CO());
@@ -82,6 +74,14 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
             usedItemsProxy.AddRange(usedItems);
         }
     }
+
+    public void CollectItem(ItemData.ItemType itemType)
+        => CollectItem(itemTypeToData[itemType]);
+    public void CollectItem(ItemData itemData)
+        => itemsInInventory.Add(itemData);
+
+    public void UseItem(ItemData.ItemType itemType)
+        => UseItem(itemTypeToData[itemType]);
 
     public void UseItem(ItemData itemData)
     {

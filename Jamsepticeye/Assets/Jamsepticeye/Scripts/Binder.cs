@@ -79,6 +79,7 @@ public class Binder
         });
         story.BindExternalFunction("GiveIngredientsToBaker", () =>
         {
+            Debug.Log("Gave ingredients to baker");
             GameStateScript.Instance.Unset(GameState.HAS_SUGAR);
             GameStateScript.Instance.Unset(GameState.HAS_EGGS);
             ServiceLocator.GetInventoryService().UseItem(ItemData.ItemType.Sugar);

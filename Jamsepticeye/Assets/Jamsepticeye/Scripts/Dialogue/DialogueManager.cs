@@ -85,8 +85,6 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         } 
     }
 
-
-
     void Awake()
     {
         speakerNameToData = new()

@@ -1821,7 +1821,7 @@ Transform:
   - {fileID: 1371013457}
   - {fileID: 125569842}
   - {fileID: 167432591}
-  - {fileID: 1184005038}
+  - {fileID: 424539551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &69416085
@@ -69350,6 +69350,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3645153944098276324, guid: e541aab3a60fc79418f5e2ffb8cbd3aa, type: 3}
   m_PrefabInstance: {fileID: 423293154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &424539550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424539551}
+  m_Layer: 0
+  m_Name: Cheats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424539551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424539550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1258202559}
+  - {fileID: 1184005038}
+  m_Father: {fileID: 69416084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &426776471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89753,12 +89786,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184005037}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 69416084}
+  m_Father: {fileID: 424539551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1184005039
 MonoBehaviour:
@@ -92085,6 +92118,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3645153944098276324, guid: e541aab3a60fc79418f5e2ffb8cbd3aa, type: 3}
   m_PrefabInstance: {fileID: 1257745740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1258202558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258202559}
+  - component: {fileID: 1258202560}
+  m_Layer: 0
+  m_Name: CheatSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1258202559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258202558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 424539551}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1258202560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258202558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acd911f128f5094283d22218b5f3088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CheatGameStateOnStart>k__BackingField: 1
 --- !u!1001 &1258443440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110966,6 +111044,41 @@ MonoBehaviour:
       Data3: 896357008
       Data4: 440766830
     Path: event:/Music
+  <Dialogue>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <BuildHammock_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <ThrowRock_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <NestFall_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <CashRegister_REF>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <DoorOpen_REF>k__BackingField:
     Guid:
       Data1: 269292815
@@ -114075,6 +114188,7 @@ MonoBehaviour:
   - exit
   choicesParent: {fileID: 1524187910}
   bjorn:
+    MySpeaker: 1
     <Name>k__BackingField: Baker
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -114090,6 +114204,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   peeper:
+    MySpeaker: 2
     <Name>k__BackingField: Grim Peeper
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -114105,6 +114220,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   tim:
+    MySpeaker: 3
     <Name>k__BackingField: Tim
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -114120,6 +114236,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   kid:
+    MySpeaker: 4
     <Name>k__BackingField: Young boy
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -114130,6 +114247,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   kid_hurt:
+    MySpeaker: 4
     <Name>k__BackingField: Young boy
     <EmotionToSprite>k__BackingField:
       serializedKvps:
@@ -114140,6 +114258,7 @@ MonoBehaviour:
         isKeyNull: 0
       dividerPos: 0.33
   nurse:
+    MySpeaker: 5
     <Name>k__BackingField: DocDoor (Nurse)
     <EmotionToSprite>k__BackingField:
       serializedKvps:

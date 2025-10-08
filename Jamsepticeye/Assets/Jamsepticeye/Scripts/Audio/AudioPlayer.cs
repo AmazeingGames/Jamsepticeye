@@ -20,7 +20,6 @@ public class AudioPlayer : MonoBehaviour
 
     MusicType myMusicTypeBeforeCutscene = MusicType.None;
 
-
     [Header("Debug")]
     [SerializeField] bool startWithMusic_DEBUG;
     [SerializeField] bool startWithAmbience_DEBUG;
@@ -50,7 +49,6 @@ public class AudioPlayer : MonoBehaviour
         Stepper.SteppedEventHandler += Entities_Stepped;
         UIButton.InteractingEventHandler += UI_Interacting;
         DialogueManager.StateChangedEventHandler += Dialogue_StateChanged;
-
     }
     
     private void OnDisable()
@@ -91,7 +89,28 @@ public class AudioPlayer : MonoBehaviour
 
     void Dialogue_StateChanged(object sender, DialogueManager.StateChangedEventArgs e)
     {
-        
+        switch (e.myStateChange)
+        {
+            case DialogueManager.StateChange.None:
+                break;
+            case DialogueManager.StateChange.Triggered:
+                break;
+            case DialogueManager.StateChange.Exited:
+                break;
+            case DialogueManager.StateChange.Continued:
+                FMODEvents.GarbleChar myGarbleParameter = e.speaker.MySpeaker switch
+                {
+                    Speaker.Character.Baker => GarbleChar.Baker,
+                    Speaker.Character.Peeper => GarbleChar.Peeper,
+                    Speaker.Character.Tim => GarbleChar.Tim,
+                    Speaker.Character.HungryBoy => GarbleChar.Boy,
+                    Speaker.Character.DocDoor => GarbleChar.Nurse,
+                    Speaker.Character.None => throw new NotImplementedException("Speaker not set in DialogueManager struct"),
+                    _ => throw new NotImplementedException("Switch expression is not exhaustive"),
+                };
+                SetParameter(myGarbleParameter);    
+                break;
+        }
     }
 
     void Scenes_SetRootActive(object sender, EnablingRootEventArgs e)

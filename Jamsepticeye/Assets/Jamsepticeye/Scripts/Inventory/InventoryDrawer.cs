@@ -34,9 +34,16 @@ public class InventoryDrawer : MonoBehaviour
 
     void HandleItemRemoved(ItemData itemData)
     {
-        var itemIconInstance = ItemDataToIconInstance[itemData];
+        var icon = ItemDataToIconInstance[itemData];
+
+        if (ItemDataToIconInstance[itemData] == null)
+        {
+            Debug.LogWarning("Item icon not in dictionary");
+            return;
+        }
+
         ItemDataToIconInstance.Remove(itemData);
-        itemIconInstance.gameObject.SetActive(false);
-        Destroy(itemIconInstance);
+        icon.gameObject.SetActive(false);
+        Destroy(icon);
     }
 }

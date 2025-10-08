@@ -236,6 +236,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-125569841-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-167432590-0
         - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-1184005037-0
+        - globalObjectIdString: GlobalObjectId_V1-2-eeff54a829856524d80209082f27f638-424539550-0
         values:
         - colorIndex: 7
           iconNameOrGuid: Canvas Icon
@@ -355,6 +356,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Favorite
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:
