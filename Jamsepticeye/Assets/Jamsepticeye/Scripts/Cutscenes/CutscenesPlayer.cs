@@ -10,6 +10,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Should likely seprate into 2 parts: a 'CutscePlayer' and a 'CutsceneAnimator', one part handling the simulation and another part the animation
 // So much duplication with the dialogue manager indicates some refactoring should be done
 public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 {
@@ -23,6 +24,8 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     [SerializeField] Image canContinue_IMAGE;
     [SerializeField] Image textBox_IMAGE;
     [SerializeField] Image scene_IMAGE;
+    [SerializeField] Image paperBackground_IMAGE;
+    [SerializeField] RectTransform DialogueBoxContainer; // Parent for continue icon, text, and visuals | Used for lerping
 
     [Header("Dialogue Effects")]
     [SerializeField] List<string> appearEffects;
@@ -32,9 +35,16 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     [Header("Scene Global Properties")]
     [SerializeField] float timeTillCanContinue = 1f;
-    [SerializeField] float fadeTime_Seconds = .25f;
-    static bool hasPlayedOpening = false;
 
+    [Header("Dialogue Box Animation")]
+    [SerializeField] bool localMove;
+    [SerializeField] float dialogueAppearTime = .25f;
+    [SerializeField] float onScreenYPosition;
+    [SerializeField] float offScreenYPosition;
+    [SerializeField] Ease dialogueAppear_EASE;
+    [SerializeField] Ease dialogueDisappear_EASE;
+
+    static bool hasPlayedOpening = false;
 
     [SerializeField] GameObject player;
 
@@ -92,6 +102,13 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     float timeSinceLastSpacePress;
     private void Update()
     {
+#if DEBUG
+        if (Input.GetKeyDown(KeyCode.J))
+            SetTextVisibility(true);
+        if (Input.GetKeyDown(KeyCode.K))
+            SetTextVisibility(false);
+
+#endif
         timeSinceLastSpacePress += Time.deltaTime;
 
         if (timeSinceLastSpacePress > spamPreventionTimer)
@@ -154,8 +171,9 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
         if (scene.HasNewImage)
             scene_IMAGE.sprite = scene.SceneImage;
 
-        if (scene.EntrySFX != "")
-            Debug.Log($"Play sfx {scene.EntrySFX}");
+        
+        paperBackground_IMAGE.color = scene.BackgroundColor == default ? currentSequence.DefaultBackgroundColor : scene.BackgroundColor;
+        paperBackground_IMAGE.SetAlpha(1);
 
         OnStateChanged(StateChange.Continued);
     }
@@ -170,11 +188,18 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
     {
         Debug.Log($"visible: {visible}");
 
-        float targetAlpha = visible ? 1 : 0;
 
+        float targetAlpha = visible ? 1 : 0;
+        float targetPosition = visible ? onScreenYPosition : offScreenYPosition;
+        float targetDuration = visible ? dialogueAppearTime : dialogueAppearTime;
+        Ease targetEase = visible ? dialogueAppear_EASE : dialogueDisappear_EASE;
         // textBox_IMAGE.enabled = visible;
-        textBox_IMAGE.DOFade(targetAlpha, fadeTime_Seconds);
-        dialogue_TMP.DOFade(targetAlpha, fadeTime_Seconds);
+        // dialogue_TMP.DOFade(targetAlpha, dialogueAppearTime);
+
+        if (localMove)
+            DialogueBoxContainer.DOLocalMoveY(targetPosition, targetDuration).SetEase(targetEase);
+        else
+            DialogueBoxContainer.DOMoveY(targetPosition, targetDuration).SetEase(targetEase);
     }
 
 
@@ -230,19 +255,14 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void ExitCutscene()
     {
-        TextAsset playDialogue = currentSequence != null && currentSequence.DialogueToPlayOnEnd != null ? currentSequence.DialogueToPlayOnEnd : null;
-
-        OnExitedCutscene();
-
-        if (playDialogue != null)
-            ServiceLocator.GetDialogueService().PlayDialogue(playDialogue);
-    }
-
-    void OnExitedCutscene()
-    {
-        Reset();
+        TextAsset dialogueToPlay = currentSequence != null && currentSequence.DialogueToPlayOnEnd != null ? currentSequence.DialogueToPlayOnEnd : null;
         player.GetComponent<PlayerController>().disableMovement = false;
+
         OnStateChanged(StateChange.Exited);
+        Reset();
+
+        if (dialogueToPlay != null)
+            ServiceLocator.GetDialogueService().PlayDialogue(dialogueToPlay);
     }
 
     void Reset()

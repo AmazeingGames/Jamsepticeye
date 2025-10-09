@@ -12,25 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b874d9261e9394db7f56f1af0fa884, type: 3}
   m_Name: BakerMagic_SEQUENCE
   m_EditorClassIdentifier: 
+  <DefaultBackgroundColor>k__BackingField: {r: 1, g: 0.9885799, b: 0.95660377, a: 0}
   <MyCutscene>k__BackingField: 1
   <Scenes>k__BackingField:
   - <SceneImage>k__BackingField: {fileID: 702771967421315344, guid: 03a141ac9c77e4f73a5860872bf46e9f, type: 3}
     <Text>k__BackingField: 'And with a wave of his magic wand, Tim performed his
       levitation trick for Bjorn.  '
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+    <BackgroundColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: -9088708466795462082, guid: 0c23601b1084c497fbe0f43dee7d1849, type: 3}
     <Text>k__BackingField: 'Timmy mutters his magic words, then - '
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+    <BackgroundColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: 2798397324699779027, guid: 2bdd71a13bcac4e9c98ac74596b807d1, type: 3}
     <Text>k__BackingField: POOF
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+    <BackgroundColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: 2906886895624515699, guid: 578939c251c3e4661a841f2986c07f63, type: 3}
     <Text>k__BackingField: 'The jar disappeared into thin air! Timmy was surprised
       it worked. '
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+    <BackgroundColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   - <SceneImage>k__BackingField: {fileID: 0}
     <Text>k__BackingField: He lowered his gaze to Bjorn who had seemingly fallen
       asleep during the act.
     <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+    <BackgroundColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <DialogueToPlayOnEnd>k__BackingField: {fileID: 4900000, guid: 774461bf23aec474eb7bc8b496892746, type: 3}
   musicIndexForCutscene: 0

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 public class AudioPlayer : MonoBehaviour
 {
-    static bool hasStartedMusic;
+    static bool hasStartedMusic = false;
     static AudioPlayer audioPlayerInstance;
     FMODEvents Events => FMODEvents.Instance;
 
@@ -20,6 +20,11 @@ public class AudioPlayer : MonoBehaviour
     [Header("Debug")]
     [SerializeField] bool startWithMusic_DEBUG;
     [SerializeField] bool startWithAmbience_DEBUG;
+
+    EventInstance music_INST;
+    EventInstance ambience_INSTambience_INST;
+
+    bool hasEnabledVillageBefore;
 
     public MusicType MyCurrentMusic
     {
@@ -89,6 +94,7 @@ public class AudioPlayer : MonoBehaviour
             Play(Events.CashRegister_REF);
         }
 #endif
+
     }
 
     private void Cinematic_BuildingHammock(object sender, InteractNestScript.BuildingHammockEventArgs e)
@@ -171,7 +177,7 @@ public class AudioPlayer : MonoBehaviour
 
     void Scenes_SetRootActive(object sender, EnablingRootEventArgs e)
     {
-        Debug.Log("Handled");
+        Debug.Log($"Handled : {hasStartedMusic}");
         if (!hasStartedMusic)
         {
             hasStartedMusic = true;
@@ -183,15 +189,17 @@ public class AudioPlayer : MonoBehaviour
                 Play(Events.Ambience_REF);
         }
 
+
         switch (e.rootData.MySceneType)
         {
             case SceneRootData.SceneType.None:
                 throw new NotImplementedException("Scene type on RootData scriptable object not set.");
 
             case SceneRootData.SceneType.Village:
-                SetParameter(AmbType.Village);
-                SetParameter(MusicType.Village);
-                Play(Events.DoorOpen_REF);
+                if (hasEnabledVillageBefore)
+                    Play(Events.DoorOpen_REF);
+
+                hasEnabledVillageBefore = true;
                 break;
 
             case SceneRootData.SceneType.Bakery:
@@ -208,9 +216,11 @@ public class AudioPlayer : MonoBehaviour
 
             case SceneRootData.SceneType.Menu:
                 SetParameter(MusicType.Menu);
+                SetParameter(AmbType.Menu);
                 break;
 
             case SceneRootData.SceneType.Credits:
+                SetParameter(AmbType.Menu);
                 break;
 
             case SceneRootData.SceneType.Bootstrap:
@@ -263,6 +273,8 @@ public class AudioPlayer : MonoBehaviour
 
             case CutscenesPlayer.StateChange.Exited:
                 SetParameter(myMusicTypeBeforeCutscene);
+                if (e.cutsceneSequence.MyCutscene == CutsceneSequence.Cutscene.OpeningSequence)
+                    SetParameter(AmbType.Village);
                 break;
 
             case CutscenesPlayer.StateChange.Continued:
@@ -272,8 +284,6 @@ public class AudioPlayer : MonoBehaviour
                 throw new NotImplementedException();
         }
     }
-
-
     void SetParameter<T>(T parameter) where T : Enum
     {
         if (currentParameters.TryGetValue(typeof(T), out var value))
@@ -292,20 +302,4 @@ public class AudioPlayer : MonoBehaviour
     }
 }
 
-// Doesn't play music if music is already playing;
-/*void PlayMusic(EventReference musicEvent)
-{
-    if (Events.Music_INST.isValid())
-    {
-        Events.Music_INST.getPlaybackState(out PLAYBACK_STATE state);
 
-        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
-            return;
-
-        Events.Music_INST.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        Events.Music_INST.release();
-    }
-
-    Events.Music_INST = RuntimeManager.CreateInstance(musicEvent);
-    Events.Music_INST.start();
-}*/

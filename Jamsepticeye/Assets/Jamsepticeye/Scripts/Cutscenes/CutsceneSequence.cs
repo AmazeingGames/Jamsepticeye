@@ -6,6 +6,7 @@ public class CutsceneSequence : ScriptableObject
 {
     public enum Cutscene { NotSet, BakerMagic, OpeningSequence }
 
+    [field: SerializeField] public Color DefaultBackgroundColor { get; private set; }
     [field: SerializeField] public Cutscene MyCutscene { get; private set; }
     [field: SerializeField] public List<CutsceneScene> Scenes { get; private set; }
     [field: SerializeField] public TextAsset DialogueToPlayOnEnd {  get; private set; }

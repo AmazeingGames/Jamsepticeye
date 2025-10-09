@@ -6,7 +6,7 @@ using UnityEngine;
 public class FMODEvents : MMSingleton<FMODEvents>
 {
     // Enum names and int values should match 1 : 1 with the FMOD project
-    public enum AmbType { None = -1, Village = 0, Store = 1 }
+    public enum AmbType { None = -1, Village = 0, Store = 1, Menu = 2 }
     public enum MusicType { None = -1, Menu = 0, OpeningSequence = 2, BakerMagic = 1, Village = 3, Grocery = 4, Bakery = 5, Ending = 6 }
     public enum FootstepType { None = -1, Grass = 0, Stone = 1 }
     public enum GarbleChar { None = -1, Tim = 0, Nurse = 1, Baker = 2, Peeper = 3, Boy = 4}
@@ -32,7 +32,7 @@ public class FMODEvents : MMSingleton<FMODEvents>
     [field: SerializeField] public EventReference UIButtonHover { get; private set; }
 
 
-    EventInstance CreateInstance(EventReference sound)
+    static EventInstance CreateInstance(EventReference sound)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(sound);
         return eventInstance;
