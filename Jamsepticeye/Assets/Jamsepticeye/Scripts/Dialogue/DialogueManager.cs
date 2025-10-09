@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     private bool isDialogueDisappearing;
 
-    public bool IsDialoguePlaying { get; set; }
+    public static bool IsDialoguePlaying { get; private set; }
     public Speaker currentSpeaker { get; set; }
     
     static DialogueManager instance;
@@ -72,19 +72,20 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-    public enum StateChange { None, Triggered, Exited, Continued }
+    public enum DialogueState { None, Triggered, Exited, Continued }
 
-    public static EventHandler<StateChangedEventArgs> StateChangedEventHandler;
+    public static EventHandler<ChangedStateEventArgs> ChangedStateEventHandler;
 
-    public class StateChangedEventArgs : EventArgs
+    public class ChangedStateEventArgs : EventArgs
     {
+        public readonly DialogueState myDialogueState;
+
         public readonly Speaker speaker;
-        public readonly StateChange myStateChange;
         public readonly bool endGame;
-        public StateChangedEventArgs(Speaker speaker, StateChange myStateChange, bool endGame) 
+        public ChangedStateEventArgs(Speaker speaker, DialogueState myDialogueState, bool endGame) 
         {
             this.speaker = speaker;
-            this.myStateChange = myStateChange;
+            this.myDialogueState = myDialogueState;
             this.endGame = endGame;
         } 
     }
@@ -184,7 +185,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         inkExternalFunctions.BindEmoteFunction(currentStory);
         Binder.Bind(currentStory);
 
-        OnStateChanged(StateChange.Triggered);
+        OnChangedState(DialogueState.Triggered);
 
         ContinueStory();
     }
@@ -202,7 +203,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
         Debug.Log("Exit dialogue");
 
-        OnStateChanged(StateChange.Exited);
+        OnChangedState(DialogueState.Exited);
     }
 
     void ContinueStory()
@@ -246,7 +247,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             dialogue_EFFECT.StartManualEffect(effect);
         }
 
-        OnStateChanged(StateChange.Continued);
+        OnChangedState(DialogueState.Continued);
     }
 
     IEnumerator StartSceneEnd_CO()
@@ -318,11 +319,11 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         }
     }
 
-    void OnStateChanged(StateChange myStateChange) 
+    void OnChangedState(DialogueState myStateChange) 
     {
         bool shouldEndGame = currentDialogue == endGameDialogue;
 
-        StateChangedEventHandler?.Invoke(this, new StateChangedEventArgs(currentSpeaker, myStateChange, shouldEndGame)); 
+        ChangedStateEventHandler?.Invoke(this, new ChangedStateEventArgs(currentSpeaker, myStateChange, shouldEndGame)); 
     }
 
 

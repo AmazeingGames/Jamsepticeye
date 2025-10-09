@@ -64,7 +64,7 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     int sceneIndex;
 
-    public static EventHandler<StateChangedEventArgs> StateChangedEventHandler;
+    public static EventHandler<StateChangedEventArgs> ChangedStateEventHandler;
 
     public class StateChangedEventArgs : EventArgs
     {
@@ -274,6 +274,6 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void OnStateChanged(StateChange myStateChange)
     {
-        StateChangedEventHandler?.Invoke(this, new StateChangedEventArgs(currentSequence, myStateChange));
+        ChangedStateEventHandler?.Invoke(this, new StateChangedEventArgs(currentSequence, myStateChange));
     }
 }

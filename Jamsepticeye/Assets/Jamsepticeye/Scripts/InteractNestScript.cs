@@ -15,7 +15,7 @@ public class InteractNestScript : MonoBehaviour
     [SerializeField] GameObject nest;
     [SerializeField] TextAsset inkJSON;
 
-    public static EventHandler<UpdatingCinematicEventArgs> UpdatingCinematicEventHandler;
+    public static EventHandler<UpdatingNestCinematicEventArgs> UpdatingNestCinematicEventHandler;
 
     public static EventHandler<BuildingHammockEventArgs> BuildingHammockEventHandler;
 
@@ -24,10 +24,10 @@ public class InteractNestScript : MonoBehaviour
     void OnBuildingHammock() { BuildingHammockEventHandler?.Invoke(this, new BuildingHammockEventArgs()); }
 
 
-    public class UpdatingCinematicEventArgs : EventArgs 
+    public class UpdatingNestCinematicEventArgs : EventArgs 
     {
         public readonly CinematicPoint myCinematicPoint;
-        public UpdatingCinematicEventArgs(CinematicPoint myCinematicPoint) 
+        public UpdatingNestCinematicEventArgs(CinematicPoint myCinematicPoint) 
         {
             this.myCinematicPoint = myCinematicPoint;
         } 
@@ -35,7 +35,7 @@ public class InteractNestScript : MonoBehaviour
 
     readonly List<CinematicPoint> cinematicPointsReached = new();
 
-    void OnUpdatingCinematic(CinematicPoint myCinematicPoint) 
+    void OnUpdatingNestCinematic(CinematicPoint myCinematicPoint) 
     {
         Debug.Log("called");
         if (cinematicPointsReached.Contains(myCinematicPoint))
@@ -43,7 +43,7 @@ public class InteractNestScript : MonoBehaviour
 
         Debug.Log("ran and invoke");
         cinematicPointsReached.Add(myCinematicPoint);
-        UpdatingCinematicEventHandler?.Invoke(this, new UpdatingCinematicEventArgs(myCinematicPoint));
+        UpdatingNestCinematicEventHandler?.Invoke(this, new UpdatingNestCinematicEventArgs(myCinematicPoint));
 
         if (myCinematicPoint == CinematicPoint.Beginning)
             cinematicPointsReached.Clear();
@@ -69,7 +69,7 @@ public class InteractNestScript : MonoBehaviour
                 }
                 else if (GameStateScript.Instance.Is(GameState.NEST_ROCKING_STARTS) && !GameStateScript.Instance.Is(GameState.ROCK_THROWN))
                 {
-                    OnUpdatingCinematic(CinematicPoint.Beginning);
+                    OnUpdatingNestCinematic(CinematicPoint.Beginning);
 
                     // Staging throw!
                     GameStateScript.Instance.Set(GameState.ROCK_THROWN);
@@ -94,7 +94,7 @@ public class InteractNestScript : MonoBehaviour
                         else
                             waypoints = new[] { new Vector3(-16.85424f, -14.49778f, 0f), new Vector3(-18.63988f, -13.98094f, 0f) };
 
-                        OnUpdatingCinematic(CinematicPoint.ThrowRock);
+                        OnUpdatingNestCinematic(CinematicPoint.ThrowRock);
 
                         rock.transform.DOPath(waypoints, 1f, PathType.CatmullRom)
                             .SetEase(Ease.InOutQuad).OnComplete(() =>
@@ -102,7 +102,7 @@ public class InteractNestScript : MonoBehaviour
                                 rock.SetActive(false);
                                 Vector3[] waypoints = new[] { new Vector3(-18.74999f, -16.355f, 0f), new Vector3(-18.75004f, -16.15963f, 0f), new Vector3(-18.7532f, -16.35219f, 0f), new Vector3(-18.75004f, -16.27959f, 0f), new Vector3(-18.75004f, -16.35219f, 0f) };
 
-                                OnUpdatingCinematic(CinematicPoint.NestFall);
+                                OnUpdatingNestCinematic(CinematicPoint.NestFall);
 
                                 nest.transform.DOPath(waypoints, 2f, PathType.CatmullRom).SetEase(Ease.InOutQuad).OnComplete(() =>
                                 {
@@ -141,7 +141,7 @@ public class InteractNestScript : MonoBehaviour
 
     private IEnumerator GrabHammockAndEggs()
     {
-        while (DialogueManager.GetInstance().IsDialoguePlaying)
+        while (DialogueManager.IsDialoguePlaying)
             yield return new WaitForSeconds(0.1f);
         FadeController.instance.TriggerFade();
 

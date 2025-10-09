@@ -6,6 +6,7 @@ using UnityEngine;
 using static SceneRoot;
 using static FMODEvents;
 using System.Collections.Generic;
+using VInspector;
 
 public class AudioPlayer : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class AudioPlayer : MonoBehaviour
     [Header("Debug")]
     [SerializeField] bool startWithMusic_DEBUG;
     [SerializeField] bool startWithAmbience_DEBUG;
+    [SerializeField] EventReference audioToTest;
 
     EventInstance music_INST;
     EventInstance ambience_INSTambience_INST;
@@ -46,26 +48,26 @@ public class AudioPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneRoot.EnablingRootEventHandler += Scenes_SetRootActive;
-        CutscenesPlayer.StateChangedEventHandler += Cutscenes_StateChanged;
-        Stepper.SteppedEventHandler += Entities_Stepped;
-        UIButton.InteractingEventHandler += UI_Interacting;
-        DialogueManager.StateChangedEventHandler += Dialogue_StateChanged;
-        InventoryDataManager.ItemsInInventory.ItemAdded += Inventory_ItemAdded;
-        InteractNestScript.BuildingHammockEventHandler += Cinematic_BuildingHammock;
-        InteractNestScript.UpdatingCinematicEventHandler += Nest_UpdatingCinematic;
+        SceneRoot.EnablingRootEventHandler                          += Scenes_SetRootActive;
+        CutscenesPlayer.ChangedStateEventHandler                    += Cutscenes_ChangedState;
+        Stepper.SteppedEventHandler                                 += Entities_Stepped;
+        UIButton.InteractingEventHandler                            += UI_Interacting;
+        DialogueManager.ChangedStateEventHandler                    += Dialogue_StateChanged;
+        InventoryDataManager.ItemsInInventory.AddedItemEventHandler += Inventory_AddedItem;
+        InteractNestScript.BuildingHammockEventHandler              += Cinematic_BuildingHammock;
+        InteractNestScript.UpdatingNestCinematicEventHandler        += Nest_UpdatingCinematic;
     }
 
     private void OnDisable()
     {
-        SceneRoot.EnablingRootEventHandler -= Scenes_SetRootActive;
-        CutscenesPlayer.StateChangedEventHandler -= Cutscenes_StateChanged;
-        Stepper.SteppedEventHandler -= Entities_Stepped;
-        UIButton.InteractingEventHandler -= UI_Interacting;
-        DialogueManager.StateChangedEventHandler -= Dialogue_StateChanged;
-        InventoryDataManager.ItemsInInventory.ItemAdded -= Inventory_ItemAdded;
-        InteractNestScript.BuildingHammockEventHandler -= Cinematic_BuildingHammock;
-        InteractNestScript.UpdatingCinematicEventHandler -= Nest_UpdatingCinematic;
+        SceneRoot.EnablingRootEventHandler                          -= Scenes_SetRootActive;
+        CutscenesPlayer.ChangedStateEventHandler                    -= Cutscenes_ChangedState;
+        Stepper.SteppedEventHandler                                 -= Entities_Stepped;
+        UIButton.InteractingEventHandler                            -= UI_Interacting;
+        DialogueManager.ChangedStateEventHandler                    -= Dialogue_StateChanged;
+        InventoryDataManager.ItemsInInventory.AddedItemEventHandler -= Inventory_AddedItem;
+        InteractNestScript.BuildingHammockEventHandler              -= Cinematic_BuildingHammock;
+        InteractNestScript.UpdatingNestCinematicEventHandler        -= Nest_UpdatingCinematic;
     }
 
     private void Awake()
@@ -81,43 +83,29 @@ public class AudioPlayer : MonoBehaviour
         };
     }
 
-    private void Update()
-    {
-#if DEBUG
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Play(Events.NestFall_REF);
-            Play(Events.ThrowRock_REF);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Play(Events.CashRegister_REF);
-        }
-#endif
+    [Button] void TestAudio()
+        => Play(audioToTest);
 
-    }
 
     private void Cinematic_BuildingHammock(object sender, InteractNestScript.BuildingHammockEventArgs e)
-    {
-        Play(Events.BuildHammock_REF);
-    }
+        => Play(Events.BuildHammock_REF);
 
-    private void Nest_UpdatingCinematic(object sender, InteractNestScript.UpdatingCinematicEventArgs e)
+    private void Nest_UpdatingCinematic(object sender, InteractNestScript.UpdatingNestCinematicEventArgs e)
     {
         EventReference soundToPlay = e.myCinematicPoint switch
         {
             InteractNestScript.CinematicPoint.ThrowRock => Events.ThrowRock_REF,
-            InteractNestScript.CinematicPoint.NestFall => Events.NestFall_REF,
-            InteractNestScript.CinematicPoint.None => throw new NotImplementedException("Cinematic point not set."),
-            InteractNestScript.CinematicPoint.Beginning or
-            InteractNestScript.CinematicPoint.End => default,
+            InteractNestScript.CinematicPoint.NestFall  => Events.NestFall_REF,
+            InteractNestScript.CinematicPoint.Beginning 
+            or InteractNestScript.CinematicPoint.End    => default,
+            InteractNestScript.CinematicPoint.None      => throw new NotImplementedException("Cinematic point not set."),
             _ => throw new NotImplementedException("Switch expression is not exhaustive"),
         };
         Debug.Log($"{e.myCinematicPoint} => {soundToPlay}");
         Play(soundToPlay);
     }
 
-    void Inventory_ItemAdded(ItemData itemAdded)
+    void Inventory_AddedItem(object sender, ItemData itemAdded)
     {
         EventReference soundToPlay = itemAdded.MyItemType switch
         {
@@ -136,37 +124,37 @@ public class AudioPlayer : MonoBehaviour
         {
             UIButton.Interaction.Enter => Events.UIButtonHover,
             UIButton.Interaction.Click => Events.UIButtonClick,
-            UIButton.Interaction.None => throw new NotImplementedException(),
+            UIButton.Interaction.None  => throw new NotImplementedException(),
             _ => default,
         };
 
         Play(soundToPlay);
     }
 
-    void Dialogue_StateChanged(object sender, DialogueManager.StateChangedEventArgs e)
+    void Dialogue_StateChanged(object sender, DialogueManager.ChangedStateEventArgs e)
     {
-        switch (e.myStateChange)
+        switch (e.myDialogueState)
         {
-            case DialogueManager.StateChange.None:
+            case DialogueManager.DialogueState.None:
                 break;
-            case DialogueManager.StateChange.Triggered:
+            case DialogueManager.DialogueState.Triggered:
                 break;
-            case DialogueManager.StateChange.Exited:
+            case DialogueManager.DialogueState.Exited:
                 if (e.endGame)
                 {
                     SetParameter(MusicType.Ending);
                 }
                 break;
 
-            case DialogueManager.StateChange.Continued:
+            case DialogueManager.DialogueState.Continued:
                 FMODEvents.GarbleChar myGarbleParameter = e.speaker.MySpeaker switch
                 {
-                    Speaker.Character.Baker => GarbleChar.Baker,
-                    Speaker.Character.Peeper => GarbleChar.Peeper,
-                    Speaker.Character.Tim => GarbleChar.Tim,
+                    Speaker.Character.Baker     => GarbleChar.Baker,
+                    Speaker.Character.Peeper     => GarbleChar.Peeper,
+                    Speaker.Character.Tim       => GarbleChar.Tim,
                     Speaker.Character.HungryBoy => GarbleChar.Boy,
-                    Speaker.Character.DocDoor => GarbleChar.Nurse,
-                    Speaker.Character.None => throw new NotImplementedException("Speaker not set in DialogueManager struct"),
+                    Speaker.Character.DocDoor   => GarbleChar.Nurse,
+                    Speaker.Character.None      => throw new NotImplementedException("Speaker not set in DialogueManager struct"),
                     _ => throw new NotImplementedException("Switch expression is not exhaustive"),
                 };
                 SetParameter(myGarbleParameter);
@@ -190,7 +178,7 @@ public class AudioPlayer : MonoBehaviour
         }
 
 
-        switch (e.rootData.MySceneType)
+        switch (e.rootData.MyScene)
         {
             case SceneRootData.SceneType.None:
                 throw new NotImplementedException("Scene type on RootData scriptable object not set.");
@@ -238,21 +226,19 @@ public class AudioPlayer : MonoBehaviour
     {
         FootstepType footstepType = e.dataTile.MyType switch
         {
-            DataTile.Category.Grass => FootstepType.Grass,
-
-            DataTile.Category.Dirt or
-            DataTile.Category.Stone or
-            DataTile.Category.Wood or
-            DataTile.Category.Tile => FootstepType.Stone,
-
-            DataTile.Category.None => throw new NotImplementedException($"DataTile scriptable object has not set {nameof(e.dataTile.MyType)}"),
+            DataTile.Category.Grass     => FootstepType.Grass,
+            DataTile.Category.Dirt
+            or DataTile.Category.Stone 
+            or DataTile.Category.Wood
+            or DataTile.Category.Tile   => FootstepType.Stone,
+            DataTile.Category.None      => throw new NotImplementedException($"DataTile scriptable object has not set {nameof(e.dataTile.MyType)}"),
             _ => throw new NotImplementedException("Switch expression is not exhaustive"),
         };
         SetParameter(footstepType);
         Play(Events.FootSteps_REF);
     }
 
-    void Cutscenes_StateChanged(object sender, CutscenesPlayer.StateChangedEventArgs e)
+    void Cutscenes_ChangedState(object sender, CutscenesPlayer.StateChangedEventArgs e)
     {
         switch (e.myStateChange)
         {
@@ -261,10 +247,9 @@ public class AudioPlayer : MonoBehaviour
 
                 MusicType myMusicType = e.cutsceneSequence.MyCutscene switch
                 {
-                    CutsceneSequence.Cutscene.BakerMagic => MusicType.BakerMagic,
-                    CutsceneSequence.Cutscene.OpeningSequence => MusicType.OpeningSequence,
-
-                    CutsceneSequence.Cutscene.NotSet => throw new NotImplementedException("Cutscene type hasn't been set in the 'CutsceneSequence' ScriptableObject instance"),
+                    CutsceneSequence.Cutscene.BakerMagic        => MusicType.BakerMagic,
+                    CutsceneSequence.Cutscene.OpeningSequence   => MusicType.OpeningSequence,
+                    CutsceneSequence.Cutscene.None            => throw new NotImplementedException("Cutscene type hasn't been set in the 'CutsceneSequence' ScriptableObject instance"),
                     _ => throw new NotImplementedException("Switch expression is not exhaustive"),
                 };
 

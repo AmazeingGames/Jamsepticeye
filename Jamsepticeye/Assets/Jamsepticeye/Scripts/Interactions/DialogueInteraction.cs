@@ -16,13 +16,13 @@ public class DialogueInteraction : MonoBehaviour, IInteractable
         => enabled_;
 
     bool IInteractable.CanInteract()
-        => iconEnabled_ && !DialogueManager.GetInstance().IsDialoguePlaying;
+        => iconEnabled_ && !DialogueManager.IsDialoguePlaying;
 
     public void Interact()
     {
         if (enabled_)
         {
-            if (DialogueManager.GetInstance().IsDialoguePlaying)
+            if (DialogueManager.IsDialoguePlaying)
                 return;
 
             Debug.Log($"Trigger Interaction with {gameObject.name}");

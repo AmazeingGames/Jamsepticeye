@@ -12,11 +12,4 @@ public interface IInventoryDataService
 
     void CollectItem(ItemData itemData);
     void UseItem(ItemData itemData);
-
-    bool HasItem(ItemData item);
-
-    bool HasUsedItem(ItemData item);
-
-    public bool HasCollectedItem(ItemData item)
-        => HasItem(item) || HasUsedItem(item);
 }

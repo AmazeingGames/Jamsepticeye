@@ -35,7 +35,7 @@ public class ItemInteractable : ItemBase, IInteractable
 
     // Only collect items you've never collected before
     public bool CanInteract()
-        => gameObject.activeInHierarchy && !ServiceLocator.GetInventoryService().HasCollectedItem(itemData);
+        => gameObject.activeInHierarchy && InventoryDataManager.HasCollectedItem(itemData);
 
     public void SetIcon(bool active)
     {

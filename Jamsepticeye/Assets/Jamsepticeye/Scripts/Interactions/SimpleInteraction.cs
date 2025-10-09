@@ -14,7 +14,7 @@ public class SimpleInteraction : MonoBehaviour, IInteractable
         => enabled_;
 
     bool IInteractable.CanInteract()
-        => !DialogueManager.GetInstance().IsDialoguePlaying;
+        => !DialogueManager.IsDialoguePlaying;
 
     public void Interact()
     {

@@ -1,9 +1,12 @@
 using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using Ink.Parsed;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static ItemData;
+using static GameStateTracker;
 
 public class BakerScript : MonoBehaviour
 {
@@ -11,19 +14,34 @@ public class BakerScript : MonoBehaviour
 
     private Animator animator;
 
-    [SerializeField]
-    PathFollower pathFollower;
+    [SerializeField] PathFollower pathFollower;
+    [SerializeField] new PolygonCollider2D collider;
+    [SerializeField] GameObject cookies;
+
     DialogueInteraction dialogueInteraction;
     BoxCollider2D boxCollider;
-    [SerializeField]
-    PolygonCollider2D collider_;
-    [SerializeField]
-    GameObject cookies;
 
     [SerializeField]
-    List<GameObject> itemsDisappearOnDeath = new List<GameObject>();
+    List<GameObject> itemsDisappearOnDeath = new();
     [SerializeField]
-    List<GameObject> itemsAppearOnDeath = new List<GameObject>();
+    List<GameObject> itemsAppearOnDeath = new();
+
+    public enum Action { None, BakingCookies }
+
+    public static EventHandler<PerformingActionEventArgs> PerformingActionEventHandler;
+
+    public class PerformingActionEventArgs : EventArgs 
+    {
+        public readonly Action myAction;
+        public PerformingActionEventArgs(Action myAction) 
+            => this.myAction = myAction;
+    }
+
+    void OnPerformingAction(Action myAction) 
+    { 
+        PerformingActionEventHandler?.Invoke(this, new PerformingActionEventArgs(myAction)); 
+    }
+
 
     public void Start()
     {
@@ -48,10 +66,9 @@ public class BakerScript : MonoBehaviour
     {
         //if (GameStateScript.Instance.Is(GameState.COOKIES_BAKED) && !GameStateScript.Instance.Is(GameState.HAS_COOKIES))
 
-        if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.FLOUR_MAGIC_READY))
+        if (!DialogueManager.IsDialoguePlaying && IsGameState(NewGameState.CanPerformBakerMagic))
         {
             ServiceLocator.GetCutscenesService().TriggerCutsceneSequence(bakerMagic);
-            GameStateScript.Instance.Unset(GameState.FLOUR_MAGIC_READY);
 
             foreach (var item in itemsAppearOnDeath)
                 item.SetActive(true);
@@ -67,12 +84,12 @@ public class BakerScript : MonoBehaviour
         {
             if (!pathFollower.pathStarted)
             {
-                // Hasn't started the path animation
-                if (!GameStateScript.Instance.Is(GameState.HAS_EGGS) && !GameStateScript.Instance.Is(GameState.HAS_SUGAR))
+                bool hasStartedPathAnimation = !(InventoryDataManager.HasItem(ItemType.Eggs) && InventoryDataManager.HasItem(ItemType.Sugar));
+                if (!hasStartedPathAnimation)
                 {
                     // Player got through the cutscene and gave his ingredients to the baker. The baker should start moving.
                     pathFollower.StartPath();
-                    collider_.enabled = false; // No interaction with the trigger zone
+                    collider.enabled = false; // No interaction with the trigger zone
                 }
             }
         }
@@ -88,10 +105,10 @@ public class BakerScript : MonoBehaviour
                     dialogueInteraction.Disable();
                     return;
                 }
-                else if (pathFollower.pathComplete && !GameStateScript.Instance.Is(GameState.COOKIES_BAKED))
+
+                else if (pathFollower.pathComplete && !IsGameState(NewGameState.HasBakedCookies))
                 {
                     // He just arrives at his spot
-                    GameStateScript.Instance.Set(GameState.COOKIES_BAKED);
                     StartCoroutine(PutCookiesOnTable());
                     FadeController.instance.TriggerFade();
                 }
@@ -101,9 +118,13 @@ public class BakerScript : MonoBehaviour
             boxCollider.enabled = true;
         dialogueInteraction.Enable();
     }
+
     private IEnumerator PutCookiesOnTable()
     {
+        OnPerformingAction(Action.BakingCookies);
+
         yield return new WaitForSeconds(1f);
+
         cookies.SetActive(true);
         // Put it on table, not interactable
         cookies.GetComponent<SimpleInteraction>().enabled_ = false;

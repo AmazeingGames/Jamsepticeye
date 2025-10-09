@@ -3,27 +3,27 @@ using System.Collections.Generic;
 
 public class ObservableList<T> : List<T>
 {
-    public event Action<T> ItemAdded;
-    public event Action<T> ItemRemoved;
+    public event EventHandler<T> AddedItemEventHandler;
+    public event EventHandler<T> RemovedItemEventHandler;
 
     public new void Add(T item)
     {
         base.Add(item);
-        ItemAdded?.Invoke(item);
+        AddedItemEventHandler?.Invoke(this, item);
     }
 
     public new bool Remove(T item)
     {
         bool removed = base.Remove(item);
         if (removed)
-            ItemRemoved?.Invoke(item);
+            RemovedItemEventHandler?.Invoke(this, item);
         return removed;
     }
 
     public new void Clear()
     {
         foreach (var item in this)
-            ItemRemoved?.Invoke(item);
+            RemovedItemEventHandler?.Invoke(this, item);
         base.Clear();
     }
 }

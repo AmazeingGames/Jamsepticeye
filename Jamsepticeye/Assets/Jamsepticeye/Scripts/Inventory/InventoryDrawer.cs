@@ -13,17 +13,17 @@ public class InventoryDrawer : MonoBehaviour
 
     void OnEnable()
     {
-        InventoryDataManager.ItemsInInventory.ItemAdded += HandleItemCollected;
-        InventoryDataManager.ItemsInInventory.ItemRemoved += HandleItemRemoved;
+        InventoryDataManager.ItemsInInventory.AddedItemEventHandler += HandleItemCollected;
+        InventoryDataManager.ItemsInInventory.RemovedItemEventHandler += HandleItemRemoved;
     }
 
     void OnDisable()
     {
-        InventoryDataManager.ItemsInInventory.ItemAdded -= HandleItemCollected;
-        InventoryDataManager.ItemsInInventory.ItemRemoved -= HandleItemRemoved;
+        InventoryDataManager.ItemsInInventory.AddedItemEventHandler -= HandleItemCollected;
+        InventoryDataManager.ItemsInInventory.RemovedItemEventHandler -= HandleItemRemoved;
     }
 
-    void HandleItemCollected(ItemData itemData)
+    void HandleItemCollected(object sender, ItemData itemData)
     {
         Assert.IsNotNull(iconHolder, "UI icon holder has not been set.");
         var itemIconInstance = Instantiate(ItemUI_Prefab, iconHolder);
@@ -32,7 +32,7 @@ public class InventoryDrawer : MonoBehaviour
         ItemDataToIconInstance.Add(itemData, itemIconInstance);
     }
 
-    void HandleItemRemoved(ItemData itemData)
+    void HandleItemRemoved(object sender, ItemData itemData)
     {
         var icon = ItemDataToIconInstance[itemData];
 

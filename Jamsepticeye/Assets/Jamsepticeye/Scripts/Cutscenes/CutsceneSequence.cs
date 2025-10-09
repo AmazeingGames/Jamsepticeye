@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/CutsceneSequence")]
 public class CutsceneSequence : ScriptableObject
 {
-    public enum Cutscene { NotSet, BakerMagic, OpeningSequence }
+    public enum Cutscene { None, BakerMagic, OpeningSequence }
 
     [field: SerializeField] public Color DefaultBackgroundColor { get; private set; }
     [field: SerializeField] public Cutscene MyCutscene { get; private set; }

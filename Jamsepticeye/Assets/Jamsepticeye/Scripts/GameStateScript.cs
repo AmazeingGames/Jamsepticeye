@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[Obsolete("Use GameStateTracker instead.")]
 public enum GameState : int
 {
     PLACED_HAMMOCK = 0x01,
@@ -34,6 +36,7 @@ public enum GameState : int
     PEEP_POOFED = 0x10000000,
 };
 
+[Obsolete]
 public class GameStateScript
 {
     [SerializeField]
@@ -55,18 +58,15 @@ public class GameStateScript
         // Initialize our game state with the correct state
         Set(GameState.NEEDS_ROCKS);
         Set(GameState.NEEDS_STICKS);
+    }
 
-    }
     public bool Is(GameState state)
-    {
-        return (state & gameState) == state;
-    }
+        => (state & gameState) == state;
+
     public void Set(GameState state)
-    {
-        gameState |= state;
-    }
+        => gameState |= state;
+
     public void Unset(GameState state)
-    {
-        gameState &= ~state;
-    }
+        => gameState &= ~state;
+
 }

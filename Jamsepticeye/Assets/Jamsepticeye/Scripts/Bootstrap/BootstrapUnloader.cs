@@ -15,7 +15,7 @@ public class BootstrapUnloader : MonoBehaviour
 
     void Scenes_EnablingRoot(object sender, SceneRoot.EnablingRootEventArgs e)
     {
-        switch (e.rootData.MySceneType)
+        switch (e.rootData.MyScene)
         {
             case SceneRootData.SceneType.None:
                 break;

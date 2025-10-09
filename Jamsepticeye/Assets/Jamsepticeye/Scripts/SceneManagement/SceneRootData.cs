@@ -5,5 +5,5 @@ using UnityEngine;
 public class SceneRootData : ScriptableObject
 {
     public enum SceneType { None, Village, Bakery, GroceryStore, Menu, Bootstrap, Credits }
-    [field: SerializeField] public SceneType MySceneType { get; private set; } = SceneType.None;
+    [field: SerializeField] public SceneType MyScene { get; private set; } = SceneType.None;
 }

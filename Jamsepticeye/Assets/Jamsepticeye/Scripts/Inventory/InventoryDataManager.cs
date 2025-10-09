@@ -96,12 +96,37 @@ public class InventoryDataManager : MonoBehaviour, IInventoryDataService
         usedItems.Add(itemData);
     }
 
-    public bool HasItem(ItemData item)
+    
+
+    public static bool HasItem(ItemData item)
         => itemsInInventory.Contains(item);
 
-    public bool HasUsedItem(ItemData item)
+    public static bool HasUsedItem(ItemData item)
         => usedItems.Contains(item);
 
-    public bool HasCollectedItem(ItemData item)
-        => HasItem(item) || HasUsedItem(item);
+    public static bool HasCollectedItem(ItemData.ItemType myItemType)
+        => HasItem(myItemType) || HasUsedItem(myItemType);
+
+    public static bool HasItem(ItemData.ItemType myItemType)
+    {
+        foreach (ItemData itemData in itemsInInventory)
+        {
+            if (itemData.MyItemType == myItemType)
+                return true;
+        }
+        return false;
+    }
+
+    public static bool HasUsedItem(ItemData.ItemType myItemType)
+    {
+        foreach (ItemData itemData in usedItems)
+        {
+            if (itemData.MyItemType == myItemType)
+                return true;
+        }
+        return false;
+    }
+
+    public static bool HasCollectedItem(ItemData itemData)
+        => HasItem(itemData) || HasUsedItem(itemData);   
 }

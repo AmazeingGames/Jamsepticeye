@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using VInspector;
 
 public class GameFlow : MonoBehaviour, IGameFlowService
 {
@@ -11,22 +12,7 @@ public class GameFlow : MonoBehaviour, IGameFlowService
     [SerializeField] float timeForFadeOut = 2;
 
     void Awake()
-    {
-        ServiceLocator.ProvideGameFlowService(this);
-    }
-
-    void Update()
-    {
-        Debug.Log("running");
-# if DEBUG
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("end t");
-            EndGame();
-
-        }
-#endif
-    }
+        => ServiceLocator.ProvideGameFlowService(this);
 
     IEnumerator OnEndedGame_CO() 
     { 
@@ -37,6 +23,7 @@ public class GameFlow : MonoBehaviour, IGameFlowService
         ServiceLocator.GetSceneHelperSerivce().EnableOnlyTargetScene("EndGame");
     }
 
+    [Button]
     public void EndGame()
     {
         Debug.Log("end here");

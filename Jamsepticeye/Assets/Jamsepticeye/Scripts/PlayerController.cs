@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!DialogueManager.GetInstance().IsDialoguePlaying)
+        if (!DialogueManager.IsDialoguePlaying)
         {
             Vector2 position = rigidbody2d.position + movement * currentMoveSpeed * Time.deltaTime;
             rigidbody2d.MovePosition(position);
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         float speed = 0f;
         if (!GameStateScript.Instance.Is(GameState.KID_CHOKING))
         {
-            if (!DialogueManager.GetInstance().IsDialoguePlaying && !disableMovement)
+            if (!DialogueManager.IsDialoguePlaying && !disableMovement)
             {
                 if (dynamicMover != null && dynamicMover.isMoving)
                 {

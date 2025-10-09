@@ -23,10 +23,10 @@ public class TilemapHelper : MonoBehaviour, ITilemapHelperService
 
     void Scenes_EnablingRoot(object sender, SceneRoot.EnablingRootEventArgs e)
     {
-        Debug.Log($"handled enabling root {e.rootData.MySceneType}");
+        Debug.Log($"handled enabling root {e.rootData.MyScene}");
         if (e.isSettingActive)
         {
-            Debug.Log($"fully handled enabling root {e.rootData.MySceneType}");
+            Debug.Log($"fully handled enabling root {e.rootData.MyScene}");
             groundOverlayTilemap = e.groundOverlayTilemap;
             groundTilemap = e.groundTilemap;
         }

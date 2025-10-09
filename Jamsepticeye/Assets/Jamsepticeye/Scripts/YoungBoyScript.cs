@@ -27,7 +27,7 @@ public class YoungBoyScript : MonoBehaviour
 
     void Update()
     {
-        if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.KID_CHOKING_DIALOG))
+        if (!DialogueManager.IsDialoguePlaying && GameStateScript.Instance.Is(GameState.KID_CHOKING_DIALOG))
         {
             GameStateScript.Instance.Unset(GameState.KID_CHOKING_DIALOG);
             ServiceLocator.GetDialogueService().PlayDialogue(chokingDialog);
@@ -35,13 +35,13 @@ public class YoungBoyScript : MonoBehaviour
 
         if (animator != null)
         {
-            bool isKidTalking = DialogueManager.GetInstance().IsDialoguePlaying && DialogueManager.GetInstance().currentSpeaker.Name == DialogueManager.GetInstance().kid.Name;
+            bool isKidTalking = DialogueManager.IsDialoguePlaying && DialogueManager.GetInstance().currentSpeaker.Name == DialogueManager.GetInstance().kid.Name;
             animator.SetBool("IsTalking", isKidTalking);
         }
         var dialogueInteraction = GetComponentInParent<DialogueInteraction>();
         if (dialogueInteraction != null)
         {
-            if (!DialogueManager.GetInstance().IsDialoguePlaying && GameStateScript.Instance.Is(GameState.KID_FED) && !GameStateScript.Instance.Is(GameState.KID_CHOKING))
+            if (!DialogueManager.IsDialoguePlaying && GameStateScript.Instance.Is(GameState.KID_FED) && !GameStateScript.Instance.Is(GameState.KID_CHOKING))
             {
                 // Only start the coroutine once thanks to this condition
                 GameStateScript.Instance.Set(GameState.KID_CHOKING);
