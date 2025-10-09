@@ -17,7 +17,7 @@ MonoBehaviour:
   charLength: 0
   animationType: 3
   fixedDuration: 0
-  durationPerChar: 0.3
+  durationPerChar: 0.8
   timeBetweenChars: 0.01
   noDelayForChars: 0
   reverseCharOrder: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   clampBetween0And1: 0
   timeType: 0
   colorType: 3
-  startColor: {r: 0, g: 0.6669488, b: 1, a: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 0}
   endColor: {r: 1, g: 1, b: 1, a: 1}
   gradient:
     serializedVersion: 2

@@ -84720,7 +84720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &983339395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -84738,7 +84738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14, y: -3.7458496}
+  m_AnchoredPosition: {x: -13.999939, y: -3.7458496}
   m_SizeDelta: {x: -50.291, y: 1258.4329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983339396
@@ -89591,8 +89591,8 @@ MonoBehaviour:
   dialogueAppearTime: 0.5
   onScreenYPosition: 60
   offScreenYPosition: -200
-  dialogueAppear_EASE: 26
-  dialogueDisappear_EASE: 27
+  dialogueAppear_EASE: 27
+  dialogueDisappear_EASE: 26
   player: {fileID: 57319825}
   spamPreventionTimer: 0.5
 --- !u!1001 &1159367507
