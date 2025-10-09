@@ -196,10 +196,15 @@ public class AudioPlayer : MonoBehaviour
                 throw new NotImplementedException("Scene type on RootData scriptable object not set.");
 
             case SceneRootData.SceneType.Village:
-                if (hasEnabledVillageBefore)
-                    Play(Events.DoorOpen_REF);
-
-                hasEnabledVillageBefore = true;
+                // This is to avoid playing music/abmience during the opening dialogue/cutscene
+                if (!hasEnabledVillageBefore)
+                {
+                    hasEnabledVillageBefore = true;
+                    break;  
+                }
+                SetParameter(AmbType.Village);
+                SetParameter(MusicType.Village);
+                Play(Events.DoorOpen_REF);
                 break;
 
             case SceneRootData.SceneType.Bakery:
@@ -274,7 +279,10 @@ public class AudioPlayer : MonoBehaviour
             case CutscenesPlayer.StateChange.Exited:
                 SetParameter(myMusicTypeBeforeCutscene);
                 if (e.cutsceneSequence.MyCutscene == CutsceneSequence.Cutscene.OpeningSequence)
+                {
                     SetParameter(AmbType.Village);
+                    SetParameter(MusicType.Village);
+                }
                 break;
 
             case CutscenesPlayer.StateChange.Continued:

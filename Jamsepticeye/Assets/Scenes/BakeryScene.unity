@@ -442,7 +442,7 @@ MonoBehaviour:
   offScreenYPosition: -200
   dialogueAppear_EASE: 27
   dialogueDisappear_EASE: 26
-  player: {fileID: 0}
+  player: {fileID: 8578485870171512773}
   spamPreventionTimer: 0.5
 --- !u!1 &156740645
 GameObject:

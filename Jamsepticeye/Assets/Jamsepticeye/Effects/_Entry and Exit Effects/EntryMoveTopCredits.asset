@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8a5a04a3b145299afb77db9d03c233, type: 3}
-  m_Name: SlowEntryMoveCredits
+  m_Name: EntryMoveTopCredits
   m_EditorClassIdentifier: 
   effectTag: 
   startCharIndex: 0
   charLength: 0
   animationType: 3
   fixedDuration: 0
-  durationPerChar: 4
+  durationPerChar: 0.6
   timeBetweenChars: 0.01
   noDelayForChars: 0
   reverseCharOrder: 0
@@ -47,5 +47,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   clampBetween0And1: 0
   timeType: 0
-  startOffset: {x: 50, y: -60}
+  startOffset: {x: 50, y: 200}
   endOffset: {x: 0, y: 0}

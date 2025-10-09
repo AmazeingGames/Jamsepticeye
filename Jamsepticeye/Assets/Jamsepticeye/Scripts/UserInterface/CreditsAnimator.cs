@@ -1,5 +1,6 @@
 using DG.Tweening;
 using EasyTextEffects;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -74,6 +75,18 @@ public class CreditsAnimator : MonoBehaviour
         ReadyCanvas(false);
         Debug.Log("end gae");
         GameFlow_EndedGame(null, null);
+    }
+
+    [Button]
+    public void Show()
+    {
+        ReadyCanvas(true);
+    }
+
+    [Button]
+    public void Hide()
+    {
+        ReadyCanvas(false);
     }
 
     private void Update()
