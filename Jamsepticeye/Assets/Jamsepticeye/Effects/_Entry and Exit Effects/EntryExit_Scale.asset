@@ -16,7 +16,7 @@ MonoBehaviour:
   startCharIndex: 0
   charLength: 1188
   animationType: 1
-  fixedDuration: 1.8
+  fixedDuration: 2
   durationPerChar: 1
   timeBetweenChars: 0.02
   noDelayForChars: 0
@@ -64,5 +64,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   clampBetween0And1: 0
+  timeType: 0
   startScale: 1.5
   endScale: 1
