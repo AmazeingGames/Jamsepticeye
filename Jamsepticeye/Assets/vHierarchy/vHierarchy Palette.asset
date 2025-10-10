@@ -102,6 +102,12 @@ MonoBehaviour:
   - builtinIcons: []
     customIcons:
     - LightProbeProxyVolume Icon
+    - GUIText Icon
+    - Text Icon
+    - HorizontalLayoutGroup Icon
+    - VerticalLayoutGroup Icon
+    - RawImage Icon
+    - MouseRight
     enabled: 1
   - builtinIcons: []
     customIcons: []

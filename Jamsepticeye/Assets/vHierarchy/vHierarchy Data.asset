@@ -28,6 +28,7 @@ MonoBehaviour:
     - a90c3ec1d57d5bc4e9c160fe1650ddd6
     - bdf19f92a868dea4289e869dc5e8ad26
     - b454cbd31aae2a941883233dd9b6144a
+    - a5c103899e5f7914681ec8f15d269c73
     values:
     - goDatas_byGlobalId:
         keys:
@@ -536,6 +537,24 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1749377367-0
         - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1438108895-0
         - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1484250237-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1738223261-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-416173538-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-28209442-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-590561141-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-680953562-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-354491652-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-601719063-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-316984164-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1513880173-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1409530937-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1570376054-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-264323431-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-174015566-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-2145486459-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1071286553-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1945807815-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1511478093-0
+        - globalObjectIdString: GlobalObjectId_V1-2-a90c3ec1d57d5bc4e9c160fe1650ddd6-1590281311-0
         values:
         - colorIndex: 1
           iconNameOrGuid: 
@@ -603,6 +622,78 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: VerticalLayoutGroup Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: HorizontalLayoutGroup Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: GUIText Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: GUIText Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: HorizontalLayoutGroup Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: HorizontalLayoutGroup Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: GUIText Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: GUIText Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: RawImage Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: MouseRight
           isIconRecursive: 0
           isColorRecursive: 0
     - goDatas_byGlobalId:
@@ -709,6 +800,19 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 1
           iconNameOrGuid: Favorite
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-1-a5c103899e5f7914681ec8f15d269c73-5598653147102807768-0
+        - globalObjectIdString: GlobalObjectId_V1-1-a5c103899e5f7914681ec8f15d269c73-5604211828486621634-0
+        values:
+        - colorIndex: 5
+          iconNameOrGuid: HorizontalLayoutGroup Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: VerticalLayoutGroup Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
