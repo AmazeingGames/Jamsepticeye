@@ -17,7 +17,7 @@ public class GameFlow : MonoBehaviour, IGameFlowService
 
     void Update()
     {
-        Debug.Log("running");
+        // Debug.Log("running");
 # if DEBUG
         if (Input.GetKeyDown(KeyCode.Z))
         {

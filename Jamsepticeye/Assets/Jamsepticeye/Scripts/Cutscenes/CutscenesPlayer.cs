@@ -255,6 +255,13 @@ public class CutscenesPlayer : MonoBehaviour, ICutscenesService
 
     void ExitCutscene()
     {
+        Debug.Log($"Is Sequence null: {currentSequence == null}");
+        if (currentSequence == null)
+        {
+            Debug.LogWarning("No cutscene is currently playing");
+            return;
+        }
+
         TextAsset dialogueToPlay = currentSequence != null && currentSequence.DialogueToPlayOnEnd != null ? currentSequence.DialogueToPlayOnEnd : null;
         player.GetComponent<PlayerController>().disableMovement = false;
 
